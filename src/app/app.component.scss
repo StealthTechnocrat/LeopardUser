@@ -1,0 +1,208 @@
+@mixin scrollBar {
+    &::-webkit-scrollbar {
+        width: 3px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: #E5E8ED;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #0fa810;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: #0fa810;
+    }
+}
+
+main.main_wrap {
+    .inner {
+        position: relative;
+        padding: 67px 0px 0;
+
+        @media (min-width:768px) {
+            padding: 67px 0 0;
+        }
+
+        @media (min-width:1200px) {
+            padding: 70px 10px 0;
+        }
+
+        @media (min-width:1300px) {
+            padding: 86px 10px 0;
+        }
+
+        .left_bar {
+            position: fixed;
+            width: 16vw;
+            flex: 0 0 16vw;
+            z-index: 10;
+            bottom: 15px;
+            flex-direction: column;
+            left: 10px;
+            top: 70px;
+            display: flex;
+            min-width: 250px;
+
+            @media (min-width:1300px) {
+                top: 86px;
+            }
+        }
+
+        .center_sec {
+            position: relative;
+            width: 100%;
+            max-width: calc(100% - 34vw);
+            margin-left: 16vw;
+            padding: 0 10px 15px;
+
+            @media (max-width:1560px) {
+                margin-left: 250px;
+                max-width: calc(100% - 530px);
+            }
+
+            @media (max-width:1199px) {
+                max-width: 100%;
+                margin-left: 0;
+                padding: 0;
+            }
+        }
+
+        .right_bar {
+            width: 18vw;
+            flex: 0 0 18vw;
+            flex-direction: column;
+            position: fixed;
+            right: 10px;
+            top: 70px;
+            z-index: 10;
+            bottom: 15px;
+            display: flex;
+            min-width: 280px;
+
+            @media (min-width:1300px) {
+                top: 86px;
+            }
+            .right_inner{
+                #liveTv{
+                    position: sticky;
+                    top: 0px;
+                    z-index: 3;
+                }
+            }
+        }
+    }
+}
+
+app-sidebar {
+    margin: 0 -8px;
+    display: block;
+}
+
+app-sidebar,
+.right_bar .right_inner {
+    height: 100%;
+    overflow: auto;
+    @include scrollBar;
+}
+
+.news_area {
+    position: relative;
+    margin-bottom: 6px;
+
+    @media (max-width:1199px) {
+        margin: 0 -15px 1px;
+    }
+
+    @media (max-width:767px) {
+        margin: 0 0px 1px;
+    }
+
+    p {
+        color: #fff;
+        font-size: 14px;
+        margin-right: 60px;
+        display: inline-flex;
+        align-items: center;
+
+        span.date {
+            display: inline-block;
+            background: rgba($color: #fff, $alpha: 0.4);
+            padding: 2px 8px;
+            border-radius: 2px;
+            margin-right: 12px;
+        }
+    }
+
+    marquee {
+        background: #204878;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        @media(max-width:1199px){
+            background: #356195;
+        }
+        @media (min-width:1200px) {
+            border-radius: 3px;
+        }
+    }
+
+    span.icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+        background: #204878;
+        padding: 2px 6px;
+        border-radius: 3px;
+        @media(max-width:1199px){
+            background: #356195;
+        }
+        img {
+            width: 25px;
+        }
+    }
+}
+
+.live_games_design {
+    .left_bar {
+        display: none !important;
+    }
+
+    .right_bar {
+        display: none !important;
+    }
+
+    .center_sec {
+        max-width: calc(100% - 0px) !important;
+        margin: 0px !important;
+    }
+}
+.loader{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba($color: #fff, $alpha: 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+    svg{
+        max-width:50px;
+        height: 50px;
+        width: 100%;
+        fill: #0fa810;
+        animation: 1s linear infinite app-loader_animateBall__67cEQ;
+    }
+}
+@keyframes app-loader_animateBall__67cEQ {
+    0% {
+        transform: rotate(0)
+    }
+
+    100% {
+        transform: rotate(360deg)
+    }
+}

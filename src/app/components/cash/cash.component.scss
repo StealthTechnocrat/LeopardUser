@@ -1,0 +1,52 @@
+.center_inner {
+    background: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.my_bets_table {
+    padding: 0 10px 10px;
+
+    
+}
+
+.valueBoxCol {
+    .col-md-4 {
+        padding: 0 8px;
+    }
+
+    .innerValueCol {
+        padding: 20px 15px;
+        text-align: center;
+        box-shadow: 0 0 18px rgb(0 0 0 / 22%);
+        margin-bottom: 8px;
+        border-radius: 8px;
+        background-color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @media (min-width:768px) {
+            margin-bottom: 16px;
+        }
+
+        h5 {
+            margin-bottom: 10px;
+            font-size: 15px;
+            margin-bottom: 0;
+        }
+
+        p {
+            color: #0fa810;
+            font-size: 15px;
+            font-weight: 600;
+        }
+    }
+}
+
+.red {
+    color: red !important;
+}
+
+.green {
+    color: green !important;
+}

@@ -1,0 +1,12 @@
+<div class="slider">
+    <owl-carousel-o [options]="customOptions" >
+        <ng-template carouselSlide *ngFor="let banner of bannerList"><img [src]="banner.FilePath" alt=""
+                class="d-none d-md-block"><img [src]="banner.FilePath" alt="" class="d-md-none">
+        </ng-template>
+        
+    </owl-carousel-o>
+   
+</div>
+<div class="games_area pt-1">
+    <app-live-markets></app-live-markets>
+</div>

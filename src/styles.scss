@@ -1,0 +1,1608 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  line-height: 1.2;
+  // background: #E5E8ED;
+  background: #f5f5f5;
+}
+
+.container {
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+.cstm_drop {
+  ul {
+    list-style: none;
+    display: none;
+  }
+}
+
+input {
+  border-radius: 0;
+}
+
+button.btn {
+  &:focus {
+    box-shadow: none;
+    outline: none;
+  }
+}
+
+.btn-primary {
+  background: #0fa810;
+  border-color: #0fa810;
+
+  &:focus,
+  &:active {
+    background: #0b7a0b !important;
+    box-shadow: none;
+    border-color: #0b7a0b !important;
+  }
+
+  &:hover {
+    background: #fff !important;
+    box-shadow: none;
+    color: #0fa810;
+    border-color: #0fa810;
+  }
+}
+
+.tab_head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+
+  h1 {
+    font-size: 30px;
+    color: #fff;
+  }
+
+  p {
+    color: #fff;
+  }
+
+  &.small {
+    padding: 0 0 10px;
+
+    h4 {
+      font-size: 14px;
+      color: #fff;
+    }
+  }
+}
+
+.table {
+  thead {
+    th {
+      padding: 8px;
+    }
+  }
+
+  tbody {
+    tr {
+      td {
+        small {
+          position: relative;
+          top: 4px;
+        }
+      }
+    }
+  }
+
+  .right {
+    float: right;
+
+    .in-play {
+      color: #1d7f1e;
+      display: flex;
+      align-items: center;
+
+      i {
+        font-size: 14px;
+        padding-right: 3px;
+        position: relative;
+        top: 1px;
+      }
+    }
+  }
+
+  tbody {
+    background: #fff;
+
+    tr {
+      transition: background-color ease 0.5s;
+
+      &:hover {
+        background: #eee;
+        transition: background-color ease 0.5s;
+      }
+    }
+
+    td {
+      padding: 7px 8px;
+      line-height: 1.42857143;
+      vertical-align: middle;
+
+      .fav_icon {
+        width: 22px;
+        font-size: 14px;
+        color: #e4c41e;
+      }
+
+      &.rate_btn {
+        text-align: center;
+        width: 60px;
+        height: 46px;
+        cursor: pointer;
+        font-weight: 700;
+        background: #fff;
+
+        @media (min-width: 1266px) {
+          width: 60px;
+        }
+
+        &:hover {
+          background: #fff;
+        }
+      }
+
+      &.back {
+        background-color: #a7d8fd;
+        text-align: center;
+        width: 60px;
+        height: 46px;
+        cursor: pointer;
+        font-weight: 700;
+
+        @media (min-width: 1266px) {
+          width: 60px;
+        }
+
+        &.blink {
+          animation: blinkingbgBack 2s infinite;
+        }
+
+        @keyframes blinkingbgBack {
+          0% {
+            background: #a7d8fd;
+          }
+
+          30% {
+            background: #a7d8fd;
+          }
+
+          60% {
+            background: #a7d8fd;
+          }
+
+          99% {
+            background: #fff;
+          }
+
+          100% {
+            background: #a7d8fd;
+          }
+        }
+      }
+
+      &.back_2 {
+        background-color: #c8e6fd;
+
+        &.blink {
+          animation: blinkingbgBack2 2.3s infinite;
+        }
+
+        @keyframes blinkingbgBack2 {
+          0% {
+            background: #c8e6fd;
+          }
+
+          30% {
+            background: #c8e6fd;
+          }
+
+          60% {
+            background: #c8e6fd;
+          }
+
+          99% {
+            background: #fff;
+          }
+
+          100% {
+            background: #c8e6fd;
+          }
+        }
+      }
+
+      &.back_1 {
+        background-color: #e3f3ff;
+
+        &.blink {
+          animation: blinkingbgBack1 2.6s infinite;
+        }
+
+        @keyframes blinkingbgBack1 {
+          0% {
+            background: #e3f3ff;
+          }
+
+          30% {
+            background: #e3f3ff;
+          }
+
+          60% {
+            background: #e3f3ff;
+          }
+
+          99% {
+            background: #fff;
+          }
+
+          100% {
+            background: #e3f3ff;
+          }
+        }
+      }
+
+      &.lay {
+        background-color: #f9c9d4;
+        text-align: center;
+        width: 60px;
+        height: 46px;
+        cursor: pointer;
+        font-weight: 700;
+
+        @media (min-width: 1266px) {
+          width: 60px;
+        }
+
+        &.blink {
+          animation: blinkingbgLay 2s infinite;
+        }
+
+        @keyframes blinkingbgLay {
+          0% {
+            background: #f9c9d4;
+          }
+
+          30% {
+            background: #f9c9d4;
+          }
+
+          60% {
+            background: #f9c9d4;
+          }
+
+          99% {
+            background: #fff;
+          }
+
+          100% {
+            background: #f9c9d4;
+          }
+        }
+      }
+
+      &.lay_1 {
+        background-color: #ffe3ea;
+
+        &.blink {
+          animation: blinkingbgLay1 2.3s infinite;
+        }
+
+        @keyframes blinkingbgLay1 {
+          0% {
+            background: #ffe3ea;
+          }
+
+          30% {
+            background: #ffe3ea;
+          }
+
+          60% {
+            background: #ffe3ea;
+          }
+
+          99% {
+            background: #fff;
+          }
+
+          100% {
+            background: #ffe3ea;
+          }
+        }
+      }
+
+      &.lay_2 {
+        background-color: #fff7f9;
+
+        &.blink {
+          animation: blinkingbgLay1 2.6s infinite;
+        }
+
+        @keyframes blinkingbgLay1 {
+          0% {
+            background: #fff7f9;
+          }
+
+          30% {
+            background: #fff7f9;
+          }
+
+          60% {
+            background: #fff7f9;
+          }
+
+          99% {
+            background: #fff;
+          }
+
+          100% {
+            background: #fff7f9;
+          }
+        }
+      }
+
+      a {
+        color: #22a357;
+        cursor: pointer;
+        font-weight: 700;
+        max-width: 235px;
+        display: inline-block;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        position: relative;
+        top: 3px;
+
+        &:hover {
+          text-decoration: underline;
+          color: #22a357;
+        }
+      }
+    }
+
+    tr.disabled {
+
+      td.lay,
+      td.back {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      td {
+        &.lay {
+          &:hover {
+            background: #f9c9d4;
+          }
+        }
+
+        &.back {
+          &:hover {
+            background: #a7d8fd;
+          }
+        }
+      }
+    }
+  }
+}
+
+.btn {
+  font-size: 12px;
+}
+
+.tab_accordion {
+  &:first-child {
+    margin-bottom: 12px;
+  }
+
+  .accor_btn {
+    width: 100%;
+    background: #204878;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    height: 41px;
+    padding: 12px 15px 6px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: relative;
+    color: #fff;
+
+    @media (min-width:1200px) {
+      border-radius: 3px;
+    }
+
+    &:hover {
+      color: #fff;
+    }
+
+    span.txt {
+      position: relative;
+      display: inline-block;
+
+      &:before {
+        content: '';
+        width: 100%;
+        height: 5px;
+        background: #0fa810;
+        position: absolute;
+        top: -13px;
+        left: 0;
+      }
+    }
+
+    span.live_tag {
+      padding: 0 10px;
+      font-size: 12px;
+      line-height: 23px;
+      height: 22px;
+      border-radius: 10px;
+      margin: -1px 0 0 10px;
+      background: #fe5151;
+    }
+
+    svg {
+      fill: #fff;
+      width: 14px;
+      height: 14px;
+      transition: all ease 0.4s;
+    }
+
+    &[aria-expanded="false"] {
+      svg {
+        transform: rotate(180deg);
+        transition: all ease 0.4s;
+      }
+    }
+  }
+}
+
+.filter_bar {
+  display: flex;
+  align-items: center;
+}
+
+.page_title {
+  background: #204878;
+  padding: 5px 10px;
+  margin-bottom: 15px;
+  color: #fff;
+
+  h3 {
+    font-size: 16px;
+  }
+}
+
+.pagination_filter {
+  select {
+    max-width: 60px;
+    padding: 0 5px;
+    height: 34px;
+    font-size: 12px;
+  }
+
+  .pagination {
+    a {
+      color: #204878;
+    }
+
+    li.active {
+      span {
+        background: #204878;
+        border-color: #204878;
+      }
+    }
+  }
+}
+
+td {
+  .red {
+    color: red;
+  }
+
+  .green {
+    color: green;
+  }
+}
+
+.casino_result {
+  .title {
+    background: #204878;
+    padding: 5px 15px;
+
+    h4 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    a {
+      color: #fff;
+    }
+  }
+}
+
+.last_result_list {
+  li {
+    background: #204878;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    margin-right: 10px;
+    font-weight: 600;
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+}
+
+.white_bg {
+  background: #fff;
+}
+
+.inner_page_title {
+  padding: 15px 10px;
+
+  @media (min-width:1200px) {
+    padding: 0 0 15px;
+  }
+
+  h3 {
+    font-size: 16px;
+    font-weight: 500;
+    position: relative;
+    display: inline-block;
+
+    &:after {
+      content: '';
+      width: 75%;
+      height: 3px;
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      background: #0fa810;
+    }
+  }
+}
+
+// set-bet css
+// set-bet css
+
+$back: #a7d8fd;
+$back-hover: #67baf5;
+$back1: #72BBEFCC;
+$back2: #72BBEFA3;
+$lay: #f9c9d4;
+$lay-hover: #edb2c0;
+$lay1: #F994BACC;
+$lay2: #F994BAA3;
+$back-title: #72BBEF80;
+$lay-title: #F994BA80;
+$box_width:72px;
+$m_box_width:15%;
+
+// @media (min-width:768px) {
+//   $box_width: 72px;
+// }
+
+@mixin bet_box_w {
+  width: $m_box_width;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-right: 2%;
+
+  @media (min-width:768px) {
+    width: $box_width;
+    margin-right: 4px;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.tab_accordion {
+  margin-bottom: 10px;
+
+  .accor_btn {
+    text-align: left;
+
+    .tab_name {
+
+      @media (min-width:768px) {
+        padding: 12px 15px 6px;
+        width: calc(100% - 142px);
+      }
+    }
+
+    .bl_title {
+      @include bet_box_w;
+      height: 30px;
+      font-weight: 400;
+      cursor: default;
+
+      @media (max-width:767.9px) {
+        display: none;
+      }
+
+      &.back {
+        background: $back-title;
+
+        &:hover {
+          background: $back-hover;
+        }
+      }
+
+      &.lay {
+        background: $lay-title;
+
+        &:hover {
+          background: $lay-hover;
+        }
+      }
+    }
+  }
+}
+
+.bet_table_row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .nation_name {
+    width: calc(100% - 148px);
+    padding-right: 5px;
+
+    @media (max-width:767px) {
+      padding: 8px 0;
+    }
+
+    p {
+      font-weight: 500;
+      color: #204878;
+      font-size: 14px;
+
+      @media(max-width:575px) {
+        font-size: 14px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 100%;
+      }
+
+      @media (min-width:1440px) {
+        font-size: 16px;
+      }
+    }
+
+    .btm {
+      span.profitloss {
+        color: green;
+
+        &.negative {
+          color: red;
+        }
+      }
+    }
+  }
+
+  .bl_box {
+    @include bet_box_w;
+    height: 38px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+
+    @media(max-width:575px) {
+      border-radius: 0;
+      margin-right: 0 !important;
+    }
+
+    @media(max-width:475px) {
+      max-width: 65px;
+      width: 100%;
+      height: 48px;
+      margin-right: 5px;
+    }
+
+    &.single_betlock {
+      position: relative;
+      cursor: not-allowed;
+      pointer-events: none;
+
+      &:after {
+        content: "";
+        background-image: url('/assets/icons/lock.svg');
+        background-size: 17px 17px;
+        filter: invert(1);
+        background-repeat: no-repeat;
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background-position: center;
+        pointer-events: none;
+        background-color: transparent !important;
+        transform: scale(1) !important;
+        animation: none !important;
+      }
+
+      &:before {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: rgba($color: #000000, $alpha: 0.6);
+        border-radius: 4px;
+      }
+
+      &.content-none {
+        cursor: default;
+
+        &:before,
+        &:after {
+          content: none;
+        }
+      }
+    }
+
+    .odds {
+      font-size: 15px;
+      font-weight: 600;
+
+      @media (min-width:575px) {
+        font-size: 15px;
+        font-weight: 600;
+      }
+
+      @media (min-width:400px) {
+        font-size: 14px;
+      }
+
+      @media (min-width:768px) {
+        font-size: 16px;
+      }
+    }
+
+    .size {
+      font-size: 12px;
+      font-weight: 400;
+
+      @media (min-width:400px) {
+        font-size: 11px;
+      }
+
+      @media (min-width:768px) {
+        font-size: 14px;
+      }
+    }
+
+    &.back {
+      background: $back;
+
+      &:hover {
+        background: $back-hover;
+      }
+    }
+
+    &.back_1 {
+      background: $back1;
+    }
+
+    &.back_2 {
+      background: $back2;
+    }
+
+    &.lay {
+      background: $lay;
+
+      &:hover {
+        background: $lay-hover;
+      }
+    }
+
+    &.lay_1 {
+      background: $lay1;
+    }
+
+    &.lay_2 {
+      background: $lay2;
+    }
+
+    &.fancy_bx {
+      width: calc(#{$box_width} * 2);
+      align-items: end;
+      font-weight: 500;
+
+      @media (max-width:767px) {
+        display: none;
+      }
+
+      @media (min-width:768px) {
+        margin-right: 4px;
+      }
+    }
+
+    &.back,
+    &.back_1,
+    &.back_2 {
+      &:after {
+        // content: "";
+        content: none;
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 4px;
+        background-color: #13c4135d;
+        transform: scale(0, 0);
+        animation: oddsup 4s ease-out;
+        animation-iteration-count: infinite;
+      }
+
+      @keyframes oddsup {
+
+        0% {
+          transform: scale(1)
+        }
+
+        20% {
+          transform: scale(0)
+        }
+
+        40% {
+          transform: scale(0)
+        }
+
+        60% {
+          transform: scale(1)
+        }
+
+        80% {
+          transform: scale(0)
+        }
+
+        100% {
+          transform: scale(0)
+        }
+      }
+    }
+
+    &.lay,
+    &.lay_1,
+    &.lay_2 {
+      &:after {
+        // content: "";
+        content: none;
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 4px;
+        background-color: #13c41380;
+        transform: scale(0, 0);
+        animation: oddsup2 4s ease-out;
+        animation-iteration-count: infinite;
+      }
+
+      @keyframes oddsup2 {
+
+        0% {
+          transform: scale(0)
+        }
+
+        20% {
+          transform: scale(0)
+        }
+
+        40% {
+          transform: scale(1)
+        }
+
+        60% {
+          transform: scale(0)
+        }
+
+        80% {
+          transform: scale(0)
+        }
+
+        100% {
+          transform: scale(1)
+        }
+      }
+    }
+  }
+
+  &.bet_locked {
+    .bl_boxMain {
+      display: flex;
+      position: relative;
+
+      &:before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: rgba(0, 0, 0, 0.6);
+        border-radius: 0px;
+        z-index: 1;
+      }
+
+      &:after {
+        content: "Suspended";
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        pointer-events: none;
+        animation: none;
+        color: #eee;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 500;
+        font-size: 13px;
+        ;
+      }
+
+      @media(max-width:767.9px) {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      @media(max-width:474.9px) {
+        justify-content: flex-end;
+        width: 100%;
+        max-width: 140px;
+      }
+    }
+
+    .bl_box {
+      position: relative;
+      cursor: not-allowed;
+      pointer-events: none;
+
+      // &:after {
+      //   content: "";
+      //   background-image: url('/assets/icons/lock.svg');
+      //   background-size: 17px 17px;
+      //   filter: invert(1);
+      //   background-repeat: no-repeat;
+      //   position: absolute;
+      //   z-index: 1;
+      //   width: 100%;
+      //   height: 100%;
+      //   left: 0;
+      //   top: 0;
+      //   background-position: center;
+      //   pointer-events: none;
+      //   background-color: transparent;
+      //   transform: scale(1);
+      //   animation: none;
+      // }
+
+      // &:before {
+      //   content: '';
+      //   width: 100%;
+      //   height: 100%;
+      //   position: absolute;
+      //   left: 0;
+      //   top: 0;
+      //   background: rgba($color: #000000, $alpha: 0.6);
+      //   border-radius: 0px;
+      // }
+
+      &.content-none {
+        cursor: default;
+
+        &:before,
+        &:after {
+          content: none;
+        }
+      }
+    }
+  }
+}
+
+#fancyBets {
+  .bet_table_row {
+    .bl_box {
+      // &:nth-child(2) {
+      //   @media (max-width:767px) {
+      //     display: none;
+      //   }
+      // }
+      // &.bl_box.content-none.fancy_modalBox{
+      //   @media (max-width:767px) {
+      //   display: none;
+      //   }
+      // }
+
+      &:nth-child(5) {
+        @media (max-width:767px) {
+          margin: 0;
+        }
+      }
+    }
+
+    @media (max-width:767px) {
+      .nation_name {
+        width: calc(100% - 49%);
+
+        @media(max-width:475px) {
+          width: calc(100% - 156px);
+        }
+      }
+    }
+  }
+}
+
+.inner_bet_table {
+  background: #fff;
+  box-shadow: 0 0 5px rgb(0 0 0 / 30%);
+  border-radius: 0 0 4px 4px;
+  padding: 3px 6px 3px 8px;
+  // @media(max-width:575px){
+  //   background-color: #f2f2f2;
+  // }
+
+  &.fancy_bet_table {
+    .bet_table_row {
+      .nation_name {
+        width: calc(100% - 300px) !important;
+      }
+    }
+  }
+}
+
+.my_bets_table {
+  padding: 0 10px 10px;
+
+  .filter {
+    .row {
+      margin: 0 -8px;
+    }
+
+    [class*='col-'] {
+      padding: 0 8px;
+    }
+
+    .form-select,
+    .form-control {
+      border-radius: 20px;
+      color: #3d4f65;
+      font-weight: 600;
+      padding: 6px 10px;
+      border: 1px solid #3d4f65;
+      outline: none;
+      width: 150px;
+      height: 32px;
+      flex: 0 0 150px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    button.btn-primary {
+      background: #0fa810;
+      color: #ffffff;
+      font-weight: 600;
+      padding: 9px 16px;
+      border: 1px solid #0fa810;
+      outline: none;
+
+      &:hover,
+      &:focus {
+        color: #0fa810;
+        background: #fff;
+      }
+    }
+
+    .form-inline {
+      .main_form {
+        .form-field {
+          width: 100%;
+          margin: 0 0 8px;
+
+          label {
+            font-weight: 600;
+            text-transform: capitalize;
+            justify-content: start;
+            margin-bottom: 3px;
+            margin-left: 5px;
+          }
+
+          input,
+          select {
+            width: 100%;
+            border-radius: 4px;
+          }
+        }
+
+        .form-field.customfield {
+          display: flex;
+          justify-content: space-between;
+
+          @media (min-width:768px) {
+            justify-content: flex-end;
+          }
+
+          button.btn {
+            border-radius: 4px;
+          }
+
+          button.file_btn {
+            padding: 5px 12px;
+            margin: 0 5px;
+            color: #fff;
+
+            &:last-child {
+              margin-right: 0;
+            }
+          }
+
+          button.excel {
+            background-color: black;
+          }
+
+          button.pdf {
+            background-color: red;
+          }
+        }
+      }
+    }
+  }
+
+  .file_btn {
+    font-size: 16px;
+    padding: 5px 12px;
+    margin: 0 5px;
+    color: #fff;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .excel {
+    background-color: black;
+  }
+
+  .pdf {
+    background-color: red;
+  }
+}
+
+.inner.iframe_area_col {
+  iframe {
+    height: calc(100vh - 96px);
+
+    @media (min-width:1300px) {
+      height: calc(100vh - 140px);
+    }
+  }
+}
+
+.back_layclr {
+  .back {
+    background: #a7d8fd !important;
+  }
+
+  .lay {
+    background: #f9c9d4 !important;
+  }
+}
+
+.all_modal_design {
+  .modal-header {
+    background-color: #204878;
+
+    h5 {
+      color: #fff;
+    }
+
+    button.close {
+      color: #fff;
+      opacity: 1;
+    }
+  }
+
+  .table-responsive {
+    &::-webkit-scrollbar {
+      width: 5px;
+      height: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 5px grey;
+      border-radius: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: #204878;
+    }
+
+    table {
+      thead {
+        tr {
+          background: #e1e1e1;
+        }
+      }
+    }
+  }
+
+  .modal_filter {
+    margin-bottom: 10px;
+
+    .form-field {
+      label {
+        font-weight: 600;
+        text-transform: capitalize;
+        justify-content: start;
+        margin-bottom: 5px;
+        margin-left: 5px;
+      }
+
+      .form-control {
+        border-radius: 4px;
+        color: #3d4f65;
+        font-weight: 600;
+        padding: 6px 10px;
+        border: 1px solid #3d4f65;
+        outline: none;
+        width: 150px;
+        height: 32px;
+        flex: 0 0 150px;
+        font-size: 12px;
+        font-weight: 500;
+      }
+
+      button.btn {
+        background: #0fa810;
+        color: #ffffff;
+        font-weight: 600;
+        padding: 6px 15px;
+        border: 1px solid #0fa810;
+        outline: none;
+
+        &:hover {
+          background: #fff;
+          color: #0fa810;
+        }
+      }
+    }
+  }
+}
+
+.pagination {
+  ul {
+    margin: 0;
+    border: 1px solid #fff;
+    // background: #3a4b53;
+    display: flex;
+
+    li {
+      margin: 0;
+      padding: 8px 6px !important;
+      background-color: #fff;
+      border: 1px solid #ced4da !important;
+      color: #000 !important;
+
+      &:last-child {
+        border-right: 0;
+      }
+
+      &.current {
+        background: #204878;
+        padding: 0;
+        width: 35px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff !important;
+      }
+    }
+  }
+}
+
+
+.betslip_hide {
+  display: none;
+}
+
+.betslip_hide.betSlip_show {
+  display: block;
+}
+
+.modal {
+  z-index: 99999;
+}
+
+.modal-backdrop {
+  z-index: 9999;
+}
+
+#rulesModal {
+  .modal-dialog {
+    @media (max-width:567px) {
+      .modal-content {
+        border-radius: 0;
+        border: none;
+      }
+    }
+  }
+}
+
+
+.back_bar {
+  background: #15386d;
+  padding: 8px 10px;
+
+  svg {
+    width: 18px;
+    height: 18px;
+    fill: #fff;
+  }
+
+  .back_btn {
+    color: #fff;
+
+    p {
+      font-size: 14px;
+      font-weight: 500;
+    }
+  }
+}
+
+
+
+
+.cc-window.cc-banner.cc-type-info.cc-theme-block.cc-bottom {
+  background: #ffffff !important;
+  border-top: 1px solid #204878;
+  padding: 10px 15px;
+  z-index: 999;
+}
+
+.cc-compliance .cc-btn.cc-dismiss {
+  background: #204878;
+  color: #fff;
+  border: unset;
+  text-decoration: none;
+  border-radius: 20px;
+  min-width: unset !important;
+  padding: 6px 30px;
+  font-size: 14px;
+}
+
+.cc-message {
+  color: #204878;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.cc-message a.cc-link {
+  color: #0fa810;
+  text-decoration: none;
+}
+
+.cc-window {
+  background: #fff;
+}
+
+.modal-open {
+  padding-right: 0 !important;
+}
+
+.blinkTxt {
+  animation: blinker 1s linear infinite;
+
+  svg {
+    animation: blinker 1s linear infinite;
+  }
+
+  @keyframes blinker {
+    50% {
+      color: rgb(255, 0, 0);
+      fill: rgb(255, 0, 0);
+    }
+  }
+}
+
+.bl_boxMain {
+  display: flex;
+  position: relative;
+  height: 38px;
+
+  @media(max-width:767.9px) {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  @media(max-width:474.9px) {
+    justify-content: flex-end;
+    width: 100%;
+    max-width: 140px;
+    height: 48px;
+  }
+}
+
+.mob-noneCol {
+  @media(max-width:767px) {
+    display: none !important;
+  }
+}
+
+.ellipscont {
+  p {
+    // @media(max-width:767px){
+    white-space: nowrap;
+
+    // }
+    &:last-child {
+      // @media(max-width:767px){
+      overflow: hidden;
+      text-overflow: ellipsis;
+      // }
+    }
+  }
+
+}
+
+.mob-noneCont {
+  @media(max-width:575px) {
+    display: none !important;
+  }
+}
+
+// .live_blinking p{ 
+//   -webkit-animation: liveblinking 1s ease infinite;
+//     animation: liveblinking 1s ease infinite;
+//     color: #204878;
+// }
+// @keyframes liveblinking {
+//     0% {
+//       color: #e8d509;
+//     }
+
+//     50% {
+//         color: #204878
+//     }
+
+//     100% {
+//         color: #e8d509
+//     }
+//   }
+
+
+//   .live_blinking svg{ 
+//     -webkit-animation: liveblinkingsvg 1s ease infinite;
+//       animation: liveblinkingsvg 1s ease infinite;
+//       fill: #204878;
+//   }
+//   @keyframes liveblinkingsvg {
+//       0% {
+//         fill: #e8d509;
+//       }
+
+//       50% {
+//           fill: #204878
+//       }
+
+//       100% {
+//           fill: #e8d509
+//       }
+//     }
+
+
+
+//   .inplayBlink{
+//     -webkit-animation: sparkBack 2s ease infinite;
+//     animation: sparkBack 2s ease infinite;
+//   }
+// @keyframes sparkBack {
+//   0% {
+//       background-color: #f4f4f4;
+//   }
+
+//   50% {
+//       background-color: #a5ffa5;
+//   }
+
+//   100% {
+//       background-color: #f4f4f4;
+//       color: #1e1e1e
+//   }
+// }
+// .lay{
+//   &.blinking {
+//     -webkit-animation: sparkLay .5s ease;
+//     animation: sparkLay .5s ease;
+//     color: #212529 !important;
+//   }
+// }
+// @-webkit-keyframes sparkLay {
+//   0% {
+//       background-color: #faa9ba;
+//       color: #1e1e1e
+//   }
+
+//   50% {
+//       background-color: #26f1f8;
+//       color: #fff
+//   }
+
+//   100% {
+//       background-color: #faa9ba;
+//       color: #1e1e1e
+//   }
+// }
+.sports-icon {
+  display: inline-block;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-image: url('./assets/img/sports-icons.png');
+  width: 24px;
+  height: 20px;
+  background-position: 0 -900px;
+  background-size: 24px auto;
+  &.cricket{
+    background-position: -3px -280px;
+  }
+  &.tennis{
+    background-position: -3px -940px;
+  }
+  &.soccer{
+    background-position: -3px -880px;
+  }
+}

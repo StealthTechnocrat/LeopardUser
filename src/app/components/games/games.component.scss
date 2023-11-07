@@ -1,0 +1,13 @@
+.slider {
+    overflow: hidden;
+
+    @media (min-width:1200px) {
+        border-radius: 3px;
+    }
+
+    img {
+        @media (min-width:1200px) {
+            border-radius: 3px;
+        }
+    }
+}

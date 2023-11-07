@@ -1,0 +1,159 @@
+<div class="back_bar d-lg-none">
+    <a routerLink="/games" class="back_btn d-flex align-items-center">
+        <svg class="svg-icon">
+            <use href="/assets/icons/icons_defs.svg#svg_event-arrow"></use>
+        </svg>
+        <p class="pl-2">Betting Profit and Loss</p>
+    </a>
+</div>
+<div class="main_wrap">
+    <div class="center_col full_wid">
+        <div class="center_inner pt-3 pt-lg-0">
+            <div class="page_title d-none d-lg-block">
+                <h3>Betting Profit and Loss</h3>
+            </div>
+            <div class="table_area my_bets_table">
+                <div class="filter">
+                    <form class="mb-3 form-inline d-block">
+                        <div class="main_form row">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-12 col-md-4">
+                                        <div class="form-field">
+                                            <label for="">Select Sport</label>
+                                            <select class="form-control" (change)="onChange($event.target.value)">
+                                                <option selected value=0>All</option>
+                                                <option value=1>Soccer</option>
+                                                <option value=2>Tennis</option>
+                                                <option value=4>Cricket</option>
+                                                <option value=5>Table Games</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-md-4">
+                                        <div class="form-field">
+                                            <label for="">Choose from Date</label>
+                                            <input type="date" name="sdate" [(ngModel)]="latest_date" (blur)="getStartDate($event.target.value)"
+                                            class="form-control mr-2" id="sdate">
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-md-4">
+                                        <div class="form-field">
+                                            <label for="">Choose to Date</label>
+                                            <input type="date" class="form-control" name="edate" [(ngModel)]="last" (blur)="getEndDate($event.target.value)"
+                                                 id="edate">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-field customfield justify-content-between">
+                                    <button type="submit" class="btn btn-primary"
+                                        (click)="getProfitLoss()">Load</button>
+                                    <div>
+                                        <button type="button" class="btn file_btn excel" (click)="exportexcel()"><i
+                                                class="fas fa-file-excel"></i></button>
+                                 <!--        <button type="button" class="btn file_btn pdf"><i
+                                                class="fas fa-file-pdf"></i></button> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="table-responsive">
+                    <table class="table align-middle table-striped mb-0 table_design" id="excel-table2">
+                        <thead>
+                            <tr>
+                                <th>Sr No</th>
+                                <th>Discription</th>
+                                <th>Amount</th>
+                                <th>Commission</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody *ngIf="profitLossObj?.length">
+                            <tr *ngFor="let obj of profitLossObj;let i=index">
+                                <td>{{i+1}}</td>
+                                <td><a href="javascript:void(0)" data-toggle="modal" data-target="#profitLossModel"
+                                        (click)="getEventId(obj.EventId)">{{obj.Discription}}</a></td>
+                                <td [ngClass]="{'red':obj.Amount<0,'green':obj.Amount>=0}">{{obj.Amount}}</td>
+                                <td>{{obj.Balance}}</td>
+                                <td>{{obj.CreatedOn |date:'MMM d, y, h:mm:ss a'}}</td>
+                            </tr>
+                        </tbody>
+                        <tbody *ngIf=" !profitLossObj?.length">
+                            <tr>
+                                <td colspan="15" style="text-align: center;"> No Record Found</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Model start -->
+<div class="modal fade all_bets_modal all_modal_design" id="profitLossModel" tabindex="-1" aria-labelledby="acc_detail2Label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="acc_detail2Label">Market Bets</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" (click)="reset()">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body py-2">
+                <div class="form-field">
+                    <select (change)="serachMarket($event.target.value)" class="form-control"
+                        aria-label="Default select example">
+                        <option selected value="All">All</option>
+                        <option value="Match Odds">MATCH</option>
+                        <option value="BookMaker">BookMaker</option>
+                        <option value="To Win the Toss">Toss</option>
+                        <option value="Fancy">Fancy</option> <option value="Cup-Rate">Cup-Rate</option>
+                    </select>
+                </div>
+                <div class="table_area shadow_none">
+                    <div class="table-responsive">
+                        <table class="table back_layclr">
+                            <thead role="rowgroup">
+                                <tr>
+                                    <th>User Name</th>
+                                    <th>Event Name</th>
+                                    <th>Market Name</th>
+                                    <th>Runner Name</th>
+                                    <th>Odds</th>
+                                    <th>Stake</th>
+                                    <th>Profit</th>
+                                    <th>Result</th>
+                                    <th>Date </th>
+                                </tr>
+                            </thead>
+                            <tbody *ngIf="eventBetObj?.length">
+                                <tr *ngFor="let obj of eventBetObj" [ngClass]="{'back':obj.BetType=='Back' || obj.BetType=='Yes','lay':obj.BetType=='Lay' || obj.BetType=='No'}">
+                                    <td>{{obj.UserName}}</td>
+                                    <td>{{obj.EventName}}</td>
+                                    <td>{{obj.MarketName}}</td>
+                                    <td>{{obj.RunnerName}}</td>
+                                    <td>{{obj.Odds}}</td>
+                                    <td>{{obj.Stake}}</td>
+                                    <td [ngClass]="{'red':obj.Profit<0,'green':obj.Profit>=0}">{{obj.Profit |number :
+                                        '1.2-2'}}</td>
+                                    <td>{{obj.Result}}</td>
+                                    <td>{{obj.createdOn |date:'MMM d, y, h:mm:ss a'}}</td>
+                                </tr>
+                            </tbody>
+                            <tbody *ngIf=" !eventBetObj?.length">
+                                <tr>
+                                    <td colspan="15" style="text-align: center;"> No Record Found</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Model end -->

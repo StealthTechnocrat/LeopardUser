@@ -1,0 +1,289 @@
+<div class="side_tabs">
+    <div class="tab_title blue_bg">
+        <ul class="nav" id="sportsTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a class="nav-link active" id="tabOne-tab" data-toggle="tab" href="#tabOne" role="tab"
+                    aria-controls="tabOne" aria-selected="true">Sports ({{uISERVICE.TopEvents?.length}})</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="tabTwo-tab" data-toggle="tab" href="#tabTwo" role="tab" aria-controls="tabTwo"
+                    aria-selected="false">Live ({{uISERVICE.TopInplay?.length}})</a>
+            </li>
+        </ul>
+    </div>
+    <div class="tab-content" id="sportsTab">
+        <div class="tab-pane fade show active" id="tabOne" role="tabpanel" aria-labelledby="tabOne-tab">
+            <div class="side_cards">
+                <div class="title">
+                    <button class="btn toggle_btn" type="button" data-toggle="collapse" data-target="#collapseTwo"
+                        aria-expanded="true" aria-controls="collapseTwo">
+                        Top Events
+                    </button>
+                </div>
+                <div class="collapse show" id="collapseTwo">
+                    <div class="card-body">
+                        <ul>
+                            <li *ngFor="let evnt of uISERVICE.TopEvents">
+                                <div class="match">
+                                    <h3><span class="icon">
+                                            <img src="/assets/img/icons/list_ic/{{evnt.SportsName}}.svg" alt=""></span>
+                                        <a>{{evnt.SeriesName}}</a>
+                                    </h3>
+                                    <a class="teams_time" (click)="redirectfun(evnt.SportsId, evnt.EventId)">
+                                        <div class="team">
+                                            <p><span class="icon"><img src="/assets/img/icons/yellow_tee.png"
+                                                        alt=""></span> {{evnt.Runner1}}
+                                            </p>
+                                            <p><span class="icon"><img src="/assets/img/icons/green_tee.png"
+                                                        alt=""></span> {{evnt.Runner2}}
+                                            </p>
+                                        </div>
+                                        <div class="time">
+                                            <p>{{evnt.EventTime | date:'dd/MM/yy'}}</p>
+                                            <p>{{evnt.EventTime |
+                                                date:'h:mm a'}}</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade live_tab" id="tabTwo" role="tabpanel" aria-labelledby="tabTwo-tab">
+            <div class="side_cards">
+                <div class="title">
+                    <button class="btn toggle_btn" type="button" data-toggle="collapse" data-target="#collapseTwo"
+                        aria-expanded="true" aria-controls="collapseTwo">
+                        Top Events <span class="live_tag">Live</span>
+                    </button>
+                </div>
+                <div class="collapse show" id="collapseTwo">
+                    <div class="card-body">
+                        <ul>
+                            <li *ngFor="let evnt of uISERVICE.TopInplay">
+                                <div class="match">
+                                    <h3>
+                                        <span class="icon"><img src="/assets/img/icons/list_ic/FootBall.svg"
+                                                alt=""></span> <a>{{evnt.SeriesName}}</a>
+                                    </h3>
+                                    <div class="match_info">
+                                        <span class="time">{{evnt.EventTime | date:'h:mm a'}}</span>
+                                        <span class="live_tag"><svg width="23" height="16" viewBox="0 0 23 16"
+                                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M1.5 3.33337H20.5V12.6667H1.5V3.33337Z" fill="white"></path>
+                                                <path
+                                                    d="M23 3.33333C23 2.71449 22.7366 2.121 22.2678 1.68342C21.7989 1.24583 21.163 1 20.5 1H2.5C2.1717 1 1.84661 1.06035 1.54329 1.17761C1.23998 1.29488 0.964379 1.46675 0.732233 1.68342C0.263392 2.121 0 2.71449 0 3.33333V12.6667C0 13.2855 0.263392 13.879 0.732233 14.3166C0.964379 14.5333 1.23998 14.7051 1.54329 14.8224C1.84661 14.9396 2.1717 15 2.5 15H20.5C21.163 15 21.7989 14.7542 22.2678 14.3166C22.7366 13.879 23 13.2855 23 12.6667V3.33333ZM5.5 11.0492H4.5C4.03603 11.0487 3.59122 10.8765 3.26315 10.5703C2.93507 10.2641 2.75053 9.8489 2.75 9.41587V5.68253C2.75 5.49688 2.82902 5.31883 2.96967 5.18756C3.11032 5.05628 3.30109 4.98253 3.5 4.98253C3.69891 4.98253 3.88968 5.05628 4.03033 5.18756C4.17098 5.31883 4.25 5.49688 4.25 5.68253V9.41587C4.25026 9.47768 4.27669 9.53688 4.32351 9.58059C4.37034 9.62429 4.43378 9.64895 4.5 9.6492H5.5C5.69891 9.6492 5.88968 9.72295 6.03033 9.85423C6.17098 9.9855 6.25 10.1635 6.25 10.3492C6.25 10.5349 6.17098 10.7129 6.03033 10.8442C5.88968 10.9755 5.69891 11.0492 5.5 11.0492ZM9.25 10.3492C9.25 10.5349 9.17098 10.7129 9.03033 10.8442C8.88968 10.9755 8.69891 11.0492 8.5 11.0492C8.30109 11.0492 8.11032 10.9755 7.96967 10.8442C7.82902 10.7129 7.75 10.5349 7.75 10.3492V5.68253C7.75 5.49688 7.82902 5.31883 7.96967 5.18756C8.11032 5.05628 8.30109 4.98253 8.5 4.98253C8.69891 4.98253 8.88968 5.05628 9.03033 5.18756C9.17098 5.31883 9.25 5.49688 9.25 5.68253V10.3492ZM14.75 7.2692C14.738 8.56633 14.2334 9.81744 13.326 10.8C13.2557 10.8789 13.1677 10.9424 13.0681 10.986C12.9686 11.0296 12.86 11.0522 12.75 11.0522C12.64 11.0522 12.5314 11.0296 12.4319 10.986C12.3323 10.9424 12.2443 10.8789 12.174 10.8C11.2666 9.81744 10.762 8.56633 10.75 7.2692V5.68253C10.75 5.49688 10.829 5.31883 10.9697 5.18756C11.1103 5.05628 11.3011 4.98253 11.5 4.98253C11.6989 4.98253 11.8897 5.05628 12.0303 5.18756C12.171 5.31883 12.25 5.49688 12.25 5.68253V7.2692C12.2506 7.73098 12.3407 8.18885 12.516 8.62067C12.5335 8.66549 12.5653 8.70422 12.6072 8.73158C12.649 8.75895 12.6989 8.77362 12.75 8.77362C12.8011 8.77362 12.851 8.75895 12.8928 8.73158C12.9347 8.70422 12.9665 8.66549 12.984 8.62067C13.1593 8.18885 13.2494 7.73098 13.25 7.2692V5.68253C13.25 5.49688 13.329 5.31883 13.4697 5.18756C13.6103 5.05628 13.8011 4.98253 14 4.98253C14.1989 4.98253 14.3897 5.05628 14.5303 5.18756C14.671 5.31883 14.75 5.49688 14.75 5.68253V7.2692ZM18.617 7.39539C18.8159 7.39539 19.0067 7.46914 19.1473 7.60042C19.288 7.73169 19.367 7.90974 19.367 8.09539C19.367 8.28104 19.288 8.45909 19.1473 8.59037C19.0067 8.72164 18.8159 8.79539 18.617 8.79539H18C17.9337 8.79539 17.8701 8.81997 17.8232 8.86373C17.7763 8.90749 17.75 8.96684 17.75 9.02872C17.75 9.09061 17.7305 9.5399 17.7773 9.58366C17.8242 9.62742 17.9337 9.652 18 9.652H19C19.1989 9.652 19.3897 9.72575 19.5303 9.85703C19.671 9.9883 19.75 10.1663 19.75 10.352C19.75 10.5377 19.671 10.7157 19.5303 10.847C19.3897 10.9783 19.1989 11.052 19 11.052H18C17.536 11.0515 17.0912 10.8793 16.7631 10.5731C16.4351 10.2669 16.2505 9.8517 16.25 9.41867V6.61867C16.2505 6.18563 16.4351 5.77047 16.7631 5.46427C17.0912 5.15807 17.536 4.98583 18 4.98533H19C19.1989 4.98533 19.3897 5.05908 19.5303 5.19036C19.671 5.32163 19.75 5.49968 19.75 5.68533C19.75 5.87099 19.671 6.04903 19.5303 6.18031C19.3897 6.31158 19.1989 6.38533 19 6.38533H18C17.9337 6.38533 17.8701 6.40992 17.8232 6.45368C17.7763 6.49743 17.75 6.55678 17.75 6.61867V7.16206C17.75 7.22394 17.7763 7.28329 17.8232 7.32705C17.8701 7.37081 17.9337 7.39539 18 7.39539H18.617Z"
+                                                    fill="#fe5151"></path>
+                                                <defs>
+                                                    <radialGradient id="paint0_radial" cx="0" cy="0" r="1"
+                                                        gradientUnits="userSpaceOnUse"
+                                                        gradientTransform="translate(22.365 0.999999) rotate(147.954) scale(26.3855 30.9161)">
+                                                        <stop stop-color="#FF6D6D"></stop>
+                                                        <stop offset="1" stop-color="#EB5E58"></stop>
+                                                    </radialGradient>
+                                                </defs>
+                                            </svg></span>
+                                        <span class="tv_icon"><svg class="svg-icon ">
+                                                <use href="/assets/img/icons/icons_defs.svg#svg_broadcast"></use>
+                                            </svg></span>
+                                    </div>
+                                    <a class="teams_time" (click)="redirectfun(evnt.SportsId,evnt.EventId)">
+                                        <div class="team">
+                                            <p><span class="icon"><img src="/assets/img/icons/yellow_tee.png"
+                                                        alt=""></span> {{evnt.Runner1}}
+                                            </p>
+                                            <p><span class="icon"><img src="/assets/img/icons/green_tee.png"
+                                                        alt=""></span> {{evnt.Runner2}}
+                                            </p>
+                                        </div>
+                                        <div class="time">
+                                            <p>{{evnt.Back1}}</p>
+                                            <p>{{evnt.Back3}}</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="side_cards">
+            <div class="title">
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseThree"
+                    aria-expanded="true" aria-controls="collapseThree">
+                    Top Sports
+                </button>
+            </div>
+            <div class="collapse show" id="collapseThree">
+                <div class="card-body">
+                    <!-- <ul class="list">
+                        <li routerLink="match-list/4">
+                            <a class="main_drop" (click)="getSrsData(1)"><span class="icon"><img src="/assets/img/icons/list_ic/Cricket.svg"
+                                        alt=""></span> Cricket
+                                <span class="arrow">
+                                    <svg class="svg-icon ">
+                                        <use href="/assets/icons/icons_defs.svg#svg__arrow"></use>
+                                    </svg>
+                                </span></a>
+                        </li>
+                        <li routerLink="match-list/1">
+                            <a class="main_drop" (click)="getSrsData(1)"><span class="icon"><img
+                                        src="/assets/img/icons/list_ic/FootBall.svg" alt=""></span> Footabll
+                                <span class="arrow">
+                                    <svg class="svg-icon ">
+                                        <use href="/assets/icons/icons_defs.svg#svg__arrow"></use>
+                                    </svg>
+                                </span>
+                            </a>
+
+                        </li>
+                        <li routerLink="match-list/2">
+                            <a class="main_drop" (click)="getSrsData(1)"><span class="icon"><img src="/assets/img/icons/list_ic/Tennis.svg"
+                                        alt=""></span> Tennis
+                                <span class="arrow">
+                                    <svg class="svg-icon ">
+                                        <use href="/assets/icons/icons_defs.svg#svg__arrow"></use>
+                                    </svg>
+                                </span></a>
+
+                        </li>
+                        <li *ngIf="!uISERVICE.casinoStatus">
+                            <a class="main_drop"><span class="icon"><svg class="svg-icon">
+                                        <use href="/assets/icons/icons_defs.svg#roulette"></use>
+                                    </svg></span> Casino</a>
+                        </li>
+                        <li *ngIf="!uISERVICE.liveGameStatus">
+                            <a class="main_drop"><span class="icon"><svg class="svg-icon">
+                                        <use href="/assets/icons/icons_defs.svg#cards"></use>
+                                    </svg></span> Live Casino</a>
+                        </li>
+                    </ul> -->
+                    <ul class="list">
+                        <li>
+                            <a href="javascript:void(0)" (click)="getCompList(4)" class="main_drop">
+                                <span class="clickmain">
+                                    <span class="sports-icon cricket"></span>
+                                    Cricket
+                                    <span class="arrow">
+                                        <i class="fa fa-plus"></i>
+                                    </span>
+                                </span>
+                            </a>
+                            <ul class="step_1" id="accordion">
+                                <li *ngFor="let lst of seriesList">
+                                    <a class="dropInner" (click)="getEventList(4,lst.SeriesId)" href="javascript:void(0)"><span
+                                            class="icon"><img src="/assets/img/icons/cup_ic.svg"
+                                                alt=""></span>{{lst.SeriesName}}
+                                        <span class="arrow">
+                                            <i class="fa fa-plus"></i>
+                                        </span>
+                                    </a>
+                                    <ul class="step_2">
+                                        <li *ngFor="let evnt of eventList">
+                                            <a href="javascript:void(0)"
+                                                (click)="redirectfun(evnt.SportsId, evnt.EventId)">
+                                                <p><span class="icon"><img src="/assets/img/icons/yellow_tee.png"
+                                                            alt=""></span> {{evnt.Runner1}} <span
+                                                        class="value">{{evnt.Back1}}</span></p>
+                                                <p><span class="icon"><img src="/assets/img/icons/green_tee.png"
+                                                            alt=""></span> {{evnt.Runner2}} <span
+                                                        class="value">{{evnt.Back3}}</span></p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" (click)="getCompList(1)" class="main_drop">
+                                <span class="clickmain">
+                                    <span class="sports-icon soccer"></span>
+                                    Football
+                                    <span class="arrow">
+                                        <i class="fa fa-plus"></i>
+                                    </span>
+                                </span>
+                            </a>
+                            <ul class="step_1" id="accordion">
+                                <li *ngFor="let lst of seriesList">
+                                    <a class="dropInner" (click)="getEventList(1,lst.SeriesId)" href="javascript:void(0)"><span
+                                            class="icon"><img src="/assets/img/icons/cup_ic.svg"
+                                                alt=""></span>{{lst.SeriesName}}
+                                        <span class="arrow">
+                                            <i class="fa fa-plus"></i>
+                                        </span>
+                                    </a>
+                                    <ul class="step_2">
+                                        <li *ngFor="let evnt of eventList">
+                                            <a href="javascript:void(0)"
+                                                (click)="redirectfun(evnt.SportsId, evnt.EventId)">
+                                                <p><span class="icon"><img src="/assets/img/icons/yellow_tee.png"
+                                                            alt=""></span> {{evnt.Runner1}} <span
+                                                        class="value">{{evnt.Back1}}</span></p>
+                                                <p><span class="icon"><img src="/assets/img/icons/green_tee.png"
+                                                            alt=""></span> {{evnt.Runner2}} <span
+                                                        class="value">{{evnt.Back3}}</span></p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        
+                        <li>
+                            <a href="javascript:void(0)" (click)="getCompList(2)" class="main_drop">
+                                <span class="clickmain">
+                                    <span class="sports-icon tennis"></span>
+                                    Tennis
+                                    <span class="arrow">
+                                        <i class="fa fa-plus"></i>
+                                    </span>
+                                </span>
+                            </a>
+                            <ul class="step_1" id="accordion">
+                                <li *ngFor="let lst of seriesList">
+                                    <a class="dropInner" (click)="getEventList(2,lst.SeriesId)" href="javascript:void(0)"><span
+                                            class="icon"><img src="/assets/img/icons/cup_ic.svg"
+                                                alt=""></span>{{lst.SeriesName}}
+                                        <span class="arrow">
+                                            <i class="fa fa-plus"></i>
+                                        </span>
+                                    </a>
+                                    <ul class="step_2">
+                                        <li *ngFor="let evnt of eventList">
+                                            <a href="javascript:void(0)"
+                                                (click)="redirectfun(evnt.SportsId, evnt.EventId)">
+                                                <p><span class="icon"><img src="/assets/img/icons/yellow_tee.png"
+                                                            alt=""></span> {{evnt.Runner1}} <span
+                                                        class="value">{{evnt.Back1}}</span></p>
+                                                <p><span class="icon"><img src="/assets/img/icons/green_tee.png"
+                                                            alt=""></span> {{evnt.Runner2}} <span
+                                                        class="value">{{evnt.Back3}}</span></p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li *ngIf="!uISERVICE.casinoStatus">
+                            <a href="javascript:void(0)" class="main_drop">
+                                <span class="icon">
+                                    <svg class="svg-icon">
+                                        <use href="/assets/icons/icons_defs.svg#roulette"></use>
+                                    </svg>
+                                </span> Casino</a>
+                        </li>
+                        <li *ngIf="!uISERVICE.liveGameStatus">
+                            <a class="main_drop"><span class="icon"><svg class="svg-icon">
+                                        <use href="/assets/icons/icons_defs.svg#cards"></use>
+                                    </svg></span> Live Casino</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

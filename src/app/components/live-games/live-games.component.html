@@ -1,0 +1,26 @@
+<div class="back_bar d-lg-none">
+    <a routerLink="/games" class="back_btn d-flex align-items-center">
+        <svg class="svg-icon">
+            <use href="/assets/icons/icons_defs.svg#svg_event-arrow"></use>
+        </svg>
+        <p class="pl-2">Back to Home</p>
+    </a>
+</div>
+<div class="main_wrap live_games_design">
+    <div class="container p-0">
+        <div class="cstm_row full_wid_mid">
+            <div class="side_bar">
+               
+            </div>
+            <div class="middle_area">
+                
+                <div class="casino_iframe iframe_area">                    
+                    <div class="inner iframe_area_col" [innerHTML]="iFrame | safe: 'html'">
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

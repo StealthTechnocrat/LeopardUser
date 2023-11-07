@@ -1,0 +1,132 @@
+<div class="back_bar d-lg-none">
+    <a routerLink="/games" class="back_btn d-flex align-items-center">
+        <svg class="svg-icon">
+            <use href="/assets/icons/icons_defs.svg#svg_event-arrow"></use>
+        </svg>
+        <p class="pl-2">Cash In/Out</p>
+    </a>
+</div>
+<div class="main_wrap">
+    <div class="center_col full_wid">
+        <div class="center_inner pt-3 pt-lg-0">
+            <div class="page_title d-none d-lg-block">
+                <h3>Cash In/Out</h3>
+            </div>
+            <div class="row valueBoxCol m-0">
+                <div class="col-md-4">
+                    <div class="innerValueCol">
+                        <h5>Credit Limit</h5>
+                        <p>{{objDetail.CreditLimit | number:'1.2-2'}}</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="innerValueCol">
+                        <h5>Balance</h5>
+                        <p>{{objDetail.TotalBal | number:'1.2-2'}}</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="innerValueCol">
+                        <h5>Exposure</h5>
+                        <p class="red">{{objDetail.Exp | number:'1.2-2'}}</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="innerValueCol">
+                        <h5>Avail Bal</h5>
+                        <p>{{objDetail.Bal | number:'1.2-2'}}</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="innerValueCol">
+                        <h5>Settlement</h5>
+                        <p [ngClass]="{'red':objDetail.Settlement<0,'green':objDetail.Settlement>=0}">
+                            {{objDetail.Settlement | number:'1.2-2'}}</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="innerValueCol">
+                        <h5>ProfitLoss</h5>
+                        <p [ngClass]="{'red':objDetail.ProfitLoss<0,'green':objDetail.ProfitLoss>=0}">
+                            {{objDetail.ProfitLoss | number:'1.2-2'}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="table_area my_bets_table pt-2">
+                <div class="filter">
+                    <form class="mb-3 form-inline d-block d-block">
+                        <div class="main_form row">
+                            <div class="col-md-8">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-field">
+                                            <label>Start Date</label>
+                                            <input name="sdate" [(ngModel)]="latest_date" (blur)="getStartDate($event.target.value)" type="date"
+                                                class="form-control mr-2" id="sdate">
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-field">
+                                            <label>End Date</label>
+                                            <input name="edate" [(ngModel)]="last" (blur)="getEndDate($event.target.value)" type="date"
+                                                class="form-control mr-2" id="edate">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-field customfield">
+                                    <button (click)="getTransactionHistory()" type="submit"
+                                        class="btn btn-primary mr-1 mt-md-3">Load</button>
+                                    <div>
+                                        <button type="button" class="btn file_btn excel mt-md-3" (click)="exportexcel()"><i
+                                                class="fas fa-file-excel"></i></button>
+                                      <!--   <button type="button" class="btn file_btn pdf mt-md-3" ><i
+                                                class="fas fa-file-pdf"></i></button> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="table-responsive">
+                    <table class="table align-middle table-striped mb-0 table_design" id="excel-table2">
+                        <thead>
+                            <tr>
+                                <th>Discription</th>
+                                <th>Avaiable Balance</th>
+                                <th>Amount</th>
+                                <th>Remark</th>
+                                <th>CreatedOn</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr
+                                *ngFor="let data of TransactionObj  | paginate: { itemsPerPage:uISERVICE.take, currentPage:pageNo,totalItems: totalRec }">
+                                <td>{{data.Discription}}</td>
+                                <td>{{data.Balance}}</td>
+                                <td [ngClass]="{'red':data.Amount<0,'green':data.Amount>=0}">{{data.Amount}}</td>
+                                <td>{{data.Remark}}</td>
+                                <td>{{data.CreatedOn |date:'MMM d, y, h:mm:ss a'}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="pagination_filter pt-3 d-flex justify-content-end">
+                    <select (change)="updateRecValue($event.target.value)" class="form-control mr-2" id="">
+                        <option value="uISERVICE.take" selected>{{uISERVICE.take}}</option>
+                        <option value="10" *ngIf="uISERVICE.take!=10">10</option>
+                        <option value="20" *ngIf="uISERVICE.take!=20">20</option>
+                        <option value="30" *ngIf="uISERVICE.take!=30">30</option>
+                        <option value="40" *ngIf="uISERVICE.take!=40">40</option>
+                        <option value="50" *ngIf="uISERVICE.take!=50">50</option>
+                    </select>
+
+                    <pagination-controls class="pagination" maxSize="9" directionLinks="true"
+                        (pageChange)="pageChanged($event)">
+                    </pagination-controls>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

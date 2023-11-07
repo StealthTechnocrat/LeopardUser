@@ -1,0 +1,509 @@
+.bet_slip {
+    position: relative;
+}
+
+.betslip_btm {
+    padding: 0 15px 5px;
+    border-bottom: 0;
+    margin-left: -8px;
+    margin-right: -6px;
+    position: relative;
+    @media (min-width:768px) {
+        margin-bottom: 4px;
+    }
+
+    &.back {
+        background: #bfd4e3;
+    }
+
+    &.lay {
+        background: #e7c6d3;
+    }
+
+    @media (max-width:991px) {
+        flex-wrap: wrap;
+    }
+
+    @media (max-width:767px) {
+        padding: 0 10px 5px;
+        margin: 0;
+    }
+
+    .bet-input-box {
+        input {
+            max-width: 70px;
+            height: 36px;
+            border-radius: 0;
+            border: none;
+            background: #fff;
+            color: #204878;
+            text-align: center;
+            font-size: 14px;
+
+            &:focus {
+                box-shadow: none;
+            }
+        }
+    }
+
+    .left {
+        display: none;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 5px 13px;
+        background: #72BBEF;
+        margin: 0 -10px 0;
+
+        @media (min-width:768px) {
+            display: flex;
+            margin: 0 -15px 0;
+            padding: 5px;
+        }
+    }
+
+    .mobile_content {
+        margin: 0 -10px;
+        padding: 10px 13px;
+
+        .profit {
+            font-weight: 600;
+            padding: 0;
+            color: rgba(0, 0, 0, 0.75);
+
+            span {
+                color: rgb(0, 80, 0);
+            }
+        }
+
+        .team_name {
+            p {
+                font-weight: 600;
+            }
+            .minmax{
+                display: block;
+            }
+        }
+
+        .amount_bar {
+            p {
+                font-weight: 600;
+            }
+        }
+    }
+
+    &.back {
+
+        .left,
+        .mobile_content {
+            background: #a7d8fd;
+        }
+    }
+
+    &.lay {
+
+        .left,
+        .mobile_content {
+            background: #f9c9d4;
+        }
+    }
+}
+
+.amount_bar {
+    position: relative;
+
+    @media (min-width:768px) {
+        padding: 0 0 0 15px;
+    }
+
+    @media (max-width:991px) {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    @media (max-width:767px) {
+        flex-direction: row;
+    }
+
+    input {
+        width: 100%;
+        max-width: 125px;
+        height: 28px;
+        border-radius: 3px;
+        border: none;
+        background: #fff;
+        color: #204878;
+        font-size: 14px;
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    /* Firefox */
+    input[type=number] {
+        -moz-appearance: textfield;
+    }
+}
+
+.profit {
+    padding-bottom: 10px;
+
+    p {
+        font-size: 14px;
+        font-weight: 700;
+
+        span {
+            font-weight: 400;
+
+            @media (max-width:567px) {
+                display: block;
+            }
+        }
+    }
+}
+
+.keyboard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    position: relative;
+    padding-top: 5px;
+
+    @media (max-width:991px) {
+        flex: 0 0 100%;
+        max-width: 100%;
+        padding-top: 15px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    @media (max-width:767px) {
+        padding-top: 0;
+        padding-top: 0;
+        max-width: inherit;
+        display: block;
+    }
+    ul.number_key{
+        padding-bottom: 0;
+        @media (max-width:767px) {
+            margin: 0;
+            padding-bottom: 10px;
+            padding-top: 5px; 
+            margin: 0 -10px;
+            width: auto;
+            border-top: 1px solid #bdbdbd;
+            
+            li{
+                flex: 0 0 16.66%;
+                max-width: 16.66%;
+                padding: 0;
+                border-bottom: 0.5px solid #bdbdbd;
+                border-right:1px solid #bdbdbd;
+                &:nth-child(6),&:last-child{
+                    border-right:0;
+                }
+                button{
+                    border-radius: 0 !important;
+                    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgb(233 233 233) 50%, rgba(255,255,255,1) 100%) !important;
+                    color: #204878 !important;
+                    padding: 8px 10px !important;
+                }
+                .btn-danger{
+                    width: 100%;
+                    border: none;
+                    border-radius: 3px;
+                    padding: 4px 12px;
+                    font-size: 14px;
+                }
+            }
+        } 
+    }
+
+    ul {
+        display: flex;
+        list-style: none;
+        padding-bottom: 10px;
+
+        @media (max-width:991px) {
+            flex-wrap: wrap;
+            padding-top: 10px;
+        }
+
+        @media (max-width:767px) {
+            order: 1;
+            width: 100%;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        li {
+            padding: 0 2px;
+            &:last-child{
+                @media(min-width:767px) {
+                    padding-right: 0;
+                }
+            }
+            @media (min-width:1300px) {
+                padding: 0 5px;
+            }
+
+            @media (max-width:767px) {
+                flex: 0 0 25%;
+                max-width: 25%;
+                padding: 6px 3px 0;
+            }
+
+            button.btn-primary {
+                font-size: 14px;
+                font-weight: 600;
+                background: #131A27;
+                border: none;
+                border-radius: 3px;
+                padding: 4px 12px;
+
+                @media (max-width:767px) {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .bet_btn {
+        @media (max-width:991px) {
+            align-self: flex-end;
+            padding-left: 15px;
+        }
+
+        @media (max-width:767px) {
+            order: 3;
+            width: 100%;
+            display: flex;
+            padding: 0;
+        }
+
+        button {
+            border: none;
+            border-radius: 3px;
+            font-size: 14px;
+            padding: 4px 12px;
+
+            @media (max-width:767px) {
+                width: 50%;
+            }
+        }
+    }
+}
+
+.bet-table-row-header-mobile {
+    @media (max-width:1024px) {
+        display: flex;
+        align-items: center;
+        background-color: #2E3439;
+        padding: 4px;
+    }
+}
+
+.bet-input-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+
+    button {
+        color: #fff;
+        height: 36px;
+        width: 30px;
+        border: 0;
+        font-size: 14px;
+
+        @media (min-width:1300px) {
+            width: 40px;
+        }
+
+        &.btn-minus {
+            background: #204878;
+            border-radius: 3px 0 0 3px;
+        }
+
+        &.btn-plus {
+            background: #204878;
+            border-radius: 0 3px 3px 0;
+        }
+    }
+}
+
+.info {
+    font-weight: 600;
+    display: flex;
+
+    p {
+        &:first-child {
+            padding-right: 10px;
+        }
+    }
+
+    .profit {
+        color: rgb(0, 80, 0);
+    }
+}
+
+.exp {
+    color: rgb(255, 22, 22);
+}
+
+.minmax {
+    font-weight: 600;
+    display: none;
+
+    @media (min-width:768px) {
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        display: block;
+    }
+}
+
+.betslip_loader {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 100%;
+    background: rgb(0, 0, 0);
+    margin-left: -8px;
+    margin-right: -6px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    // background-image: url('../../../assets/img/lining.png');
+    opacity: 0.8;
+    z-index: 99;
+
+    button {
+        color: #fff;
+        opacity: 1;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        font-size: 16px;
+        height: 100%;
+        justify-content: center;
+
+        .spinner-border {
+            width: 1.6rem;
+            height: 1.6rem;
+            border: 0.20em solid currentColor;
+            border-right-color: transparent;
+            border-radius: 50%;
+        }
+    }
+
+    &.loader_show {
+        display: flex;
+    }
+
+    // img {
+    //     width: 75px;
+    // }
+}
+
+.team_name {
+
+    @media (min-width:768px) {
+        padding-left: 15px;
+    }
+
+    h6 {
+        font-weight: 700;
+        font-size: 14px;
+        padding-bottom: 8px;
+
+        @media (min-width:768px) {
+            padding-bottom: 0;
+        }
+
+        .bet_rate {
+            background: #204878;
+            color: #fff;
+            border-radius: 8px;
+            padding: 3px 8px;
+            font-size: 12px;
+
+            @media (max-width:767px) {
+                margin-left: 5px;
+            }
+        }
+    }
+}
+
+.input_area {
+    label {
+        font-weight: 600;
+    }
+}
+
+.bet_input_bx {
+    position: relative;
+    overflow: hidden;
+    input{
+        background: transparent;
+        position: relative;
+        z-index: 99;
+    }
+    &:before {
+        content: '';
+        position: absolute;
+        z-index: 1;
+        left: -50%;
+        top: -50%;
+        width: 200%;
+        height: 200%;
+        background-repeat: no-repeat;
+        background-size: 50% 50%, 50% 50%;
+        background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+        animation-name: rotateborder;
+        animation-duration: 4s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        background-color: #204878;
+        background-image: linear-gradient(#204878, #204878), linear-gradient(#204878, #204878), linear-gradient(#204878, #204878), linear-gradient(#204878, #204878);
+    }
+    &:after{
+        content: '';
+        position: absolute;
+        top: 1px;
+        left: 1px;
+        width: calc(100% - 2px);
+        height: calc(100% - 2px);
+        background: #fff;
+        z-index: 11;
+    }
+}
+@keyframes rotateborder {
+    from {
+            -webkit-transform: rotate(0deg);
+    }
+    to {
+            -webkit-transform: rotate(359deg);
+    }
+}
+
+.mobOrder {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    @media(max-width:767px){
+        flex-flow: column-reverse;
+    }
+    .bet_btn{
+        @media(max-width:767px){
+            margin-top: 4px;
+        }
+        button{
+            @media(max-width:1210px){
+                padding: 4px 8px;
+            }
+        }
+    } 
+}

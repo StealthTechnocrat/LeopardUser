@@ -1,0 +1,201 @@
+<div class="back_bar d-lg-none">
+    <a routerLink="/games" class="back_btn d-flex align-items-center">
+        <svg class="svg-icon">
+            <use href="/assets/icons/icons_defs.svg#svg_event-arrow"></use>
+        </svg>
+        <p class="pl-2">{{marketName}}</p>
+    </a>
+</div>
+<div class="main_wrap" *ngIf="rtrnObj!=null">
+    <div class="center_col full_wid">
+        <div class="center_inner">
+            <div class="page_title mb-0 d-sm-flex align-items-center">
+                <h3>{{marketName}}
+                    <!-- <small class="rules pl-2">Rules</small> -->
+                </h3>
+                <h5 class="ml-auto">Round Id : {{roundId}}</h5>
+            </div>
+            <div class="iframe_area">
+                <iframe width="100%" height="365" [src]="urlSafe" title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+
+
+                <!-- Cards Section for 20-20 teenpatti  && TeenPatti1-day-->
+                <div class="cards" *ngIf="marketName == '20-20 TeenPatti'">
+                    <div class="player_card" *ngIf="showcard">
+                        <h6>Player A</h6>
+                        <ul>
+                            <li><img src="../../../assets/img/cards/{{apiData[0].data.t1[0].C1}}.png" alt=""></li>
+                            <li><img src="../../../assets/img/cards/{{apiData[0].data.t1[0].C2}}.png" alt=""></li>
+                            <li><img src="../../../assets/img/cards/{{apiData[0].data.t1[0].C3}}.png" alt=""></li>
+                        </ul>
+                    </div>
+                    <div class="player_card" *ngIf="showcard">
+                        <h6>Player B</h6>
+                        <ul>
+                            <li><img src="../../../assets/img/cards/{{apiData[0].data.t1[0].C4}}.png" alt=""></li>
+                            <li><img src="../../../assets/img/cards/{{apiData[0].data.t1[0].C5}}.png" alt=""></li>
+                            <li><img src="../../../assets/img/cards/{{apiData[0].data.t1[0].C6}}.png" alt=""></li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <!-- Cards Section for Lucky7-A && Lucky7- -->
+                <div class="cards" *ngIf="marketName == 'Lucky7-A' || marketName == 'Amar Akbar Anthony' ">
+                    <div class="player_card" *ngIf="showcard">
+                        <h6>Card</h6>
+                        <ul>
+                            <li><img src="../../../assets/img/cards/{{apiData[0].data.t1[0].C1}}.png" alt=""></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Cards Section for DragonTiger20 -->
+                <div class="cards" *ngIf="marketName == 'DragonTiger20-20'  ">
+                    <div class="player_card" *ngIf="showcard">
+                        <h6>Dragon</h6>
+                        <ul>
+                            <li><img src="../../../assets/img/cards/{{apiData[0].data.t1[0].C1}}.png" alt=""></li>
+                        </ul>
+                    </div>
+                    <div class="player_card" *ngIf="showcard">
+                        <h6>Tiger</h6>
+                        <ul>
+                            <li><img src="../../../assets/img/cards/{{apiData[0].data.t1[0].C2}}.png" alt=""></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Cards Section Andar Bahar- -->
+                <div class="cards row m-0 align-items-center" *ngIf="marketName == 'AndarBahar'  ">
+                    <div class="col-1 px-1">
+                        <div class="row row5">
+                            <div class="col-12">
+                                <p class="mb-0 text-white player_sno" style="line-height: 44px;">
+                                    <b>A</b>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row row5">
+                            <div class="col-12">
+                                <p class="mb-0 text-white player_sno" style="line-height: 44px;">
+                                    <b>B</b>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2 px-1" *ngIf="apiData?.length>0">
+                        <div class="player_card">
+                            <ul>
+                                <li><img src="../../../assets/img/cards/{{apiData[0].data.t1[0].C1}}.png" alt=""></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-9 px-1" *ngIf="apiData?.length>0">
+                        <div class="card-inner">
+                            <div class="row row5 row5">
+                                <div class="col-2" *ngIf="cardsData[2]!=undefined && cardsData[2]!=''"><img
+                                        src="../../../assets/img/cards/{{cardsData[2]}}.png">
+                                </div>
+
+                                <div class="col-10">
+                                    <div id="a-cards" class="ab-rtlslider">
+                                        <div class="cards_scroll">
+                                            <div class="item" *ngFor="let adata of AnderCards">
+                                                <img src="../../../assets/img/cards/{{adata}}.png">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-inner">
+                            <div class="row row5 row5">
+                                <div class="col-2" *ngIf="cardsData[1]!=undefined && cardsData[1]!=''"><img
+                                        src="../../../assets/img/cards/{{cardsData[1]}}.png">
+                                </div>
+                                <div class="col-10">
+                                    <div id="b-cards" class="ab-rtlslider">
+                                        <div class="cards_scroll">
+                                            <div class="item" *ngFor="let bdata of BaharCards">
+                                                <img src="../../../assets/img/cards/{{bdata}}.png">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="tab_accordion" *ngFor="let mrkt of rtrnObj.markets;let i=index">
+                <button class="btn accor_btn" type="button" data-toggle="collapse" data-target="#matchOdds"
+                    aria-expanded="true" aria-controls="matchOdds">
+                    <div class="tab_name">
+                        <!-- <svg class="svg-icon">
+                            <use href="/assets/icons/icons_defs.svg#svg__arrow"></use>
+                        </svg>  -->
+                        <span class="txt ml-2 ">{{mrkt.marketName}}</span>
+                        <small class="pl-3">Min:{{mrkt.MinStake}} &nbsp;Max:{{mrkt.MaxStake}}</small>
+                    </div>
+                    <div class="bl_title back">Back</div>
+                    <div class="bl_title lay">Lay</div>
+                </button>
+                <div class="collapse show" id="matchOdds">
+                    <div class="inner_bet_table mob-BackLay">
+                        <div class="bet_table_row rowHead justify-content-end">
+                            <div class="backHead">
+                                Back
+                            </div>
+                            <div class="LayHead">
+                                Lay
+                            </div>
+                        </div>
+                        <div class="bet_table_row" *ngFor="let rnr of mrkt.runners;let r=index"
+                            [ngClass]="{'bet_locked':rtrnObj.status || mrkt.status || rnr.status==0  || rnr.runners.availableToBack[0].price==0}">
+
+                            <div class="nation_name">
+                                <p>{{rnr.RunnerName}}</p>
+                                <span class="btm">
+                                    <span class="profitloss" [ngClass]="{'negative':rnr.Book<0}">{{rnr.Book |
+                                        number:'1.2-2'}}</span>
+
+                                </span>
+                            </div>
+                            <div class="bl_boxMain">
+                                <div class="bl_box back"
+                                    (click)="setValues('Back',rnr.runners.availableToBack[0].price,rnr.runners.availableToBack[0].size,mrkt.MarketId,rnr.RunnerId,rnr.RunnerName,mrkt.MaxStake,mrkt.MinStake,r,mrkt.marketName,i,mrkt.Betdelay)">
+                                    <span class="odds">{{rnr.runners.availableToBack[0].price}}</span>
+                                    <span class="size">{{rnr.runners.availableToBack[0].size}}</span>
+                                </div>
+                                <div class="bl_box lay" [ngClass]="{'single_betlock':layLock}"
+                                    (click)="setValues('Lay',rnr.runners.availableToLay[0].price,rnr.runners.availableToLay[0].size,mrkt.MarketId,rnr.RunnerId,rnr.RunnerName,mrkt.MaxStake,mrkt.MinStake,r,mrkt.marketName,i,mrkt.Betdelay)">
+                                    <span class="odds">{{rnr.runners.availableToLay[0].price}}</span>
+                                    <span class="size">{{rnr.runners.availableToLay[0].size}}</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <app-bet-slip *ngIf="uISERVICE.showSlip[i]"></app-bet-slip>
+                    </div>
+                </div>
+            </div>
+            <div class="casino_result pt-3">
+                <div class="title d-flex align-items-center justify-content-between">
+                    <h4>Last Result</h4>
+                    <!-- <a href="#">View All</a> -->
+                </div>
+                <div class="white_bg p-3" *ngIf="gameResult?.length>0">
+                    <ul class="last_result_list d-flex justify-content-end list-unstyled">
+                        <li *ngFor="let rData of gameResult">
+                            <span>{{rData.Win}}</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

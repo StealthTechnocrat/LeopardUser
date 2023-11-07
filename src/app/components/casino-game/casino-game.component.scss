@@ -1,0 +1,186 @@
+.mid_inner {
+    background: #fff;
+    padding: 10px 10px 0;
+  
+    .img_area {
+      padding-bottom: 10px;
+      cursor: pointer;
+  
+      img {
+        width: 100%;
+      }
+    }
+  
+    .row {
+      margin: 0 -7px;
+    }
+  
+    .col-md-3,
+    .col-md-12 {
+      padding: 0 7px;
+    }
+  }
+  
+  .loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9;
+  
+    img {
+      width: 100px;
+    }
+  }
+  
+  .game_name {
+    font-size: 13px;
+    background: #204878;
+    color: #fff;
+    padding: 8px 0;
+    text-align: center;
+    // display: none;
+  }
+  
+  span.bet_open_tag {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgb(236, 38, 38);
+    color: #fff;
+    border: 1px solid rgb(236, 38, 38);
+    border-radius: 10px;
+    padding: 3px 6px;
+    font-size: 10px;
+    animation: twinkling 1.4s infinite ease
+  }
+  
+  @keyframes twinkling {
+  
+    0%,
+    100% {
+      opacity: 1
+    }
+  
+    50% {
+      opacity: 0.5
+    }
+  }
+  
+  .tab_title {
+    background: #1B262C;
+    color: #fff;
+    margin: -16px -15px 8px;
+    padding: 8px 15px;
+  }
+  
+  .btns_area {
+    display: flex;
+    justify-content: space-between;
+    color: #000;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  
+    .live_bal {
+      padding-left: 15px;
+    }
+  
+    h4 {
+      font-size: 14px;
+  
+      button {
+        text-decoration: underline;
+        color: #000;
+      }
+    }
+  
+    .right_area {
+      display: flex;
+      align-items: center;
+  
+      input {
+        height: 30px;
+        font-size: 14px;
+        line-height: 1;
+      }
+  
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+  
+      /* Firefox */
+      input[type=number] {
+        -moz-appearance: textfield;
+      }
+    }
+  
+    button {
+      padding: 5px 15px;
+    }
+  }
+  
+  .tab_ul {
+    ul {
+      background: #fff;
+      border-bottom: 1px solid #204878;
+  
+      li {
+        a {
+          background-color: #0f9652;
+          color: #fff;
+          padding: 8px 10px;
+          display: flex;
+          width: 100%;
+          font-size: 18px;
+          padding: 8px 18px;
+  
+          &:hover {
+            text-decoration: none;
+          }
+        }
+  
+        a.active {
+          background-color: #204878;
+          color: #fff;
+        }
+      }
+    }
+  }
+  
+  .tab_head_custom {
+    background-color: #204878;
+  
+    h1 {
+      font-size: 18px;
+      padding: 8px 18px;
+    }
+  }
+  
+  .nowa_navTab {
+    background: #fff;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+
+

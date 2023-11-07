@@ -1,0 +1,165 @@
+<div class="back_bar d-lg-none">
+    <a routerLink="/games" class="back_btn d-flex align-items-center">
+        <svg class="svg-icon">
+            <use href="/assets/icons/icons_defs.svg#svg_event-arrow"></use>
+        </svg>
+        <p class="pl-2">My Bets</p>
+    </a>
+</div>
+<div class="main_wrap">
+    <div class="center_col full_wid">
+        <div class="center_inner pt-3 pt-lg-0">
+            <div class="page_title d-none d-lg-block">
+                <h3>My Bets</h3>
+            </div>
+            <div class="table_area my_bets_table">
+                <div class="filter">
+                    <form class="mb-3 form-inline d-block d-block">
+                        <div class="main_form row">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <div class="form-field">
+                                            <label>Sports Id</label>
+                                            <select (change)="onChange($event.target.value,'sports')"
+                                                class="form-select" aria-label="Default select example">
+                                                <option selected value=0>All</option>
+                                                <option value=1>Soccer</option>
+                                                <option value=2>Tennis</option>
+                                                <option value=4>Cricket</option>
+                                                <option value=5>Table Games</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="form-field">
+                                            <label>Market Name</label>
+                                            <select (change)="onChange($event.target.value,'market')"
+                                                class="form-select" aria-label="Default select example">
+                                                <option selected value="All">All</option>
+                                                <option value="Match Odds">MATCH</option>
+                                                <option value="BookMaker">BookMaker</option>
+                                                <option value="To Win the Toss">Toss</option>
+                                                <option value="Fancy">Fancy</option> <option value="Cup-Rate">Cup-Rate</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="form-field">
+                                            <label>Bet-Type</label>
+                                            <select (change)="onChange($event.target.value,'bettype')"
+                                                class="form-select" aria-label="Default select example">
+                                                <option selected value="All">All</option>
+                                                <option value="Back" *ngIf="mrktName!='Fancy'">Back</option>
+                                                <option value="Lay" *ngIf="mrktName!='Fancy'">Lay</option>
+                                                <option value="Yes" *ngIf="mrktName=='Fancy'">Yes</option>
+                                                <option value="No" *ngIf="mrktName=='Fancy'">No</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="form-field">
+                                                    <label>Start Date</label>
+                                                    <input type="date" name="sdate" [(ngModel)]="latest_date" (blur)="getStartDate($event.target.value)"
+                                                    class="form-control mr-2" id="sdate">
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="form-field">
+                                                    <label>End Date</label>
+                                                    <input type="date" name="edate" [(ngModel)]="last" (blur)="getEndDate($event.target.value)"
+                                                        class="form-control mr-2" id="edate">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-field customfield">
+                                            <button (click)="getBetsHistory()" type="submit"
+                                                class="btn btn-primary mt-md-3 mr-2">Load</button>
+                                            <div>
+                                                <button type="button" class="btn file_btn excel mt-md-3" (click)="exportexcel()"><i
+                                                        class="fas fa-file-excel"></i></button>
+                                                <!-- <button type="button" class="btn file_btn pdf mt-md-3"><i
+                                                        class="fas fa-file-pdf"></i></button> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="table-responsive">
+                    <table class="table align-middle table-striped mb-0 table_design" id="excel-table2">
+                        <thead>
+                            <tr>
+                                <th>Match Name</th>
+                                <th>Market Name</th>
+                                <th>Selection Name</th>
+                                <th>Bate Type</th>
+                                <th>Odds</th>
+                                <th>Stack</th>
+                                <th>Profit</th>
+                                <th>Result</th>
+                                <th date_set>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr
+                                *ngFor="let data of betObj | paginate: { itemsPerPage:uISERVICE.take, currentPage:pageNo,totalItems: totalRec }">
+                                <td>
+                                    {{data.EventName}}
+                                </td>
+                                <td>
+                                    {{data.MarketName}}
+                                </td>
+                                <td>
+                                    {{data.RunnerName}}
+                                </td>
+                                <td>
+                                    {{data.BetType}}
+                                </td>
+                                <td>
+                                    {{data.Odds}}
+                                </td>
+                                <td>
+                                    {{data.Stake}}
+                                </td>
+                                <td>
+                                    <span
+                                        [ngClass]="{'red':data.Profit<0,'green':data.Profit>=0}">{{data.Profit |number : '1.2-2'}}</span>
+                                </td>
+                                <td>
+                                    {{data.Result}}
+                                </td>
+                                <td>
+                                    {{data.createdOn |date:'MMM d, y, h:mm:ss a' }}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="pagination_filter pt-3 d-flex justify-content-end">
+                    <select (change)="updateRecValue($event.target.value)" class="form-control mr-2" id="">
+                        <option value="uISERVICE.take" selected>{{uISERVICE.take}}</option>
+                        <option value="10" *ngIf="uISERVICE.take!=10">10</option>
+                        <option value="20" *ngIf="uISERVICE.take!=20">20</option>
+                        <option value="30" *ngIf="uISERVICE.take!=30">30</option>
+                        <option value="40" *ngIf="uISERVICE.take!=40">40</option>
+                        <option value="50" *ngIf="uISERVICE.take!=50">50</option>
+                    </select>
+                    <pagination-controls class="pagination" maxSize="9" directionLinks="true" *ngIf="betObj?.length>0"
+                        (pageChange)="pageChanged($event)">
+                    </pagination-controls>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

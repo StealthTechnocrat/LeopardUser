@@ -1,0 +1,626 @@
+.fancy_modal_btn {
+    z-index: 999;
+    outline: none;
+    box-shadow: none;
+}
+
+.selectionPoiny {
+    color: #3abe06;
+    font-size: 12px;
+
+    &.negtive-val {
+        color: red;
+    }
+}
+
+.scrore_area {
+    min-height: 120px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    padding: 0px 0px 15px;
+    position: sticky;
+    top: 76px;
+    z-index: 9999;
+
+    @media (max-width:1199.9px) {
+        top: 65px;
+        min-height: 50px;
+        padding: 0px 0px 3px;
+        margin-bottom: 2px;
+    }
+
+    @media (min-width:992px) {
+        padding: 0px 0px 15px;
+    }
+
+
+    &.cricket_score {
+        background-image: url('/assets/score_bg/cricket.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
+    .event_info {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        background: rgba($color: #000000, $alpha: 0.6);
+        border-radius: 3px 3px 0 0;
+
+        @media(max-width:1199.9px) {
+            background-color: transparent;
+            padding: 1px 10px 0;
+            // position: absolute;
+            // left: 50%;
+            // transform: translate(-50%, -50%);
+            // z-index: 2;
+            // top: 50%;
+        }
+
+        h4 {
+            font-size: 16px;
+            font-weight: 500;
+            color: #fff;
+
+            @media(max-width:1199.9px) {
+                display: none;
+            }
+
+            @media (min-width:768px) {
+                font-size: 20px;
+            }
+        }
+
+        .svg-icon {
+            fill: #fff;
+            width: 18px;
+            height: 18px;
+            margin-top: -4px;
+        }
+
+        small {
+            font-size: 65%;
+
+            @media (max-width:767px) {
+                display: block;
+                padding-top: 8px;
+            }
+        }
+
+        .event_status {
+            position: relative;
+
+            button.live_btn {
+                position: relative;
+                padding: 3px 14px;
+                font-weight: 500;
+                font-size: 14px;
+                border-radius: 4px;
+                z-index: 0;
+
+                @media (max-width:991px) {
+                    padding: 1px 12px;
+                    font-size: 12px;
+                }
+
+                &:hover {
+                    color: #fff;
+                }
+
+                &:after {
+                    z-index: -1;
+                    content: '';
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    background: #727272;
+                    left: 0;
+                    top: 0;
+                    border-radius: 4px;
+                }
+
+                &:before {
+                    content: '';
+                    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+                    position: absolute;
+                    top: -1px;
+                    left: -1px;
+                    background-size: 400%;
+                    z-index: -1;
+                    filter: blur(5px);
+                    width: calc(100% + 2px);
+                    height: calc(100% + 2px);
+                    animation: glowing 20s linear infinite;
+                    opacity: 1;
+                    transition: opacity .3s ease-in-out;
+                    border-radius: 10px;
+
+                    @keyframes glowing {
+                        0% {
+                            background-position: 0 0;
+                        }
+
+                        50% {
+                            background-position: 400% 0;
+                        }
+
+                        100% {
+                            background-position: 0 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .score_bar {
+        background: #204878d6;
+        color: #fff;
+        max-width: 95%;
+        margin: 0px auto 0;
+        border-radius: 2px;
+        font-size: 16px;
+        padding: 12px;
+
+        @media(max-width:1199px) {
+            margin: 2px auto 0 !important;
+        }
+
+        @media(max-width:991px) {
+            font-size: 13px;
+            padding: 4px 4px 0 !important;
+        }
+
+        @media (min-width:992px) {
+            margin: 15px auto 0;
+        }
+
+        @media (min-width:768px) {
+            max-width: 75%;
+            border-radius: 4px;
+        }
+
+    }
+
+    strong {
+        font-weight: 500;
+        margin-bottom: 6px;
+        display: block;
+    }
+
+    .score_data {
+        div {
+            font-size: 14px;
+            margin: 2px 0px;
+        }
+    }
+
+    .f_score_data {
+        font-size: 20px;
+        margin: 0px;
+
+        @media(max-width:991px) {
+            font-size: 14px;
+        }
+    }
+
+    .f_score_datad {
+        padding: 0px 5px;
+        font-size: 20px;
+
+        @media(max-width:991px) {
+            font-size: 14px;
+        }
+    }
+
+    .set_design {
+        font-size: 12px;
+    }
+
+    .tennis_table_design {
+        margin-bottom: 0px;
+
+        tbody {
+            background: transparent;
+            color: #fff;
+
+            tr {
+                td {
+                    border: unset;
+                    font-size: 12px;
+                    padding: 0px 3px;
+
+                    strong {
+                        font-size: 14px;
+
+                        @media(max-width:991px) {
+                            font-size: 13px;
+                        }
+                    }
+                }
+
+                &:hover {
+                    background: transparent;
+                }
+            }
+        }
+    }
+
+    .tennis_score_bar {
+        padding: 3px 10px 10px;
+        max-width: 100%;
+        margin: 15px auto 0px;
+        background: rgba(0, 0, 0, 0.6);
+    }
+}
+
+.fancybook_modal {
+    .modal-dialog {
+        margin-top: 77px;
+
+        .modal-header {
+            padding: 10px 15px;
+            background-color: #204878;
+
+            h5 {
+                color: #fff;
+            }
+
+            .close {
+                color: #fff;
+                opacity: 1;
+            }
+        }
+
+        thead {
+            tr {
+                background: #d9d9d9;
+            }
+        }
+
+        .green {
+            color: #0fa810;
+        }
+
+        .red {
+            color: red;
+        }
+    }
+}
+
+.bet_table_row {
+    .nation_name {
+        width: 100%;
+
+        @media (min-width:768px) {
+            width: calc(100% - 452px);
+        }
+
+        @media (max-width:767px) {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+}
+
+.tab_accordion .accor_btn .tab_name {
+    @media (min-width:768px) {
+        width: calc(100% - 306px);
+    }
+}
+
+.tab_accordion .accor_btn {
+    @media (min-width:768px) {
+        padding: 0;
+    }
+}
+
+.mobile_tv {
+    @media (min-width:1200px) {
+        // display: none;
+    }
+
+    iframe {
+        width: 100%;
+
+        @media(max-width:475px) {
+            height: 136px;
+        }
+    }
+}
+
+.back_bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 10px 8px 10px;
+
+    .bet_btn {
+        padding: 2px 6px;
+        font-size: 12px;
+    }
+
+    .back_btn {
+        padding-right: 8px;
+    }
+}
+
+.mob-BackLay {
+    @media(max-width:475px) {
+        padding: 0px;
+    }
+
+    .bet_table_row {
+        @media(max-width:475px) {
+            flex-flow: row;
+            margin-bottom: 0;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        &:last-child {
+            @media(max-width:475px) {
+                border-bottom: 0px solid #e5e5e5;
+            }
+        }
+
+        .nation_name {
+            @media(max-width:475px) {
+                flex-flow: column;
+                align-items: flex-start;
+                padding: 8px 8px;
+            }
+        }
+
+        .bl_box.back_2,
+        .bl_box.back_1,
+        .bl_box.lay_1,
+        .bl_box.lay_2 {
+            @media(max-width:475px) {
+                display: none;
+            }
+        }
+
+        .bl_box {
+            @media(max-width:475px) {
+                max-width: 70px;
+                width: 100%;
+                height: 48px;
+                margin-right: 5px;
+                /* border-radius: 0; */
+                border-right: 1px solid #d9d9d9;
+
+            }
+        }
+    }
+}
+
+.rowHead {
+    display: none;
+
+    @media(max-width:475px) {
+        display: flex;
+    }
+
+    .backHead {
+        @media(max-width:575px) {
+            background: #a7d8fd;
+        }
+    }
+
+    .LayHead {
+        @media(max-width:575px) {
+            background: #f9c9d4;
+        }
+    }
+
+    .backHead,
+    .LayHead {
+        max-width: 52px;
+        width: 100%;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        font-size: 14px;
+        margin-right: 5px;
+
+        @media(max-width:575px) {
+            margin-right: 0;
+            max-width: 70px;
+            border-right: 1px solid #d9d9d9;
+            font-size: 15px;
+        }
+    }
+
+}
+
+.mobile_tv {
+
+    // @media(max-width:1199px){
+    //     position: sticky;
+    //     top: 136px;
+    //     z-index: 2;
+    // }
+    iframe {
+        height: 120px;
+
+        @media(max-width:475px) {
+            // height: 100px;
+            height: auto;
+        }
+    }
+}
+
+.fancyBackLay {
+
+    .LayHead,
+    .backHead {
+        @media(max-width:767.9px) {
+            max-width: 66px !important;
+        }
+
+        @media(max-width:575px) {
+            max-width: 70px !important;
+        }
+    }
+}
+
+.fancyTableCol {
+
+    .nation_name {
+        @media(max-width:767.9px) {
+            width: calc(100% - 144px) !important;
+        }
+
+        @media(max-width:575px) {
+            width: calc(100% - 156px) !important;
+        }
+    }
+
+    .mobNone {
+        @media(max-width:767.9px) {
+            display: none;
+        }
+    }
+
+    .bl_box {
+        @media(max-width:767.9px) {
+            width: 72px !important;
+            border-right: 1px solid #ffffff !important;
+        }
+
+        @media(max-width:575px) {
+            width: 52px !important;
+        }
+    }
+
+    .bl_boxMain {
+        @media(max-width:767.9px) {
+            width: 144px;
+        }
+
+        @media(max-width:575px) {
+            width: 140px !important;
+        }
+
+        .bl_box {
+            @media(max-width:767.9px) {
+                width: 72px !important;
+                border-right: 1px solid #ffffff !important;
+            }
+
+            @media(max-width:575px) {
+                width: 70px !important;
+            }
+        }
+    }
+}
+
+.tvModal {
+    display: none;
+    position: fixed;
+    // top: 50%;
+    top: 62px;
+    z-index: 9999;
+    max-width: 356px;
+    width: 100%;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+
+    // transform: translate(0px, -50%);
+    .modal-header {
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        z-index: 3;
+        background-color: #15386d;
+        border-radius: 50%;
+        height: 30px;
+        width: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 0;
+
+        @media(max-width:475px) {
+            top: -18px;
+            right: -7px;
+        }
+
+        button.close {
+            padding: 0 0 3px;
+            margin: 0;
+            color: #fff;
+            opacity: 1;
+            font-weight: 300;
+        }
+    }
+
+    .modal-body {
+        box-shadow: 0px 0px 9px #0101013d;
+        padding: 0;
+
+        // @media(max-width:475px){
+        //     padding: .6rem;
+        // }
+        .mobile_tv {
+            min-width: 270px;
+            min-height: 200px;
+
+            @media(max-width:475px) {
+                min-width: 100%;
+                min-height: auto;
+            }
+        }
+    }
+
+    @media(max-width:475px) {
+        // max-width: 100%;
+        max-width: 260px;
+    }
+}
+
+.matchTitle {
+    .small {
+        font-size: 60%;
+    }
+}
+
+.marketTime {
+    button {
+        border: 1px solid #15386d;
+        font-size: 14px;
+        font-weight: 500;
+    }
+}
+
+#liveTv {
+    position: sticky;
+    top: -40px;
+    z-index: 9999;
+
+    .nav-tabs {
+        li {
+            width: 50%;
+
+            button {
+                background-color: #303030;
+                border: none;
+                border-bottom: 3px solid #303030;
+                border-radius: 0;
+                color: #fff;
+                text-align: center;
+                font-size: 16px;
+                width: 100%;
+
+                &.active {
+                    border-color: #0fa810;
+                }
+            }
+        }
+    }
+}

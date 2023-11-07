@@ -1,0 +1,647 @@
+// body {
+//     color: #fff;
+//     background: #E5E8ED;
+// }
+
+// :root {
+//     --head-bg: #1b262c;
+//     --text_color: #fff;
+//     --topbar: #121617;
+//     --noti_bg: #2A2E2F;
+//     --bodyBg: #121617;
+//     --heading_br: #fff;
+//     --footer: #1b262c;
+//     --main_wrap: #121617;
+//     --sidebar: #1b262c;
+//     --sidebar_ic: #ffffff29;
+//     --heading_color: #fff;
+//     --mob_noti: #121617;
+//     --m_head: #1b262c;
+//     --tab_bg: rgba(255, 255, 255, 0.1);
+//     --m_tabs: #1A262B;
+//     --game_heading: rgba(255, 255, 255, 0.15);
+//     --pg_bg: #1A262B;
+//     --link_bg: rgba(255, 255, 255, 0.6);
+//     --rightMenu: #121617;
+//     --sidebar_link: #fff;
+//     --table_head: #3e535f;
+//     --m_warp: #121617;
+//     --tabActive: #ED9533;
+// }
+
+// :root[data-theme=light] {
+//     --head-bg: #fff;
+//     --text_color: #222222;
+//     --topbar: #D6DEDB;
+//     --noti_bg: #acc0c5;
+//     --bodyBg: #fff;
+//     --heading_br: #000;
+//     --footer: #acc0c5;
+//     --main_wrap: #fff;
+//     --sidebar: #acc0c5;
+//     --sidebar_ic: #38383885;
+//     --heading_color: #222222;
+//     --mob_noti: #acc0c5;
+//     --m_head: #fff;
+//     --tab_bg: #121617;
+//     --m_tabs: #acc0c5;
+//     --game_heading: #acc0c5;
+//     --pg_bg: #fff;
+//     --link_bg: #acc0c5;
+//     --rightMenu: #acc0c5;
+//     --sidebar_link: #000;
+//     --table_head: #3e535f;
+//     --m_warp: #fff;
+//     --tabActive: #acc0c5;
+// }
+
+// :root[data-theme=blue] {
+//     --m_tabs: #1A262B;
+//     --head-bg: #12336f;
+//     --text_color: #000;
+//     --topbar: #fff;
+//     --noti_bg: #4A525A;
+//     --bodyBg: #fff;
+//     --heading_br: #000;
+//     --footer: #1b262b;
+//     --main_wrap: #fff;
+//     --sidebar: #dedfe0;
+//     --sidebar_ic: #3e5260;
+//     --heading_color: #222222;
+//     --mob_noti: #DEDFE0;
+//     --m_head: rgb(2, 2, 2);
+//     --tab_bg: #12336f;
+//     --m_tabs: #fff;
+//     --game_heading: #12336f;
+//     --pg_bg: #fff;
+//     --link_bg: #12336f;
+//     --rightMenu: #12336f;
+//     --sidebar_link: #000;
+//     --table_head: #12336f;
+//     --m_warp: #fff;
+//     --tabActive: #12336f;
+// }
+
+// :root[data-theme=dark] {
+//     .right_menu {
+//         .color_combinations {
+//             .title {
+//                 background: #fff;
+
+//                 h5 {
+//                     color: #222222;
+//                 }
+//             }
+
+//             button {
+//                 color: #fff;
+
+//                 &.dark {
+//                     background: #ED9533;
+//                     color: #fff;
+//                 }
+//             }
+//         }
+//     }
+// }
+
+// button,
+// button.btn {
+//     color: var(--text_color);
+// }
+
+// header {
+//     // background: var(--head-bg);
+//     // color: var(--text_color);
+
+//     a.rules_model {
+//         // color: var(--text_color);
+//     }
+
+//     .top_bar {
+//         // background: var(--topbar);
+
+//         .marquee_area {
+//             color: var(--text_color);
+
+//             .inner_mar {
+//                 // background: var(--noti_bg);
+//             }
+//         }
+
+//         .match_inner {
+//             // background: var(--noti_bg);
+//         }
+//     }
+// }
+
+// .heading {
+//     h4 {
+//         color: var(--text_color);
+
+//         &:after {
+//             background: var(--heading_br);
+//         }
+//     }
+// }
+// .tab_head {
+//     h1 {
+//         color: var(--heading_color);
+//     }
+
+//     p {
+//         color: var(--heading_color);
+//     }
+// }
+
+// footer {
+//     background: var(--footer);
+//     color: var(--text_color);
+// }
+
+// .logo_area {
+//     img {
+//         &.default {
+//             display: block;
+//         }
+
+//         &.light {
+//             display: none;
+//         }
+//     }
+// }
+
+// .event_table {
+//     table.table {
+//         thead {
+//             background: var(--table_head);
+//         }
+//     }
+// }
+
+// :root[data-theme=light] {
+//     .noti_title{
+//         h4{
+//             color: #fff;
+//         }
+//     }
+//     app-nowa-casino,app-bet-game-frame{
+//         .btns_area{
+//             h4{
+//                 color: #000 !important;
+//                 button{
+//                     color: #000 !important;
+//                 }
+//             }
+//             .right_area{
+//                 button{
+//                     color: #fff;
+//                     &:hover{
+//                         color: #000;
+//                     }
+//                 }
+//             }
+//         }
+//     }
+//     .logo_area {
+//         img {
+//             &.default {
+//                 display: none;
+//             }
+
+//             &.light {
+//                 display: block;
+//             }
+//         }
+//     }
+
+//     body {
+//         @media (max-width: 768px) {
+//             color: #000;
+//         }
+//     }
+
+//     app-open-bets {
+//         h4 {
+//             color: #222222;
+//         }
+//     }
+
+//     .filters_area ul li.btns button {
+//         border-color: #000 !important;
+//         color: #000 !important;
+
+//         &.selected {
+//             color: #fff !important;
+//         }
+//     }
+
+//     h4 {
+//         color: #222222;
+//     }
+
+//     .iframe_area {
+//         background: rgba(0, 0, 0, 0.3);
+//     }
+
+//     .match_time_bar {
+//         h4.match_name {
+//             color: #fff;
+//         }
+//     }
+
+//     @media (max-width:767px) {
+//         .card {
+//             background: #acc0c5;
+//         }
+//     }
+
+//     .mid_inner {
+//         background: rgba(0, 0, 0, 0.2);
+//     }
+
+//     .filters_area .date li label {
+//         color: #000 !important;
+//     }
+
+//     .filters_area {
+//         ul.filters li label {
+//             color: #000 !important;
+//         }
+
+//         button.btn {
+//             color: #fff;
+//         }
+//     }
+
+//     .account_right {
+//         button.btn {
+//             color: #fff;
+
+//             &:hover {
+//                 color: #000;
+//             }
+//         }
+//     }
+
+//     .tab_head {
+//         button.btn {
+//             color: #fff;
+
+//             &:hover {
+//                 color: #000;
+//             }
+//         }
+//     }
+
+//     .change_theme {
+//         button {
+//             &:focus {
+//                 color: #000;
+//             }
+//         }
+//     }
+
+//     .right_menu {
+//         .color_combinations {
+//             .title {
+//                 background: #fff;
+
+//                 h5 {
+//                     color: #222222;
+//                 }
+//             }
+
+//             button {
+//                 color: #000;
+
+//                 &.light {
+//                     background: #ED9533;
+//                     color: #fff;
+//                 }
+//             }
+//         }
+//     }
+
+//     .right_menu {
+//         button.btn {
+//             color: #000;
+//         }
+//     }
+// }
+
+// @media (max-width:767px) {
+//     header {
+//         .news_bar {
+//             background: var(--mob_noti);
+//         }
+
+//         .amount_area {
+//             color: var(--text_color);
+//         }
+//     }
+
+//     .upcoming_slider {
+//         .match_inner {
+//             background: var(--mob_noti);
+//         }
+//     }
+
+//     .tabs_area {
+//         .nav {
+//             background: var(--mob_noti);
+
+//             a {
+//                 .icon {
+//                     background: var(--tab_bg);
+//                 }
+
+//                 span.txt {
+//                     color: var(--text_color);
+//                 }
+//             }
+//         }
+//     }
+
+//     .tabs_area {
+//         background: var(--pg_bg);
+//     }
+
+//     .setbet_inplay .heading {
+//         color: var(--text_color);
+//         background: var(--game_heading);
+
+//         .left {
+//             color: var(--text_color);
+//         }
+//     }
+
+//     .games_scroll {
+//         .title_col {
+//             background: var(--game_heading);
+//         }
+//     }
+
+//     .fancy_table {
+//         .heading {
+//             h4 {
+//                 color: var(--text_color);
+//             }
+//         }
+//     }
+
+//     .right_area {
+//         .card {
+//             .card-title {
+//                 color: var(--text_color);
+//             }
+//         }
+//     }
+
+//     h5.title {
+//         color: var(--text_color);
+//     }
+
+//     .upcoming_slider .match_inner .match h6 {
+//         color: var(--text_color);
+//     }
+
+//     app-m-current-sports {
+//         .heading {
+//             background-color: var(--game_heading);
+//             color: var(--text_color);
+//         }
+//     }
+
+//     .back_link {
+//         background: var(--link_bg);
+//     }
+
+//     .right_menu {
+//         background-color: var(--rightMenu);
+
+//         .listing {
+//             li {
+//                 color: var(--text_color);
+
+//                 button {
+//                     color: var(--text_color);
+//                 }
+//             }
+//         }
+//     }
+
+//     app-mob-set-bet {
+//         .heading {
+//             color: var(--text_color);
+//         }
+//     }
+
+//     button,
+//     button.btn {
+//         color: #fff;
+//     }
+
+//     #superNova {
+//         .title {
+//             background: var(--m_tabs);
+//         }
+//     }
+
+//     .main_wrap {
+//         background: var(--m_warp);
+//     }
+// }
+
+
+// :root[data-theme=blue] {
+//     header{
+//         color: #fff;
+//         button,a.rules_model{
+//             color: #fff;
+//         }
+//         .top_bar .marquee_area{
+//             color: #fff;
+//         }
+//     }
+//     app-my-bets {
+//         .card {
+//             .table {
+//                 thead {
+//                     background: #3e535f;
+//                 }
+//             }
+//         }
+//     }
+
+//     .fancy_table .heading h4 {
+//         color: #222222;
+//     }
+
+//     app-open-bets {
+//         h4 {
+//             color: #222222;
+//         }
+//     }
+
+//     .filters_area ul li.btns button {
+//         border-color: #000 !important;
+//         color: #000 !important;
+
+//         &.selected {
+//             color: #fff !important;
+//         }
+//     }
+
+//     h4 {
+//         color: #222222;
+//     }
+
+//     .iframe_area {
+//         background: rgba(0, 0, 0, 0.3);
+//     }
+
+//     .match_time_bar {
+//         h4.match_name {
+//             color: #fff;
+//         }
+//     }
+
+//     .upcoming_slider .match_inner .match h6 {
+//         color: #222222;
+//     }
+
+//     .tabs_area .nav a span.txt {
+//         color: #222222;
+//     }
+
+//     @media (max-width:767px) {
+//         header {
+//             color: #000;
+//         }
+
+//         .card {
+//             background: #acc0c5;
+//         }
+//     }
+
+//     @media (min-width:1025px) {
+//         body {
+//             color: #000;
+//         }
+//     }
+
+//     .mid_inner {
+//         background: rgba(0, 0, 0, 0.2);
+//     }
+
+//     .filters_area .date li label {
+//         color: #000 !important;
+//     }
+
+//     .filters_area {
+//         ul.filters li label {
+//             color: #000 !important;
+//         }
+
+//         button.btn {
+//             color: #fff;
+//         }
+//     }
+
+//     .account_right {
+//         button.btn {
+//             color: #fff;
+
+//             &:hover {
+//                 color: #000;
+//             }
+//         }
+//     }
+
+//     .tab_head {
+//         button.btn {
+//             color: #fff;
+
+//             &:hover {
+//                 color: #000;
+//             }
+//         }
+//     }
+
+//     .change_theme {
+//         button {
+//             &:focus {
+//                 color: #fff;
+//             }
+//         }
+//     }
+
+//     .setbet_inplay .heading {
+//         color: #fff !important;
+
+//         .left {
+//             color: #fff !important;
+//         }
+//     }
+
+//     .title_col {
+//         h5.title {
+//             color: #fff !important;
+//         }
+//     }
+
+//     header .amount_area {
+//         color: #fff !important;
+//     }
+
+//     #superNova .title {
+//         color: #222222 !important;
+//     }
+
+//     .right_menu .listing li {
+//         color: #fff !important;
+//     }
+
+//     .right_menu {
+//         .color_combinations {
+//             .title {
+//                 background: #fff;
+
+//                 h5 {
+//                     color: #222222;
+//                 }
+//             }
+
+//             button {
+//                 &.blue {
+//                     background: #ED9533;
+//                     color: #fff;
+//                 }
+//             }
+//         }
+//     }
+//     app-nowa-casino,app-bet-game-frame{
+//         .btns_area{
+//             h4{
+//                 color: #000 !important;
+//                 button{
+//                     color: #000 !important;
+//                 }
+//             }
+//             .right_area{
+//                 button{
+//                     color: #fff;
+//                     &:hover{
+//                         color: #000;
+//                     }
+//                 }
+//             }
+//         }
+//     }
+//     .noti_title{
+//         h4{
+//             color: #fff;
+//         }
+//     }
+// }

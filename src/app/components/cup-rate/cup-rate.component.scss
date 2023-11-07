@@ -1,0 +1,25 @@
+.bet_table_row {
+    .nation_name{
+        @media (max-width:767px) {
+            width: calc(100% - 32%);
+            padding: 0;
+        }
+    }
+    .bl_box{
+        &.lay{
+            margin: 0;
+        }
+    }
+}
+.tab_accordion .accor_btn{
+    @media (min-width:767px) {
+        padding: 0 8px 0 0;
+    }
+    .tab_name{
+        @media (max-width:767px) {
+            small{
+                display: none;
+            }
+        }
+    }
+}

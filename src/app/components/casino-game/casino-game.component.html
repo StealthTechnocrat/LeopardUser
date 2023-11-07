@@ -1,0 +1,30 @@
+<div class="back_bar d-lg-none">
+    <a routerLink="/games" class="back_btn d-flex align-items-center">
+      <svg class="svg-icon">
+        <use href="/assets/icons/icons_defs.svg#svg_event-arrow"></use>
+      </svg>
+      <!-- <p class="pl-2" *ngIf="gameType=='casino'">Live Casino</p>
+      <p class="pl-2" *ngIf="gameType=='table'">Table Casino</p> -->
+    </a>
+  </div>
+  <div class="main_wrap ">
+    <div class="cstm_row full_wid_mid tab_ul">
+      <div class="middle_area">
+        <div class="mid_inner pt-3 tab-content">
+          <div class="row">
+            <div class="col-6 col-md-3" *ngFor="let games of casinoGamesList">
+              <div class="img_area" routerLink="/live-games/{{games.PageCode}}/{{games.SystemId}}">
+                  <img [src]="games.ImagePath" alt="img">
+                  <div class="game_name">
+                    <div class="">
+                      <p>{{games.GameName}}</p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

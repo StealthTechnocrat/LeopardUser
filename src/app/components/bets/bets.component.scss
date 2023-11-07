@@ -1,0 +1,31 @@
+.center_inner {
+  background: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.bet_type {
+  display: inline-block;
+  padding: 3px 10px;
+  width: 52px;
+  text-align: center;
+
+  &.lay_bet {
+    background: #f9c9d4;
+  }
+
+  &.back_bet {
+    background: #a7d8fd;
+  }
+}
+
+.red{
+  color: red;
+}
+
+.green{
+  color: green;
+}
+
+
+
+ 

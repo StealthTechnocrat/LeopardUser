@@ -1,0 +1,39 @@
+<main class="main_wrap">
+    <app-header></app-header>
+    <div class="inner" [ngClass]="{'live_games_design':!uISERVICE.sideBar}">
+        <div class="left_bar d-none d-xl-block">
+            <app-sidebar></app-sidebar>
+        </div>
+        <div class="center_sec">
+            <div class="news_area">
+                <marquee behavior="scroll" direction="left">
+                    <p *ngFor="let news of uISERVICE.News">
+                        <span class="date">{{news.createdOn | date:'M/d/yy,
+                          h:mm a'}}</span>:-  {{news.News}}
+                      </p>
+                </marquee>
+                <span class="icon"><img src="/assets/img/icons/noti_ic.svg" alt=""></span>
+            </div>
+            <router-outlet></router-outlet>
+        </div>
+        <div class="right_bar d-none d-xl-block">
+            <div class="right_inner">
+                <!-- <div class="collapse" id="liveTv" *ngIf="uISERVICE.tv">
+                    <div class="inner_tv">
+                        <iframe width="100%" height="200" [src]="uISERVICE.IframeUrl"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                    </div>
+                </div> -->
+                <app-sidebar-bets></app-sidebar-bets>
+                <app-casino-sidebar></app-casino-sidebar>
+            </div>
+        </div>
+    </div>
+    <div class="loader" *ngIf="uISERVICE.loader">
+        <svg class="svg-icon">
+            <use href="/assets/img/icons/icons_defs.svg#svg_ball_loader"></use>
+        </svg>
+    </div>
+</main>

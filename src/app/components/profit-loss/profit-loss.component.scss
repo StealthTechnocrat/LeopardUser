@@ -1,0 +1,54 @@
+.center_inner {
+    background: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.center_inner {
+    background: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.red {
+    color: red;
+}
+
+.green {
+    color: green;
+}
+
+
+.all_bets_modal {
+    padding: 0px !important;
+
+    @media (min-width:1200px) {
+        padding-right: 30px !important;
+    }
+
+    .modal-dialog {
+        margin-top: 123px;
+    }
+
+    .modal-header {
+        padding: 5px 15px;
+
+        h5 {
+            font-size: 16px;
+            margin: 0px;
+        }
+    }
+
+    .modal-body {
+        .table-responsive {
+            overflow-y: auto;
+            height: 350px;
+        }
+    }
+}
+#profitLossModel{
+    .form-field{
+        padding-bottom: 10px;
+        select{
+            max-width: 250px;
+        }
+    }
+}

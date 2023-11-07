@@ -1,0 +1,50 @@
+<div class="back_bar d-lg-none">
+    <a routerLink="/games" class="back_btn d-flex align-items-center">
+        <svg class="svg-icon">
+            <use href="/assets/icons/icons_defs.svg#svg_event-arrow"></use>
+        </svg>
+        <p class="pl-2">Cup Rate</p>
+    </a>
+</div>
+<div class="tab_accordion">
+    <button class="btn accor_btn" type="button" data-toggle="collapse" data-target="#matchOdds" aria-expanded="true"
+        aria-controls="matchOdds">
+        <div class="tab_name">
+            <svg class="svg-icon">
+                <use href="/assets/icons/icons_defs.svg#svg__arrow"></use>
+            </svg> <span class="txt ml-2 ">Indian Premiere League</span>
+            <small class="pl-3" *ngIf="rtrnObj.markets!=undefined">Min:{{rtrnObj.markets[0].MinStake}}
+                &nbsp;Max:{{rtrnObj.markets[0].MaxStake}}</small>
+        </div>
+        <div class="bl_title back">Back</div>
+        <div class="bl_title lay">Lay</div>
+    </button>
+</div>
+<div class="collapse show" id="matchOdds" *ngIf="rtrnObj.markets!=undefined">
+    <div class="inner_bet_table">
+        <div class="bet_table_row" *ngFor="let rnr of rtrnObj.markets[0].runners;let r=index"
+            [ngClass]="{'bet_locked':rtrnObj.status || rtrnObj.markets[0].status || rnr.runners.availableToBack[0].price==0}">
+            <div class="nation_name">
+                <p>{{rnr.RunnerName}}</p>
+                <span class="btm">
+                    <span class="profitloss" [ngClass]="{'negative':rnr.Book<0}">{{rnr.Book | number:'1.2-2'}}</span>
+
+                </span>
+            </div>
+            <div class="bl_box back"
+                (click)="setValues('Back',rnr.runners.availableToBack[0].price,rnr.runners.availableToBack[0].size,rtrnObj.markets[0].MarketId,rnr.id,rnr.RunnerName,rtrnObj.markets[0].MaxStake,rtrnObj.markets[0].MinStake,r,rtrnObj.markets[0].marketName,r,rtrnObj.markets[0].Betdelay)">
+                <span class="odds">{{rnr.runners.availableToBack[0].price}}</span>
+                <span class="size">{{rnr.runners.availableToBack[0].size}}</span>
+            </div>
+            <div class="bl_box lay"
+                (click)="setValues('Lay',rnr.runners.availableToLay[0].price,rnr.runners.availableToLay[0].size,rtrnObj.markets[0].MarketId,rnr.id,rnr.RunnerName,rtrnObj.markets[0].MaxStake,rtrnObj.markets[0].MinStake,r,rtrnObj.markets[0].marketName,r,rtrnObj.markets[0].Betdelay)">
+                <span class="odds">{{rnr.runners.availableToLay[0].price}}</span>
+                <span class="size">{{rnr.runners.availableToLay[0].size}}</span>
+            </div>
+            <div class="w-100 mt-1">
+                <app-bet-slip *ngIf="uISERVICE.fancySlip[r]"></app-bet-slip>
+            </div>
+        </div>
+
+    </div>
+</div>

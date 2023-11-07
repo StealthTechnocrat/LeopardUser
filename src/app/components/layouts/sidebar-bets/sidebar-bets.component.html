@@ -1,0 +1,46 @@
+
+<div class="my_bets" *ngIf="uISERVICE.Header">
+    <div class="head">
+        <h5>My Bets</h5>
+    </div>
+    <div class="inner" >
+        <div class="not_bets_found" *ngIf="uISERVICE.Bets?.length==0">
+            <div class="icon_area">
+                <svg class="svg-icon ">
+                    <use href="/assets/img/icons/icons_defs.svg#svg_look"></use>
+                </svg>
+            </div>
+            <h5>NO BETS FOUND</h5>
+        </div>
+        <div class="data-table table-responsive" *ngIf="uISERVICE.Bets?.length>0">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        
+                        <th>Selection</th>
+                        <th>Type</th>
+                        <th>Odds</th>
+                        <th>Stake</th>
+                        <th>PL</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let bets of uISERVICE.Bets"
+                        [ngClass]="{'back': bets.BetType=='Back' || bets.BetType=='Yes','lay': bets.BetType=='Lay' || bets.BetType=='No'}">
+                        
+                        <td>{{bets.RunnerName}}</td>
+                        <td>{{bets.BetType}}</td>
+                        <td>{{bets.Odds}}</td>
+                        <td>{{bets.Stake}}</td>
+                        <td *ngIf="bets.BetType=='Back' || bets.BetType=='Yes'"  style="color: green;">{{bets.Profit}}</td>
+                        <td *ngIf="bets.BetType=='Lay' || bets.BetType=='No'" style="color: red;">{{bets.Exposure}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="btn_area">
+            <a href="javascript:void(0)" class="btn" data-toggle="modal" (click)="GetAllBets()" data-target="#allbetsmodal">Show All Bets</a>
+        </div>
+    </div>
+    
+</div>

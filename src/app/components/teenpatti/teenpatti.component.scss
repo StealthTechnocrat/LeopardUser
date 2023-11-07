@@ -1,0 +1,821 @@
+.tab_accordion .accor_btn {
+    @media (min-width:768px) {
+        padding: 0 6px 0 0;
+    }
+}
+.bet_table_row .nation_name{
+    width: 100%;
+    padding: 0 8px 0 0;
+    @media (min-width:767px) {
+        width: calc(100% - 32%);
+        width: calc(100% - 148px);
+        padding: 0 8px 0 0;
+    }
+}
+
+.teenpatti_oneday {
+    .nation_name {
+        width: calc(100% - 148px);
+    }
+}
+
+.iframe_area {
+    position: relative;
+    margin: 0px;
+
+    .cards {
+        position: absolute;
+        top: 8px;
+        left: 8px;
+
+        .player_card {
+            padding: 5px 5px 5px;
+
+            h6 {
+                font-size: 14px;
+                color: #fff;
+                font-weight: 700;
+                text-transform: uppercase;
+                padding-bottom: 2px;
+            }
+
+            ul {
+                display: flex;
+                list-style: none;
+
+                li {
+                    padding: 0 2px;
+
+                    img {
+                        max-width: 35px;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.ander_bahar {
+    .table {
+        border-collapse: collapse;
+
+        .ander_bahar_box1 {
+            width: 10%;
+            border-right: 1px solid #333;
+        }
+
+        .ander_bahar_box2 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        td {
+            border: unset;
+
+            b {
+                font-size: 16px;
+            }
+
+            .game-section {
+                margin: 0px 5px;
+                text-align: center;
+
+                img {
+                    width: 45px;
+                    cursor: pointer;
+                }
+
+                span {
+                    font-size: 14px;
+                }
+            }
+
+
+        }
+
+        .andarbg {
+            background: lightsalmon;
+            border-bottom: 1px solid #333;
+        }
+
+        .baharbg {
+            background: lightgreen;
+        }
+    }
+}
+
+.middle_area {
+    .bet_table {
+        background-color: #fff;
+    }
+
+    .video-overlay {
+        background: rgba(0, 0, 0, 0.4);
+        height: auto;
+        left: 0;
+        content: "";
+        top: 0;
+        padding: 5px;
+
+        #game-cards {
+            .row5 {
+                margin-left: -5px;
+                margin-right: -5px;
+
+                [class*="col-"] {
+                    padding-left: 5px;
+                    padding-right: 5px;
+                }
+
+                img {
+                    border-radius: 4px;
+                    width: 30px;
+                    height: auto;
+                    margin-right: 3px;
+                }
+
+                .card-inner {
+                    margin-bottom: 5px;
+                }
+            }
+        }
+    }
+
+    .ab-2-container {
+        width: 100%;
+        padding: 5px 0;
+        display: flex;
+        justify-content: center;
+        background-color: #ddd;
+        color: #000;
+        font-size: 14px;
+
+        .bet-a {
+            display: flex;
+            justify-content: center;
+            width: 48%;
+            margin-left: 2%;
+            margin-bottom: 0;
+
+            .a-title {
+                width: 10%;
+                text-align: center;
+                padding: 5px 0;
+                padding-top: 15px;
+                font-size: 20px;
+            }
+
+            .sa {
+                width: 20%;
+                margin-left: 2%;
+            }
+
+            .b-col-sec {
+                text-align: center;
+                padding: 5px 0;
+                border: 2px solid #ea9700;
+                border-radius: 8px;
+            }
+
+            .first-bet,
+            .second-bet {
+                width: 25%;
+                margin: 0 2%;
+            }
+
+            .second-bet {
+                margin-right: 0;
+            }
+        }
+
+        .book {
+            text-align: center;
+            margin-top: 5px;
+        }
+    }
+}
+
+.tab_head {
+    h1 {
+        font-size: 20px;
+    }
+}
+
+th.wid_50 {
+    width: 50%;
+    min-width: 50%;
+}
+
+th.wid_25 {
+    width: 25%;
+    min-width: 25%;
+    text-align: center;
+    padding: 8px 0;
+    background: #a7d8fd !important;
+    color: black;
+
+    &.back {
+        background: #a7d8fd !important;
+    }
+
+    &.lay {
+        background: #f9c9d4 !important;
+    }
+}
+
+td.wid_50 {
+    width: 50%;
+    min-width: 50%;
+    font-weight: 700;
+}
+
+td.rate_td {
+    padding: 0;
+}
+
+.rates {
+    table {
+        margin: 0;
+    }
+
+    td {
+        cursor: pointer;
+        width: 50%;
+        min-width: 50%;
+        text-align: center;
+        border-top: 0;
+        border-bottom: 0;
+        background: #a7d8fd !important;
+        color: black;
+
+        &.back {
+            background: #a7d8fd !important;
+        }
+
+        &.lay {
+            background: #f9c9d4 !important;
+        }
+
+        span {
+            display: block;
+
+            &.rate {
+                font-weight: 700;
+            }
+        }
+    }
+
+    .suspended {
+        position: relative;
+
+        &:after {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            text-transform: uppercase;
+            font-family: "Font Awesome 5 Free";
+            content: "\f023";
+            font-weight: 900;
+            font-size: 18px;
+            top: 0;
+        }
+    }
+
+    &.suspended {
+        position: relative;
+
+        &:after {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            text-transform: uppercase;
+            font-family: "Font Awesome 5 Free";
+            content: "\f023";
+            font-weight: 900;
+            font-size: 18px;
+            top: 0;
+        }
+    }
+}
+
+.last_result {
+    .title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #1b262c;
+        padding: 4px 15px 6px;
+
+        h4 {
+            font-size: 16px;
+            color: #fff;
+        }
+
+        a {
+            color: #fff;
+        }
+    }
+
+    .winners {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        list-style: none;
+        padding-top: 10px;
+        padding-bottom: 25px;
+
+        li {
+            padding-left: 5px;
+
+            button {
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+                padding: 0;
+                text-align: center;
+                font-weight: 700;
+                border: 1px solid #355e3b;
+                color: #ff4500;
+                background: #355e3b;
+
+                &.playerb {
+                    color: #ffff33;
+                }
+
+                &.playerc {
+                    color: #1b262c;
+                }
+            }
+        }
+    }
+}
+
+.right_area {
+    .card {
+        table {
+            th {
+                padding: 5px 0;
+            }
+        }
+    }
+
+    .sub_title {
+        background: #1b262c;
+        color: #fff;
+        padding: 5px 12px;
+        font-size: 16px;
+    }
+}
+
+#resultmodal {
+    .modal-header {
+        background: #1b262c;
+        padding: 8px 15px;
+
+        h5 {
+            font-size: 16px;
+            color: #fff;
+        }
+
+        button {
+            color: #fff;
+            opacity: 1;
+        }
+    }
+
+    .modal-body {
+        .br_right {
+            border-right: 1px solid rgba(0, 0, 0, 0.5);
+        }
+
+        h2 {
+            font-size: 20px;
+            padding-top: 15px;
+            text-align: center;
+        }
+
+        h3.rounderId {
+            text-align: right;
+            font-size: 16px;
+        }
+
+        .result_img {
+            text-align: center;
+            padding-top: 15px;
+
+            img {
+                width: 50px;
+                margin-right: 10px;
+            }
+        }
+    }
+}
+
+.iframe_area {
+    position: relative;
+    margin: 0px;
+
+    .cards {
+        position: absolute;
+        top: 8px;
+        left: 8px;
+
+        .player_sno {
+            font-size: 16px;
+        }
+
+        .player_card {
+            padding: 5px 5px 5px;
+
+            h6 {
+                font-size: 14px;
+                color: #fff;
+                font-weight: 700;
+                text-transform: uppercase;
+                padding-bottom: 2px;
+            }
+
+            ul {
+                display: flex;
+                list-style: none;
+
+                li {
+                    padding: 0 2px;
+
+                    img {
+                        max-width: 30px;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
+        .card-inner {
+            margin-bottom: 5px;
+
+            img {
+                width: 30px;
+            }
+        }
+
+        #a-cards {
+            // width: 210px;
+            padding-left: 5px;
+        }
+
+        #b-cards {
+            width: 200px;
+            padding-left: 5px;
+        }
+    }
+}
+
+.winner-icon {
+    position: absolute;
+    right: 0;
+    bottom: 15%;
+
+    i {
+        font-size: 26px;
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0.5);
+        -webkit-animation: winnerbox 2s infinite;
+        animation: winnerbox 1.5s infinite;
+        border-radius: 50%;
+        color: #169733;
+    }
+}
+
+@keyframes winnerbox {
+    0% {
+        box-shadow: 0 0 0 0 rgba(29, 127, 30, 0.6);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(29, 127, 30, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(29, 127, 30, 0);
+    }
+}
+
+table.teenpatti_test {
+    th.back {
+        background: #a7d8fd;
+    }
+
+    .rates {
+        td {
+            width: 33.3%;
+            min-width: 33.3%;
+        }
+    }
+}
+
+.profitLoss {
+    font-size: 10px;
+    color: green;
+
+    &.red {
+        color: red !important;
+    }
+}
+
+.lucky_card_detail {
+    background-color: #eee;
+
+    // padding: 10px;
+    .row.row5 {
+        margin-left: -5px;
+        margin-right: -5px;
+
+        h5 {
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+        }
+
+        img.img_card {
+            width: 23px;
+        }
+
+        .btn-theme {
+            color: #fff;
+            background-image: linear-gradient(to right, #1b262c, #56a253);
+            width: 100%;
+            border-radius: 4px;
+            box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);
+            border: 0;
+            padding: 8px 10px;
+            cursor: pointer;
+            font-size: 16px;
+            position: relative;
+
+            img {
+                width: 25px;
+            }
+        }
+
+        .card-seven img {
+            width: 45px;
+            cursor: pointer;
+        }
+
+        .suspended-lock {
+            position: relative;
+
+            &:after {
+                position: absolute;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+                right: 0;
+                background-color: rgba(0, 0, 0, 0.6);
+                text-transform: uppercase;
+                font-family: "Font Awesome 5 Free";
+                content: "\f023";
+                font-weight: 900;
+                font-size: 18px;
+                top: 0;
+                z-index: 10;
+                width: 100%;
+                color: #fff;
+            }
+        }
+    }
+}
+
+.m-t-10 {
+    margin-top: 10px;
+}
+
+.m-t-5 {
+    margin-top: 5px;
+}
+
+.m-b-10 {
+    margin-bottom: 10p;
+}
+
+.m-r-5 {
+    margin-right: 5px;
+}
+
+.m-l-3 {
+    margin-left: 3px;
+}
+
+.suspended {
+    position: relative;
+
+    &:after {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.6);
+        color: #fff;
+        text-transform: uppercase;
+        font-family: "Font Awesome 5 Free";
+        content: "\f023";
+        font-weight: 900;
+        font-size: 18px;
+        top: 0;
+    }
+}
+
+.ab-rtlslider {
+    position: relative;
+    width: 200px;
+    display: flex;
+    flex-direction: row-reverse;
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+        width: 10px;
+        height: 3px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #888;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+
+    .cards_scroll {
+        display: flex;
+    }
+}
+
+.rules_bar {
+    color: #fff;
+
+    .card {
+        .card-header {
+            padding: 0;
+
+            ul {
+                background: #1b262c;
+                margin: 0;
+                margin-bottom: 6px;
+                padding: 0 15px;
+
+                li {
+                    a {
+                        color: #ffffff;
+                        background-color: transparent;
+                        border: 0;
+                        border-radius: 0;
+                        padding: .5rem 0.6rem;
+                        font-size: 14px;
+                    }
+
+                    a.active {
+                        border-bottom: 2px solid #fed935;
+
+                    }
+                }
+            }
+        }
+
+        .tab-pane {
+            font-size: 13px;
+            height: 200px;
+            overflow: auto;
+
+            ul {
+                li {
+                    margin-bottom: 15px;
+                }
+            }
+
+            table {
+                border: 1px solid #ddd;
+
+                thead {
+                    background-color: #fff;
+
+                    tr {
+                        th {
+                            padding: 5px 5px;
+                            color: #000;
+                        }
+                    }
+                }
+
+                tbody {
+                    tr {
+                        td {
+                            padding: 4px 5px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.page_title{
+    h5{
+        font-size: 14px;
+        @media (min-width:768px) {
+            font-size: 16px;
+        }
+    }
+ }
+ .mob-BackLay{
+    @media(max-width:475px){
+        padding: 0px;
+    }
+    .bet_table_row {
+        @media(max-width:475px){
+            flex-flow: row;
+            margin-bottom: 0;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        &:last-child{
+            @media(max-width:475px){
+                border-bottom: 0px solid #e5e5e5;
+            }
+        }
+        .nation_name{
+            @media(max-width:475px){
+                flex-flow: column;
+                align-items: flex-start;
+                padding: 8px 8px;
+            }
+        }
+        .bl_box.back_2, .bl_box.back_1, .bl_box.lay_1, .bl_box.lay_2{
+            @media(max-width:475px){
+                display: none;
+            }
+        }
+        .bl_box{
+            @media(max-width:475px){
+                max-width: 52px;
+                width: 100%;
+                height: 48px;
+                margin-right: 5px;
+                /* border-radius: 0; */
+                border-right: 1px solid #d9d9d9;
+
+            }
+        }
+    }
+}
+ .rowHead{
+    display: none;
+    @media(max-width:475px){
+        display: flex;
+    }
+    .backHead{
+         @media(max-width:575px){
+        background: #a7d8fd;
+         }
+    } 
+    .LayHead{
+         @media(max-width:575px){
+            background: #f9c9d4;
+         }
+    }
+    .backHead, .LayHead{
+        max-width: 52px;
+        width: 100%;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        font-size: 14px;
+        margin-right: 5px;
+        @media(max-width:575px){
+            margin-right: 0;
+            max-width: 52px;
+            border-right: 1px solid #d9d9d9;
+            font-size: 15px;
+        }
+    }
+    
+}

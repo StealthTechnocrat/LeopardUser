@@ -1,0 +1,52 @@
+<!-- class="casino_hide" -->
+<div class="casino_bar">
+    <div>
+        <div class="title blue_bg">
+            <ul class="nav" id="casinoTab" role="tablist">
+                <li class="nav-item mr-3" role="presentation" *ngIf="!uISERVICE.casinoStatus">
+                    <a class="nav-link active" id="casino-tab" data-toggle="tab" href="#casino" role="tab"
+                        aria-controls="casino" aria-selected="true">casino</a>
+                </li>
+                <li class="nav-item" role="presentation" *ngIf="!uISERVICE.liveGameStatus">
+                    <a class="nav-link" id="liveCasino-tab" data-toggle="tab" href="#liveCasino" role="tab"
+                        aria-controls="liveCasino" aria-selected="false">live Casino</a>
+                </li>
+            </ul>
+        </div>
+        <div class="tab-content" id="casinoTab" *ngIf="!uISERVICE.casinoStatus">
+            <div class="tab-pane fade show active" id="casino" role="tabpanel" aria-labelledby="casino-tab">
+                <div class="row">
+                    <div class="col-md-6" *ngFor="let games of tableGamesList;let i=index" > 
+                        <a class="game">
+                            <img [src]="games.ImagePath" alt="">
+                            <div class="overlay">
+                                <div class="game-title">{{games.GameName}}</div>
+                                <div class="play_btn"><button class="btn btn-primary" type="button">Play</button></div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    
+    
+                </div>
+            </div>
+            <div class="tab-pane fade" id="liveCasino" role="tabpanel" aria-labelledby="liveCasino-tab" *ngIf="!uISERVICE.liveGameStatus">
+                <div class="tab-pane fade show active" id="casino" role="tabpanel" aria-labelledby="casino-tab">
+                    <div class="row">
+                        <div class="col-md-6" *ngFor="let data of uISERVICE.casinoProvidersList;let i=index"> 
+                            <a class="game">
+                                <img [src]="data.ImagePath" alt="">
+                                <div class="overlay">
+                                    <div class="game-title">{{data.ProviderName}}</div>
+                                    <div class="play_btn"><button class="btn btn-primary" type="button" routerLink="casino/live-games/{{i}}/{{data.SystemId}}">Play</button></div>
+                                </div>
+                            </a>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+</div>
