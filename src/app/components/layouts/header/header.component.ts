@@ -63,7 +63,7 @@ export class HeaderComponent implements OnInit {
       this.uISERVICE.Bets = JSON.parse(localStorage.getItem('Bets'));
 
       this.GetDetail();
-      this.myFunction();
+      //this.myFunction();
 
     } else {
       this.uISERVICE.Header = false;
@@ -161,6 +161,7 @@ export class HeaderComponent implements OnInit {
           if (response.Status) {
             var decodedToken = jwt_decode(response.Result);
             if (decodedToken["Role"] == "Client") {
+              debugger;
               localStorage.setItem("IsPwd", this.IsPwd.toString());
               if (!response.Ispwd) {
                 document.getElementById("cnfrmPwd").click();

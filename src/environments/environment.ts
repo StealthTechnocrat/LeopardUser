@@ -5,7 +5,7 @@
 export const environment = {
   production: false,  
   //apiBaseUrl: "http://localhost:49658/" 
-  apiBaseUrl: "https://leopardexch.in/"
+  //apiBaseUrl: "https://leopardexch.in/"
 };
 
 /*
