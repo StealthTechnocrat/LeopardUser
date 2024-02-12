@@ -4,6 +4,18 @@
 }
 
 .market {
+    margin-bottom: 10px;
+    .sportsName {
+        background-color: #204878;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: #FFF;
+        font-size: 14px;
+        padding: 2px 8px;
+    }
+
     .head {
         display: flex;
         align-items: center;
@@ -465,23 +477,122 @@
 }
 
 .tabs_nav {
+    padding-top: 6px;
+
     ul {
         flex-wrap: nowrap;
         overflow-x: auto;
-        margin: 2px 0 0;
+        margin: 2px 6px;
+        padding-bottom: 2px;
+
+        &::-webkit-scrollbar {
+            width: 3px;
+            height: 2px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: #fcfcfc;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: #c7cbd2;
+        }
+
+        &::-webkit-scrollbar-thumb:hover {
+            background: #bfc4cc;
+        }
     }
 
     li {
+        margin-right: 8px;
+
+        @media(max-width:767.98px) {
+            margin-right: 6px;
+        }
+
         a {
             color: #204878;
             font-weight: 500;
             display: flex;
             align-items: center;
             font-size: 13px;
+            transition: all 0.5s;
+            gap: 4px;
+            position: relative;
+            padding: 10px 0px 6px 0px;
+
+            img {
+                width: 140px;
+                height: 48px;
+                border-radius: 5px;
+
+                @media(max-width:767.98px) {
+                    width: 92px;
+                    height: 36px;
+                    border-radius: 4px;
+                }
+            }
+
+            &:before {
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 0;
+                height: 2px;
+                background-color: #204878;
+                -webkit-transition: .5s;
+                transition: .5s;
+            }
 
             &.active {
-                background-color: #0fa810;
+
+                &:before {
+                    width: 100%;
+                }
+            }
+
+            &:hover {
+                &:before {
+                    width: 100%;
+                }
+            }
+
+            .tag-live {
+                position: absolute;
+                top: 0;
+                right: 6px;
+                min-width: 33px;
+                height: 12px;
+                border-radius: 3px;
+                padding-right: 3px;
+                color: var(--white-text);
+                text-align: center;
+                font-size: 10px;
+                line-height: 12px;
+                background-image: linear-gradient(180deg, #fb3434 0, #e80505 100%);
+                -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .5);
+                box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .5);
+                display: flex;
+                z-index: 1;
                 color: #fff;
+
+                strong {
+                    -webkit-box-flex: 1;
+                    -ms-flex: 1;
+                    flex: 1;
+                    height: 100%;
+                    margin-right: 3px;
+                    padding: 0 2px;
+                    border-radius: 3px 0 0 3px;
+                    background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), color-stop(89%, #eee));
+                    background-image: linear-gradient(180deg, #fff 0, #eee 89%);
+                    display: flex;
+                    color: #273a47;
+                    font-weight: 600;
+                    display: flex;
+                    justify-content: center;
+                }
             }
 
             span.icon {
@@ -807,7 +918,7 @@
 .filterTab {
     border-color: #204878;
     flex-wrap: nowrap;
-    overflow-x: auto;
+    // overflow: auto;
 
     .nav-link {
         font-weight: 500;
@@ -825,8 +936,7 @@
         }
     }
 }
-.filterTab{
-    @media(max-width:475px){
 
-    }
+.filterTab {
+    @media(max-width:475px) {}
 }

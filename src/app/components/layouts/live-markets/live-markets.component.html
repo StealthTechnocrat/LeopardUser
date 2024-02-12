@@ -4,65 +4,137 @@
             <div class="market_area">
                 <div class="tabs_nav" *ngIf="hideTab">
                     <ul class="nav" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link active" id="upcoming" data-toggle="tab" href="#upcoming" role="tab"
+                                aria-controls="upcoming" aria-selected="true">
+                                <!-- <div class="tag-live">
+                                    <strong>2</strong>0 
+                                </div>-->
+                                <img src="./assets/img/img_home.png" alt="img-fluid" alt="img">
+                            </a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" id="inplay-tab" data-toggle="tab" href="#inplay" role="tab"
+                                aria-controls="inplay" aria-selected="true">
+                                <div class="tag-live">
+                                    <strong>2</strong>0
+                                </div>
+                                <img src="./assets/img/img_inplay.png" alt="img-fluid" alt="img">
+                            </a>
+                        </li>
                         <li class="nav-item" role="presentation" (click)="changeSportsId(4,'Cri')">
-                            <a class="nav-link active" id="cricket-tab" data-toggle="tab" href="#cricket" role="tab"
-                                aria-controls="cricket" aria-selected="true"><span class="icon"><img
-                                        src="/assets/img/icons/list_ic/Cricket.svg" alt=""></span> Cricket</a>
+                            <a class="nav-link" id="cricket-tab" data-toggle="tab" href="#cricket" role="tab"
+                                aria-controls="cricket" aria-selected="true">
+                                <!-- <span class="icon">
+                                    <img src="/assets/img/icons/list_ic/Cricket.svg" alt="">
+                                </span> Cricket -->
+                                <div class="tag-live">
+                                    <strong>2</strong>0
+                                </div>
+                                <img src="./assets/img/Button-Cricket.jpg" alt="img-fluid" alt="img">
+                            </a>
                         </li>
                         <li class="nav-item" role="presentation" (click)="changeSportsId(2,'Ten')">
                             <a class="nav-link" id="tennis-tab" data-toggle="tab" href="#tennis" role="tab"
-                                aria-controls="tennis" aria-selected="false"><span class="icon"><img
-                                        src="/assets/img/icons/list_ic/Tennis.svg" alt=""></span>
-                                Tennis</a>
+                                aria-controls="tennis" aria-selected="false">
+                                <!-- <span class="icon">
+                                    <img src="/assets/img/icons/list_ic/Tennis.svg" alt="">
+                                </span>
+                                Tennis -->
+                                <div class="tag-live">
+                                    <strong>2</strong>0
+                                </div>
+                                <img src="./assets/img/Button-Tennis.jpg" alt="img-fluid" alt="img">
+                            </a>
                         </li>
                         <li class="nav-item" role="presentation" (click)="changeSportsId(1,'Foo')">
                             <a class="nav-link" id="football-tab" data-toggle="tab" href="#football" role="tab"
-                                aria-controls="football" aria-selected="false"><span class="icon"><img
-                                        src="/assets/img/icons/list_ic/FootBall.svg" alt=""></span> Football</a>
+                                aria-controls="football" aria-selected="false">
+                                <!-- <span class="icon">
+                                    <img src="/assets/img/icons/list_ic/FootBall.svg" alt="">
+                                </span> 
+                                Football -->
+                                <div class="tag-live">
+                                    <strong>2</strong>0
+                                </div>
+                                <img src="./assets/img/Button-Football.jpg" alt="img-fluid" alt="img">
+                            </a>
                         </li>
                         <li class="d-lg-none" (click)="checkLogin('live-games','1')" *ngIf="!uISERVICE.liveGameStatus">
-                            <a class="nav-link blinkTxt"><span class="icon"><svg class="svg-icon">
+                            <a class="nav-link blinkTxt">
+                                <!-- <span class="icon">
+                                    <svg class="svg-icon">
                                         <use href="/assets/img/icons/icons_defs.svg#cards"></use>
-                                    </svg></span> LiveCasino</a></li>
+                                    </svg>
+                                </span> 
+                                LiveCasino -->
+                                <div class="tag-live">
+                                    <strong>2</strong>0
+                                </div>
+                                <img src="./assets/img/img_Casino.png" alt="img-fluid" alt="img">
+                            </a>
+                            </li>
                         <li class="d-lg-none" (click)="checkLogin('table','1')" *ngIf="!uISERVICE.casinoStatus"><a
-                                class="nav-link blinkTxt"><span class="icon"><svg class="svg-icon">
+                                class="nav-link blinkTxt">
+                                <!-- <span class="icon">
+                                    <svg class="svg-icon">
                                         <use href="/assets/img/icons/icons_defs.svg#roulette"></use>
-                                    </svg></span> Casino</a></li>
+                                    </svg>
+                                </span> 
+                                Casino -->
+                                <div class="tag-live">
+                                    <strong>2</strong>0
+                                </div>
+                                <img src="./assets/img/img_Livecasino.png" alt="img-fluid" alt="img">
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 <div class="tab-content pt-1" id="listingTabs">
                     <div class="tab-pane fade show active" id="cricket" role="tabpanel" aria-labelledby="cricket-tab">
-                        <ul class="nav nav-tabs filterTab" id="myTab" role="tablist">
+                        <!-- <ul class="nav nav-tabs filterTab" id="myTab" role="tablist">
                             <li class="nav-item pr-1" role="presentation">
                                 <a class="nav-link" id="today-tab" #todayTab data-toggle="tab" href="#today" role="tab" aria-controls="today" aria-selected="false">
                                     <span class="icon"><img src="/assets/img/icons/list_ic/Today.svg" alt=""></span> Today
                                 </a>
                             </li>
-                            
-                            
                             <li class="nav-item pr-1" role="presentation">
                                 <button class="nav-link" id="tomorrow-tab" data-toggle="tab" data-target="#tomorrow"
                                     type="button" role="tab" aria-controls="tomorrow"
                                     aria-selected="false">Tomorrow</button>
-                            </li>
-                            <li class="nav-item pr-1" role="presentation">
+                            </li> 
+                             <li class="nav-item pr-1" role="presentation">
                                 <button class="nav-link" id="upcoming-tab" data-toggle="tab" data-target="#upcoming"
                                     type="button" role="tab" aria-controls="upcoming"
                                     aria-selected="false">Upcoming</button>
+                            </li> 
+                            <li class="nav-item pr-1" role="presentation">
+                                <button class="nav-link" id="upcoming-tab" data-toggle="tab" data-target="#upcoming"
+                                    type="button" role="tab" aria-controls="upcoming"
+                                    aria-selected="false">Home</button>
                             </li>
                             <li class="nav-item pr-1" role="presentation">
                                 <button class="nav-link " id="inplay-tab" data-toggle="tab" data-target="#inplay"
                                     type="button" role="tab" aria-controls="inplay" aria-selected="true">Inplay</button>
-                            </li>
-                        </ul>
+                            </li> 
+                        </ul> -->
                         <div class="tab-content" id="listingTabs">
                             <div class="tab-pane fade show active" id="today" role="tabpanel"
                                 aria-labelledby="today-tab">
                                 <div class="market">
+                                    <div class="sportsName">
+                                        <span>
+                                            <img src="/assets/img/icons/list_ic/Cricket.svg" alt="">
+                                            <img src="/assets/img/icons/list_ic/Tennis.svg" alt="">
+                                            <img src="/assets/img/icons/list_ic/FootBall.svg" alt="">
+                                        </span>
+                                         Cricket
+                                    </div>
                                     <div class="head">
                                         <div class="event_league_name">
-                                            <span class="icons"><img src="/assets/img/icons/list_ic/Tennis.svg"
-                                                    alt=""><img src="/assets/img/icons/cup_ic.svg" alt=""></span>
+                                            <span class="icons">
+                                                <!-- <img src="/assets/img/icons/list_ic/Tennis.svg" alt=""> -->
+                                                    <img src="/assets/img/icons/cup_ic.svg" alt=""></span>
                                             <a href="javascript:void(0)">Market</a>
                                         </div>
                                         <div class="event_rates_title">
@@ -184,10 +256,19 @@
                             </div>
                             <div class="tab-pane fade" id="tomorrow" role="tabpanel" aria-labelledby="tomorrow-tab">
                                 <div class="market">
+                                    <div class="sportsName">
+                                        <span>
+                                            <img src="/assets/img/icons/list_ic/Cricket.svg" alt="">
+                                            <img src="/assets/img/icons/list_ic/Tennis.svg" alt="">
+                                            <img src="/assets/img/icons/list_ic/FootBall.svg" alt="">
+                                        </span>
+                                         Cricket
+                                    </div>
                                     <div class="head">
                                         <div class="event_league_name">
-                                            <span class="icons"><img src="/assets/img/icons/list_ic/Tennis.svg"
-                                                    alt=""><img src="/assets/img/icons/cup_ic.svg" alt=""></span>
+                                            <span class="icons">
+                                                <!-- <img src="/assets/img/icons/list_ic/Tennis.svg" alt=""> -->
+                                                    <img src="/assets/img/icons/cup_ic.svg" alt=""></span>
                                             <a href="javascript:void(0)">Market</a>
                                         </div>
                                         <div class="event_rates_title">
@@ -293,6 +374,14 @@
                             </div>
                             <div class="tab-pane fade" id="upcoming" role="tabpanel" aria-labelledby="upcoming-tab">
                                 <div class="market">
+                                    <div class="sportsName">
+                                        <span>
+                                            <img src="/assets/img/icons/list_ic/Cricket.svg" alt="">
+                                            <img src="/assets/img/icons/list_ic/Tennis.svg" alt="">
+                                            <img src="/assets/img/icons/list_ic/FootBall.svg" alt="">
+                                        </span> 
+                                        Cricket
+                                    </div>
                                     <div class="head">
                                         <div class="event_league_name">
                                             <span class="icons"><img src="/assets/img/icons/list_ic/Tennis.svg"
@@ -403,10 +492,19 @@
                             <div class="tab-pane fade" id="inplay" role="tabpanel"
                                 aria-labelledby="inplay-tab">
                                 <div class="market">
+                                    <div class="sportsName">
+                                        <span>
+                                            <img src="/assets/img/icons/list_ic/Cricket.svg" alt="">
+                                            <img src="/assets/img/icons/list_ic/Tennis.svg" alt="">
+                                            <img src="/assets/img/icons/list_ic/FootBall.svg" alt="">
+                                        </span>
+                                         Cricket
+                                    </div>
                                     <div class="head">
                                         <div class="event_league_name">
-                                            <span class="icons"><img src="/assets/img/icons/list_ic/Tennis.svg"
-                                                    alt=""><img src="/assets/img/icons/cup_ic.svg" alt=""></span>
+                                            <span class="icons">
+                                                <!-- <img src="/assets/img/icons/list_ic/Tennis.svg" alt=""> -->
+                                                <img src="/assets/img/icons/cup_ic.svg" alt=""></span>
                                             <a href="javascript:void(0)">Market</a>
                                         </div>
                                         <div class="event_rates_title">
