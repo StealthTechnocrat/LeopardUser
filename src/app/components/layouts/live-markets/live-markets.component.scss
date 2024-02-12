@@ -576,6 +576,11 @@
                 display: flex;
                 z-index: 1;
                 color: #fff;
+                &.min-w-cstm{
+                    min-width: 15px;
+                    justify-content: center;
+                    padding-right: 0px;
+                }
 
                 strong {
                     -webkit-box-flex: 1;

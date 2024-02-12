@@ -16,6 +16,7 @@ export class AccountService {
   private getUsrDtlUrl = environment.apiBaseUrl + "SignUp/GetUserDetails";
   private getDetailLstUrl = environment.apiBaseUrl + "Event/GetDetail";
   private getEvntDtlUrl = environment.apiBaseUrl + "Event/GetEventDetail";
+  private getEventDtlLstUrl = environment.apiBaseUrl + "Event/GetDashboardEvents";
   private placeBetUrl = environment.apiBaseUrl + "Bets/CreateBet";
   private placeFancyBetUrl = environment.apiBaseUrl + "Bets/CreateFancyBet";
   private getBetHistoryUrl = environment.apiBaseUrl + "Bets/GetBetsHistory";
@@ -123,6 +124,17 @@ export class AccountService {
     return this.baseHttpService
       .Get(
         this.getUsrDtlUrl + "?id=" + id + "&role=" + role + "&token=" + token
+      )
+      .then(function (response) {
+        return response.json();
+      });
+  }
+  getEventDtl(evtType): Promise<any> {
+    return this.baseHttpService
+      .Get(
+        this.getEventDtlLstUrl +
+          "?evtType=" +
+          evtType
       )
       .then(function (response) {
         return response.json();
