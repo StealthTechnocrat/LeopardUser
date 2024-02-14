@@ -94,7 +94,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="tab-content pt-1" id="listingTabs">
+                <div class="tab-content min-h-col pt-1" id="listingTabs">
                     <div class="tab-pane fade show active" id="cricket" role="tabpanel" aria-labelledby="cricket-tab">
                         <!-- <ul class="nav nav-tabs filterTab" id="myTab" role="tablist">
                             <li class="nav-item pr-1" role="presentation">
@@ -122,7 +122,7 @@
                                     type="button" role="tab" aria-controls="inplay" aria-selected="true">Inplay</button>
                             </li> 
                         </ul> -->
-                        <div class="tab-content" id="listingTabs">
+                        <div class="tab-content " id="listingTabs">
                             <div class="tab-pane fade show active" id="today" role="tabpanel" aria-labelledby="today-tab">
                                 <div class="market" *ngFor="let item of rtrnObj">
                                     <div class="sportsName">
@@ -141,7 +141,7 @@
                                             <span class="icons">
                                                 <!-- <img src="/assets/img/icons/list_ic/Tennis.svg" alt=""> -->
                                                 <img src="/assets/img/icons/cup_ic.svg" alt=""></span>
-                                            <a href="javascript:void(0)">Market</a>
+                                            <a >Market</a>
                                         </div>
                                         <div class="event_rates_title">
                                             <div class="point_title">1</div>
@@ -270,7 +270,7 @@
                                         <div class="event_league_name">
                                             <span class="icons"><img src="/assets/img/icons/list_ic/Tennis.svg"
                                                     alt=""><img src="/assets/img/icons/cup_ic.svg" alt=""></span>
-                                            <a href="javascript:void(0)">Market</a>
+                                            <a >Market</a>
                                         </div>
                                         <div class="event_rates_title">
                                             <div class="point_title">1</div>
@@ -409,7 +409,7 @@
                                         <div class="event_league_name">
                                             <span class="icons">
                                                     <img src="/assets/img/icons/cup_ic.svg" alt=""></span>
-                                            <a href="javascript:void(0)">Market</a>
+                                            <a >Market</a>
                                         </div>
                                         <div class="event_rates_title">
                                             <div class="point_title">1</div>
@@ -526,7 +526,7 @@
                                         <div class="event_league_name">
                                             <span class="icons"><img src="/assets/img/icons/list_ic/Tennis.svg"
                                                     alt=""><img src="/assets/img/icons/cup_ic.svg" alt=""></span>
-                                            <a href="javascript:void(0)">Market</a>
+                                            <a >Market</a>
                                         </div>
                                         <div class="event_rates_title">
                                             <div class="point_title">1</div>
@@ -644,7 +644,7 @@
                                         <div class="event_league_name">
                                             <span class="icons">
                                                 <img src="/assets/img/icons/cup_ic.svg" alt=""></span>
-                                            <a href="javascript:void(0)">Market</a>
+                                            <a >Market</a>
                                         </div>
                                         <div class="event_rates_title">
                                             <div class="point_title">1</div>
@@ -763,6 +763,53 @@
                                 </div>
                             </div> -->
                         </div>
+                    </div>
+                </div>
+                <div class="casinoHome">
+                    <div class="indian-card-games">
+                        <div class="game-heading">
+                            <h1>
+                                <img src="assets/img/ic_icCard.png" alt="indian-card-game-icon">
+                                Live Casino Games
+                            </h1>
+                            <a  class="openbets">{{popularGames.games[0].provider}}</a>
+                        </div>
+                        <ul class="exchangeGames-content list-unstyled">
+                            <li class="exchangeGames-item" *ngFor="let data of popularGames.games[0].list">
+                                <a  routerLink="/live-games/{{data.game_code}}" > 
+                                    <!--  -->
+                                    <img [src]="data.image" alt="img" class="img-fluid">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                
+                    <div class="promotion-buttons">
+                        <ul class="list-unstyled">
+                            <li *ngFor="let data of uISERVICE.casinoCategoryList;let i=index">
+                                <a  class="promotion-banner" routerLink="/casino/{{data.id}}/{{data.category_name}}">
+                                    <img [src]="data.category_image" alt="aviator" class="img-fluid">
+                                </a>
+                                <p>Soar high, win bigger!</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="indian-card-games populaGamesSection pb-4">
+                        <div class="game-heading">
+                            <h1>
+                                <img src="assets/img/ic_popularGames.png" alt="popular-games-icon">
+                                Popular Games
+                            </h1>
+                            <a  class="openbets">{{popularGames.games[1].provider}}</a>
+                        </div>
+                        <ul class="exchangeGames-content list-unstyled">
+                            <li class="exchangeGames-item" *ngFor="let data of popularGames.games[1].list">
+                                <a  routerLink="/live-games/{{data.game_code}}">
+                                    <img [src]="data.image" alt="img" class="img-fluid">
+                                </a>
+                            </li>
+                            
+                        </ul>
                     </div>
                 </div>
             </div>

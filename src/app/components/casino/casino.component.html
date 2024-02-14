@@ -1,4 +1,4 @@
-<div class="back_bar d-lg-none">
+<!-- <div class="back_bar d-lg-none">
   <a routerLink="/games" class="back_btn d-flex align-items-center">
     <svg class="svg-icon">
       <use href="/assets/icons/icons_defs.svg#svg_event-arrow"></use>
@@ -51,6 +51,32 @@
             </div>
           </div>
          
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+<div class="main_wrap">
+  <div class="cstm_row full_wid_mid tab_ul mt-4 mt-md-5">
+    <ul class="nav nav-tabs d-flex overflow-auto flex-nowrap justify-content-center border-0">
+      <li class="border-right" 
+        ><a data-toggle="tab"
+          href="#home">{{categoryName}}</a></li>
+
+    </ul>
+    <div class="middle_area">
+      <div class="mid_inner px-0 pt-3 tab-content bg-transparent">
+        <div id="home" class="tab-pane fade in active show">
+          <div class="row">
+            <div class="col-4 col-md-3 px-1 px-md-2"  *ngFor="let games of casinoProviderList;let i=index">
+              <div class="img_area" routerLink="/casino_games/{{games.developer_id}}/{{games.developer_name}}">
+                <img [src]="games.developer_image" alt="">
+                <div class="game_name">
+                  <p>{{games.developer_name}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

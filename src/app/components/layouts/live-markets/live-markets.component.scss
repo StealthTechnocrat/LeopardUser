@@ -5,6 +5,7 @@
 
 .market {
     margin-bottom: 10px;
+
     .sportsName {
         background-color: #204878;
         height: 28px;
@@ -576,7 +577,8 @@
                 display: flex;
                 z-index: 1;
                 color: #fff;
-                &.min-w-cstm{
+
+                &.min-w-cstm {
                     min-width: 15px;
                     justify-content: center;
                     padding-right: 0px;
@@ -944,4 +946,249 @@
 
 .filterTab {
     @media(max-width:475px) {}
+}
+
+.min-h-col {
+    height: 200px;
+    overflow: auto;
+
+    @media(max-width:767.98px) {
+        height: auto;
+    }
+
+    &::-webkit-scrollbar {
+        width: 4px;
+        height: 2px;
+        border-radius: 3px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: #fff;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #888;
+    }
+
+}
+
+.casinoHome {
+    .indian-card-games {
+        // margin-top: 48px;
+        padding: 0 10px;
+
+        .game-heading {
+            align-items: center;
+            border-radius: 10px;
+            color: #000;
+            display: flex;
+            margin-top: 20px;
+            min-height: 48px;
+            padding: 5px 0;
+            position: relative;
+            text-transform: uppercase;
+
+            h1 {
+                font-size: 16px;
+                margin: 0;
+
+                @media(max-width:349.98px) {
+                    font-size: 15px;
+                }
+
+                img {
+                    height: 30px;
+                    margin-right: 8px;
+                    width: 30px;
+
+                    @media(max-width:349.98px) {
+                        height: 25px;
+                        margin-right: 8px;
+                        width: 25px;
+                    }
+                }
+            }
+
+            .openbets {
+                background-color: #fdca01;
+                border-radius: 25px;
+                color: #000;
+                font-weight: 600;
+                padding: 7px 15px;
+                position: absolute;
+                right: 7px;
+                text-transform: uppercase;
+                top: 50%;
+                transform: translateY(-50%);
+                @media(max-width:349.98px) {
+                    padding: 7px 10px;
+                }
+                &:hover {
+                    background-color: #ebbd00;
+                    text-decoration: none;
+                }
+            }
+        }
+
+        .exchangeGames-content {
+            grid-row-gap: 15px;
+            grid-column-gap: 10px;
+            display: grid;
+            grid-auto-flow: column;
+            grid-template-rows: auto auto auto;
+            justify-content: space-between;
+            margin-top: 12px;
+            overflow-x: scroll;
+            padding-bottom: 8px;
+            width: 100%;
+
+            &::-webkit-scrollbar {
+                width: 4px;
+                height: 4px;
+                border-radius: 3px;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background: #204878;
+            }
+
+            .exchangeGames-item {
+                border-radius: 5px;
+                cursor: pointer;
+                overflow: hidden;
+                width: 170px;
+
+                a {
+                    img {
+                        border: 1px solid hsla(0, 0%, 100%, .2);
+                        border-radius: 10px;
+                        height: 78px;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    .promotion-buttons {
+        margin-top: 14px;
+
+        @media(max-width:767.98px) {
+            background-image: url('../../../../assets/img/casinogirl.png'), linear-gradient(#124c91, #204878);
+            background-position: bottom;
+            background-repeat: no-repeat;
+            border-radius: 10px;
+            margin: 18px 0px 24px;
+            padding-bottom: 100px;
+        }
+
+        ul {
+            grid-row-gap: 7px;
+            grid-gap: 5px;
+            display: grid;
+            gap: 5px;
+            grid-auto-flow: column;
+            justify-content: space-between;
+            margin: 15px 0 15px;
+            overflow-x: auto;
+            padding: 0px 0px 0;
+            width: auto;
+
+            @media(max-width:767.98px) {
+                grid-auto-flow: unset;
+                grid-template-columns: repeat(2, 1fr);
+                padding: 30px 0px 0;
+            }
+
+            li {
+                flex: 1 1;
+                font-family: Lato, sans-serif;
+                font-size: 12px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 14px;
+                margin: 0;
+                padding: 0 5px;
+                text-transform: capitalize;
+                width: 100%;
+
+                @media(max-width:767.98px) {
+                    &:not(:empty) {
+                        transform-style: inherit !important;
+                    }
+                }
+
+                a {
+                    align-items: center;
+                    background-color: initial;
+                    background-position: 50%;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    color: #fff;
+                    height: 100%;
+                    width: 100%;
+
+                    img {
+                        border: 1px solid hsla(0, 0%, 100%, .2);
+                        border-radius: 5px;
+                        width: 100%;
+                    }
+                }
+
+                p {
+                    color: #ebbd00;
+                    font-size: 12px;
+                    margin-top: 5px;
+                    margin-bottom: 1rem;
+                    text-align: center;
+
+                    @media(max-width:767.98px) {
+                        color: #ffd62d;
+                    }
+                }
+            }
+        }
+    }
+
+    .populaGamesSection {
+        // .game-heading {
+        //     font-size: 14px;
+
+        //     img {
+        //         margin-right: 6px;
+        //     }
+
+        //     .openbets {
+        //         padding: 7px 10px;
+        //         right: 0px;
+        //     }
+        // }
+
+        .exchangeGames-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            overflow: hidden;
+            padding: 0;
+
+            .exchangeGames-item {
+                width: 14.99%;
+
+                @media(max-width:767.98px) {
+                    width: 31.4%;
+                }
+
+                @media(max-width:366.98px) {
+                    width: 30.33%;
+                }
+
+                a {
+                    img {
+                        height: 100%;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
 }

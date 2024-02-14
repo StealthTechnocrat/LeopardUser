@@ -12,6 +12,7 @@ export class UiService {
     take:number;
     Header:boolean=false;
     News:any=[];
+    casinoCategoryList:any=[];
     Bets:any=[];
     sportsData: any = [];
     sportsName: string;
