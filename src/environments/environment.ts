@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,  
-  apiBaseUrl: "http://localhost:49658/" 
-  // apiBaseUrl: "https://leopardexch.in/"
+  //apiBaseUrl: "http://localhost:49658/" 
+  apiBaseUrl: "https://leopardexch.in/"
 };
 
 /*
