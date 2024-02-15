@@ -29,6 +29,7 @@ export class LiveMarketsComponent implements OnInit {
   tennInplayEvt: number = 0;
   totalInplay: number = 0;
   popularGames:any=[];
+  popularGamesName:any=[]
   providers:string='Ezugi,Evolution Gaming';
   prevIndex:number=0;
   casinoProviderList:any=[];
@@ -88,7 +89,7 @@ export class LiveMarketsComponent implements OnInit {
         this.uISERVICE.casinoCategoryList[this.prevIndex].status = false;
         this.uISERVICE.casinoCategoryList[index].status = true;
         this.prevIndex = index;
-        this.casinoProviderList = response.Result.lists;
+        this.casinoProviderList = response.Result.lists;  
       }
       
     this.uISERVICE.loader=false;
@@ -100,7 +101,7 @@ export class LiveMarketsComponent implements OnInit {
       
       if (response.Status) {
        this.popularGames=response.Result
-       console.log(this.popularGames);
+       console.log(this.providers)
       }
 
     })
@@ -139,8 +140,6 @@ this.GetEventDetails();
       if (response.Status) {
         this.uISERVICE.loader = false;
         this.rtrnObj = response.Result;
-        console.log("rtntypelist",response)
-        debugger;
         if(this.evtType == "Home" || this.evtType == "Inplay") {
           this.cricEvt = response.cricketCount;
           this.cricInplayEvt = response.cricketInplayCount;
@@ -176,17 +175,17 @@ this.GetEventDetails();
 
       if (response.Status) {
         this.uISERVICE.loader = false;
-        this.rtrnObj = response.Result;
+        // this.rtrnObj = response.Result;
         if (this.reqType == "All") {
-          this.uISERVICE.News = this.rtrnObj.News;
+          this.uISERVICE.News = response.Result.News;
           // this.uISERVICE.TopEvents = this.rtrnObj.TopEvents;
           // this.uISERVICE.TopInplay = this.rtrnObj.TopInplay;
-          this.uISERVICE.Bets = this.rtrnObj.Bets;
+          this.uISERVICE.Bets = response.Result.Bets;
           // localStorage.setItem('TopEvents', JSON.stringify(this.rtrnObj.TopEvents));
           // localStorage.setItem('News', JSON.stringify(this.rtrnObj.News));
           // localStorage.setItem('TopInplay', JSON.stringify(this.rtrnObj.TopInplay));
           if (this.chkCnd == "After") {
-            localStorage.setItem('Bets', JSON.stringify(this.rtrnObj.Bets));
+            localStorage.setItem('Bets', JSON.stringify(response.Result.Bets));
           }
         }
       } else {

@@ -278,7 +278,7 @@
                                             <div class="point_title">2</div>
                                         </div>
                                     </div>
-                                    <div class="event_list_wrappper" *ngIf="rtrnObj!=null">
+                                    <div class="event_list_wrappper" *ngIf="rtrnObj.length>0">
                                         <div class="event_l" *ngFor="let evnt of rtrnObj; let i = index">
                                             <div class="event_league_name d-flex align-items-center ">
                                                 <div class="eventLiveInplay w-auto" *ngIf="evnt.Inplay">
@@ -766,25 +766,24 @@
                     </div>
                 </div>
                 <div class="casinoHome">
-                    <div class="indian-card-games">
+                    <div *ngIf="popularGames != null && popularGames.games != null && popularGames.games.length > 0" class="indian-card-games">
                         <div class="game-heading">
                             <h1>
                                 <img src="assets/img/ic_icCard.png" alt="indian-card-game-icon">
                                 Live Casino Games
                             </h1>
-                            <a  class="openbets">{{popularGames.games[0].provider}}</a>
+                            <a class="openbets">{{popularGames.games[0].provider}}</a>
                         </div>
                         <ul class="exchangeGames-content list-unstyled">
                             <li class="exchangeGames-item" *ngFor="let data of popularGames.games[0].list">
-                                <a  routerLink="/live-games/{{data.game_code}}" > 
-                                    <!--  -->
+                                <a routerLink="/live-games/{{data.game_code}}">
                                     <img [src]="data.image" alt="img" class="img-fluid">
                                 </a>
                             </li>
                         </ul>
                     </div>
-                
-                    <div class="promotion-buttons">
+                    
+                    <div *ngIf="uISERVICE.casinoCategoryList!=null" class="promotion-buttons">
                         <ul class="list-unstyled">
                             <li *ngFor="let data of uISERVICE.casinoCategoryList;let i=index">
                                 <a  class="promotion-banner" routerLink="/casino/{{data.id}}/{{data.category_name}}">
@@ -794,7 +793,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="indian-card-games populaGamesSection pb-4">
+                    <div *ngIf="popularGames != null && popularGames.games != null && popularGames.games.length > 0" class="indian-card-games populaGamesSection pb-4">
                         <div class="game-heading">
                             <h1>
                                 <img src="assets/img/ic_popularGames.png" alt="popular-games-icon">
