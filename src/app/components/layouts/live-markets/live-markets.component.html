@@ -78,7 +78,7 @@
                                 <img src="./assets/img/img_Casino.png" alt="img-fluid" alt="img">
                             </a>
                         </li>
-                        <li class="d-lg-none"><a class="nav-link blinkTxt" (click)="checkLogin('table','1')"
+                        <li class="d-lg-none"><a class="nav-link blinkTxt" href="#casinoCenr" (click)="checkLogin('table','1')"
                                 *ngIf="!uISERVICE.casinoStatus">
                                 <!-- <span class="icon">
                                     <svg class="svg-icon">
@@ -766,7 +766,7 @@
                     </div>
                 </div>
                 <div class="casinoHome">
-                    <div *ngIf="popularGames != null && popularGames.games != null && popularGames.games.length > 0" class="indian-card-games">
+                    <div *ngIf="popularGames != null && popularGames.games != null && popularGames.games.length > 0" class="indian-card-games pt-5" id="casinoCenr">
                         <div class="game-heading">
                             <h1>
                                 <img src="assets/img/ic_icCard.png" alt="indian-card-game-icon">
