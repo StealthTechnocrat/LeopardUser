@@ -47,16 +47,17 @@ export class LiveGamesComponent implements OnInit {
   }
 
   back() {
+    debugger;
     this.uISERVICE.developername = JSON.parse(localStorage.getItem("developername"))
-    if (this.uISERVICE.developername !== ''  && this.uISERVICE.developername != null || this.uISERVICE.developername !== undefined) {
-        this.uISERVICE.developerId = JSON.parse(localStorage.getItem("developerId"));
+    if (this.uISERVICE.developername !== "" && this.uISERVICE.developername != null && this.uISERVICE.developername !== undefined) {
+      this.uISERVICE.developerId = JSON.parse(localStorage.getItem("developerId"));
         this.uISERVICE.developername = JSON.parse(localStorage.getItem("developername"));
         this.router.navigate([`casino_games/${this.uISERVICE.developerId}/${this.uISERVICE.developername}`]);
         localStorage.setItem("developerId", '');
         localStorage.setItem("developername", '');
     }else{
-      this.router.navigate([`games`]);
-    }
+      this.router.navigate(["games"]);
+        }
 }
 
 
