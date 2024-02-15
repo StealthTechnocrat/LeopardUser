@@ -12,13 +12,33 @@
             <div class="side_bar">
                
             </div>
-            <div class="middle_area">
+            <!-- <div class="middle_area">
                 
                 <div class="casino_iframe iframe_area">                    
                     <div class="inner iframe_area_col" [innerHTML]="iFrame | safe: 'html'">
                         
                     </div>
                     
+                </div>
+            </div> -->
+            <div class="middle_area">
+
+                <div class="casino_iframe iframe_area">
+                    <div class="inner iframe_area_col">
+                        <!-- <div class="my-4 bonusPolicy">
+                            <h4 class="sectionTitle">Bonus</h4>
+                            <div class="footer-page-section">
+                                <p class="mt-2">The bonus balance is designated for use exclusively in casino games such
+                                    as Teen Patti, Andar-Bahar, Dragon Tiger, and Lucky 7. To play with the bonus
+                                    balance, you must place bets with the full amount in a single instance.</p>
+                            </div>
+                        </div> -->
+                        <iframe width="100%" height="200" [src]="lobbyUrl" title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+
                 </div>
             </div>
         </div>

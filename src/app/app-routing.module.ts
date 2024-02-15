@@ -12,7 +12,7 @@ import { LiveGamesComponent } from './components/live-games/live-games.component
 import { CasinoComponent } from './components/casino/casino.component';
 import { CupRateComponent } from './components/cup-rate/cup-rate.component';
 import { MatchListComponent } from './components/match-list/match-list.component';
-
+import { CasinoGameComponent } from './components/casino-game/casino-game.component';
 const routes: Routes = [
   {path:'', redirectTo: '/games', pathMatch:'full'},
   {path:'games', component:GamesComponent},
@@ -23,11 +23,14 @@ const routes: Routes = [
   {path:'statement', component:StatementComponent},
   {path:'profit-loss', component:ProfitLossComponent},
   {path:'table-games/:marketId', component:TeenpattiComponent},
-  {path:'live-games/:page/:system', component:LiveGamesComponent},
-  {path:'casino/:type', component:CasinoComponent},
-  {path:'casino/:type/:index/:systemId', component:CasinoComponent},
+  // {path:'live-games/:page/:system', component:LiveGamesComponent},
+  { path: 'casino_games/:developerId/:developer_name', component: CasinoGameComponent },
+  { path: 'casino/:categoryId/:name', component: CasinoComponent },
+  // {path:'casino/:type', component:CasinoComponent},
+  // {path:'casino/:type/:index/:systemId', component:CasinoComponent},
   {path:'cup-rate/:sportsId/:eventId', component:CupRateComponent},
   {path:'match-list/:sportsId', component:MatchListComponent},
+  { path: 'live-games/:game_code', component: LiveGamesComponent },
 ];
 
 @NgModule({

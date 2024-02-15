@@ -13,14 +13,18 @@ import { UiService } from 'src/app/service/ui-service';
 export class CasinoGameComponent implements OnInit {
   systemId: string;
   casinoGamesList:any=[];
+  developerId:string='';
+  gameList: any = [];
+  developername:string='';
   constructor(private accountService: AccountService, private route: ActivatedRoute, public uISERVICE: UiService, private router: Router) { }
-
 
   ngOnInit(): void {
     if (Cookie.check("usersCookies")) {
       this.route.paramMap.subscribe(params => {
-        this.systemId = params.get('systemId');
+        this.developerId = params.get('developerId');
+        this.developername=params.get('developer_name');
       });
+      
       this.getGameList();
     } else {
       this.uISERVICE.Error = true;
@@ -34,13 +38,22 @@ export class CasinoGameComponent implements OnInit {
 
   getGameList() {
     this.uISERVICE.loader = true;
-    this.casinoGamesList = [];
-    this.accountService.GetCasinoGames(this.systemId).then((response) => {      
-      if (response.Status) {       
-        this.casinoGamesList = response.Result;
+    this.accountService.GetCasinoGames(this.developerId).then((response) => {
+      
+      if (response.Status) {
+        
+        this.gameList = response.Result.lists;
+        console.log(this.gameList);
+        this.uISERVICE.loader = false;
+      } else {
         this.uISERVICE.loader = false;
       }
     })
+  }
+
+  sendData(data:any){
+    debugger;
+    this.router.navigate(['/live-games', data]);
   }
 
 }

@@ -20,6 +20,20 @@ export class LiveMarketsComponent implements OnInit {
   currentDate=Date;
   nextDate=Date;
   hideTab:boolean=true;
+  evtType: string = "Home"
+  cricEvt: number = 0;
+  cricInplayEvt: number = 0;
+  footEvt: number = 0;
+  footInplayEvt: number = 0;
+  tennEvt: number = 0;
+  tennInplayEvt: number = 0;
+  totalInplay: number = 0;
+  popularGames:any=[];
+  providers:string='Ezugi,Evolution Gaming';
+  prevIndex:number=0;
+  casinoProviderList:any=[];
+  sndvalue:string = ""
+  casinoGamesList:any=[];
 
   constructor(
     private accountService: AccountService,
@@ -30,7 +44,7 @@ export class LiveMarketsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    debugger;
+    this.GetEventDetails();
     if(this.location.path().includes("match-list")){
       this.hideTab=false;
       this.route.paramMap.subscribe(params => {
@@ -41,11 +55,119 @@ export class LiveMarketsComponent implements OnInit {
     if (Cookie.check('usersCookies')) {
       this.chkCnd = "After";
       this.GetDetail();
+      this.getCasinoCategory();
     } else {
       this.uISERVICE.Header = false;
       this.GetDetail();
+      this.getCasinoCategory();
     }
     
+  }
+
+  getCasinoCategory() {
+    this.accountService.GetCasinoCategory().then((response) => {
+      
+      if (response.Status) {
+        this.uISERVICE.casinoCategoryList = response.Result.lists;
+        this.getCasinoProvider(this.uISERVICE.casinoCategoryList[0].id,0)
+      }
+    });
+    this.getPopularGames();
+  }
+
+
+  getCasinoProvider(categoryId: string, index) {
+    this.uISERVICE.loader=true;
+    this.casinoProviderList =[];
+    this.accountService.GetCasinoProvider(categoryId).then((response) => {
+      
+      if (response.Status) {
+        this.uISERVICE.casinoCategoryList.forEach(element => {
+          element.status = false;
+        });
+        this.uISERVICE.casinoCategoryList[this.prevIndex].status = false;
+        this.uISERVICE.casinoCategoryList[index].status = true;
+        this.prevIndex = index;
+        this.casinoProviderList = response.Result.lists;
+      }
+      
+    this.uISERVICE.loader=false;
+    });
+  }
+
+  getPopularGames(){
+    this.accountService.GetPopularGames(this.providers).then((response) => {
+      
+      if (response.Status) {
+       this.popularGames=response.Result
+       console.log(this.popularGames);
+      }
+
+    })
+  }
+
+  getGameList(systemId: string, index) {
+
+    this.casinoGamesList = [];
+    this.accountService.GetCasinoGames(systemId).then((response) => {
+      
+      if (response.Status) {
+        this.uISERVICE.casinoProvidersList.forEach(element => {
+          element.status = false;
+        });
+        this.uISERVICE.casinoProvidersList[this.prevIndex].status = false;
+        this.uISERVICE.casinoProvidersList[index].status = true;
+        this.prevIndex = index;
+        this.casinoGamesList = response.Result;
+        //this.uISERVICE.loader = false;
+      }
+
+    })
+  }
+
+  setTab(value: string){
+this.evtType = value;
+this.GetEventDetails();
+  }
+
+  GetEventDetails() {
+    this.uISERVICE.loader = true;
+    this.rtrnObj = [];
+
+    this.accountService.getEventDtl(this.evtType).then((response) => {
+
+      if (response.Status) {
+        this.uISERVICE.loader = false;
+        this.rtrnObj = response.Result;
+        console.log("rtntypelist",response)
+        debugger;
+        if(this.evtType == "Home" || this.evtType == "Inplay") {
+          this.cricEvt = response.cricketCount;
+          this.cricInplayEvt = response.cricketInplayCount;
+          this.footEvt = response.footballCount;
+          this.footInplayEvt = response.footballInplayCount;
+          this.tennEvt = response.TennisCount;
+          this.tennInplayEvt = response.TennisInplayCount;
+          this.totalInplay = this.cricInplayEvt + this.footInplayEvt  + this.tennInplayEvt;
+        }
+        console.log("rtntype",this.rtrnObj)
+        // if (this.reqType == "All") {
+          this.uISERVICE.News = this.rtrnObj.News;
+        //   this.uISERVICE.TopEvents = this.rtrnObj.TopEvents;
+        //   this.uISERVICE.TopInplay = this.rtrnObj.TopInplay;
+          this.uISERVICE.Bets = this.rtrnObj.Bets;
+        //   localStorage.setItem('TopEvents', JSON.stringify(this.rtrnObj.TopEvents));
+        //   localStorage.setItem('News', JSON.stringify(this.rtrnObj.News));
+        //   localStorage.setItem('TopInplay', JSON.stringify(this.rtrnObj.TopInplay));
+        //   if (this.chkCnd == "After") {
+        //     localStorage.setItem('Bets', JSON.stringify(this.rtrnObj.Bets));
+        //   }
+        // }
+      } else {
+        this.uISERVICE.loader = false;
+        this.rtrnObj = [];
+      }
+    });
   }
 
   GetDetail() {
@@ -57,12 +179,12 @@ export class LiveMarketsComponent implements OnInit {
         this.rtrnObj = response.Result;
         if (this.reqType == "All") {
           this.uISERVICE.News = this.rtrnObj.News;
-          this.uISERVICE.TopEvents = this.rtrnObj.TopEvents;
-          this.uISERVICE.TopInplay = this.rtrnObj.TopInplay;
+          // this.uISERVICE.TopEvents = this.rtrnObj.TopEvents;
+          // this.uISERVICE.TopInplay = this.rtrnObj.TopInplay;
           this.uISERVICE.Bets = this.rtrnObj.Bets;
-          localStorage.setItem('TopEvents', JSON.stringify(this.rtrnObj.TopEvents));
-          localStorage.setItem('News', JSON.stringify(this.rtrnObj.News));
-          localStorage.setItem('TopInplay', JSON.stringify(this.rtrnObj.TopInplay));
+          // localStorage.setItem('TopEvents', JSON.stringify(this.rtrnObj.TopEvents));
+          // localStorage.setItem('News', JSON.stringify(this.rtrnObj.News));
+          // localStorage.setItem('TopInplay', JSON.stringify(this.rtrnObj.TopInplay));
           if (this.chkCnd == "After") {
             localStorage.setItem('Bets', JSON.stringify(this.rtrnObj.Bets));
           }

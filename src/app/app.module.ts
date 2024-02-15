@@ -39,6 +39,8 @@ import { GameRulesComponent } from './components/layouts/game-rules/game-rules.c
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatchListComponent } from './components/match-list/match-list.component';
+import { RouterModule } from '@angular/router';
+import { CasinoGameComponent } from './components/casino-game/casino-game.component';
 // import { SetBetComponent } from './components/set-bet/set-bet.component';
 
 const cookieConfig:NgcCookieConsentConfig = {
@@ -58,11 +60,14 @@ const cookieConfig:NgcCookieConsentConfig = {
 };
 @NgModule({
   declarations: [
+
     AppComponent,
     HeaderComponent,
     SafePipe,
     SidebarComponent,
     GamesComponent,
+    CasinoComponent,
+    CasinoGameComponent,
     LiveMarketsComponent,
     CasinoSidebarComponent,
     SidebarBetsComponent,
@@ -83,6 +88,7 @@ const cookieConfig:NgcCookieConsentConfig = {
   imports: [
     BrowserModule,
     AppRoutingModule,
+    RouterModule.forRoot([]), 
     HttpModule,
     HttpClientModule,
     FormsModule,
@@ -93,6 +99,7 @@ const cookieConfig:NgcCookieConsentConfig = {
     NgcCookieConsentModule.forRoot(cookieConfig),
     NgbModule,
     DragDropModule,
+
   ],
   //exports: [SetBetComponent],
   providers: [DatePipe,{ provide: LocationStrategy, useClass: HashLocationStrategy },WindowService, { provide: NgcCookieConsentConfig, useValue: config }, NgcCookieConsentService, AccountService, BaseHttpService, AuthGuardService, UiService, PagerService],

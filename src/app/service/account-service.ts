@@ -16,6 +16,7 @@ export class AccountService {
   private getUsrDtlUrl = environment.apiBaseUrl + "SignUp/GetUserDetails";
   private getDetailLstUrl = environment.apiBaseUrl + "Event/GetDetail";
   private getEvntDtlUrl = environment.apiBaseUrl + "Event/GetEventDetail";
+  private getEventDtlLstUrl = environment.apiBaseUrl + "Event/GetDashboardEvents";
   private placeBetUrl = environment.apiBaseUrl + "Bets/CreateBet";
   private placeFancyBetUrl = environment.apiBaseUrl + "Bets/CreateFancyBet";
   private getBetHistoryUrl = environment.apiBaseUrl + "Bets/GetBetsHistory";
@@ -44,8 +45,8 @@ export class AccountService {
   private GetBannerUrl = environment.apiBaseUrl + "Chip/GetBanners";
   private GetCasinoProviderUrl =
     environment.apiBaseUrl + "CasinoSettings/GetCasinoProviders";
-  private GetCasinoGamesUrl =
-    environment.apiBaseUrl + "CasinoSettings/GetCasinoGames";
+  // private GetCasinoGamesUrl =
+  //   environment.apiBaseUrl + "CasinoSettings/GetCasinoGames";
   private GetCasinoDetailsUrl =
     environment.apiBaseUrl + "CasinoSettings/GetCasinoSettings";
   private GetTableGamesUrl =
@@ -55,7 +56,56 @@ export class AccountService {
   private changePwdUrl = environment.apiBaseUrl + "SignUp/SetIsPwd";
   private getCompListUrl = environment.apiBaseUrl + "Event/GetCompetitionList";
   private getEventListUrl = environment.apiBaseUrl + "Event/GetEventListBySportsId";
+  private GetPopularGamesUrl =
+    environment.apiBaseUrl + "Casino/get_popular_games";
+    private GetCasinoCategoryUrl =
+    environment.apiBaseUrl + "Casino/getAllCategory";
+    private getProvidersByCategoryIdUrl =
+    environment.apiBaseUrl + "Casino/getProvidersByCategoryId";
+    private GetLobbyLaunchUrl = environment.apiBaseUrl + "Casino/getLobbyUrl";
+    private GetCasinoGamesUrl =
+    environment.apiBaseUrl + "Casino/getGamesByProviderId";
 
+    GetCasinoGames(game_provider_id: string): Promise<any> {
+      return this.baseHttpService
+        .Get(
+          this.GetCasinoGamesUrl + "?game_provider_id=" + game_provider_id + "&domain=" + environment.apiBaseUrl
+        )
+        .then(function (response) {
+          return response.json();
+        });
+    }
+    GetLobbyLaunch(game_code: any): Promise<any> {
+      return this.baseHttpService
+        .Get(this.GetLobbyLaunchUrl + "?game_code=" + game_code + "&website_domain=" + "bigdaddy99exch.com")
+        .then(function (response) {
+          return response.json();
+        });
+    }
+
+  GetCasinoProvider(game_category_id: any): Promise<any> {
+    return this.baseHttpService
+      .Get(this.getProvidersByCategoryIdUrl + "?game_category_id=" + game_category_id + "&domain=" + environment.apiBaseUrl)
+      .then(function (response) {
+        return response.json();
+      });
+  }
+    GetCasinoCategory(): Promise<any> {
+      return this.baseHttpService
+        .Get(this.GetCasinoCategoryUrl + "?domain=" + environment.apiBaseUrl)
+        .then(function (response) {
+          return response.json();
+        });
+    }
+
+
+  GetPopularGames(providers: any): Promise<any> {
+    return this.baseHttpService
+      .Get(this.GetPopularGamesUrl + "?providers=" + providers)
+      .then(function (response) {
+        return response.json();
+      });
+  }
 
   getCompList(sportsId): Promise<any> {
     return this.baseHttpService
@@ -123,6 +173,17 @@ export class AccountService {
     return this.baseHttpService
       .Get(
         this.getUsrDtlUrl + "?id=" + id + "&role=" + role + "&token=" + token
+      )
+      .then(function (response) {
+        return response.json();
+      });
+  }
+  getEventDtl(evtType): Promise<any> {
+    return this.baseHttpService
+      .Get(
+        this.getEventDtlLstUrl +
+          "?evtType=" +
+          evtType
       )
       .then(function (response) {
         return response.json();
@@ -487,15 +548,15 @@ export class AccountService {
       });
   }
 
-  GetCasinoGames(systemId: string): Promise<any> {
-    return this.baseHttpService
-      .Get(
-        this.GetCasinoGamesUrl + "?systemId=" + systemId + "&role=" + "Client"
-      )
-      .then(function (response) {
-        return response.json();
-      });
-  }
+  // GetCasinoGames(systemId: string): Promise<any> {
+  //   return this.baseHttpService
+  //     .Get(
+  //       this.GetCasinoGamesUrl + "?systemId=" + systemId + "&role=" + "Client"
+  //     )
+  //     .then(function (response) {
+  //       return response.json();
+  //     });
+  // }
 
   GetCasinoDetails(): Promise<any> {
     return this.baseHttpService
