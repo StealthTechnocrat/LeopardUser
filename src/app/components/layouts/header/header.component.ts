@@ -52,6 +52,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    localStorage.setItem("developername", '');
     this.getLogos();
     this.uISERVICE.tv = false;
     this.uISERVICE.News = JSON.parse(localStorage.getItem("News"));
@@ -315,6 +316,7 @@ export class HeaderComponent implements OnInit {
           } else {
             this.loader = false;
             this.userName = response.Result.UserId;
+            console.log(response)
             this.uISERVICE.casinoStatus = response.Result.casinoStatus;
             this.uISERVICE.liveGameStatus = response.Result.liveGameStatus;
             this.uISERVICE.UserName = response.Result.UserId;

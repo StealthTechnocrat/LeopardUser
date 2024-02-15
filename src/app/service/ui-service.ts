@@ -58,5 +58,9 @@ export class UiService {
     apiUrl:string;
     gStatus:number;
     activeRoundId:string;
+    categoryId: any;
+    categoryName: any;
+    developerId : any;
+    developername:any;
 }
 

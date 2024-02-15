@@ -47,6 +47,8 @@ export class LiveMarketsComponent implements OnInit {
   ngOnInit(): void {
     this.GetEventDetails();
     if(this.location.path().includes("match-list")){
+      debugger;
+      localStorage.setItem("developername", '')
       this.hideTab=false;
       this.route.paramMap.subscribe(params => {
         this.sportsId = parseInt(params.get('sportsId'));     

@@ -26,6 +26,10 @@ export class GamesComponent implements OnInit {
   ngOnInit(): void {
     this.uISERVICE.sideBar = true;
     if (Cookie.check('usersCookies')) {
+      localStorage.setItem("developername", '')
+      localStorage.setItem("developerId", '');
+      localStorage.setItem("categoryId", '')
+      localStorage.setItem("categoryName", '');
       this.uISERVICE.Header = true;
     } else {
       this.uISERVICE.Header = false;

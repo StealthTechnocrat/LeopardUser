@@ -26,6 +26,7 @@ export class LiveGamesComponent implements OnInit {
     this.uISERVICE.sideBar = false;
 
     if (Cookie.check("usersCookies")) {
+      this.uISERVICE.developername = ''
       this.route.paramMap.subscribe(params => {
         // this.pageCode = params.get('page');
         // this.systemId = params.get('system');
@@ -44,6 +45,21 @@ export class LiveGamesComponent implements OnInit {
       }, 2000);
     }
   }
+
+  back() {
+    debugger;
+    this.uISERVICE.developername = JSON.parse(localStorage.getItem("developername"))
+    if (this.uISERVICE.developername !== ''  && this.uISERVICE.developername != null || this.uISERVICE.developername !== undefined) {
+        this.uISERVICE.developerId = JSON.parse(localStorage.getItem("developerId"));
+        this.uISERVICE.developername = JSON.parse(localStorage.getItem("developername"));
+        this.router.navigate([`casino_games/${this.uISERVICE.developerId}/${this.uISERVICE.developername}`]);
+        localStorage.setItem("developerId", '');
+        localStorage.setItem("developername", '');
+    }else{
+      this.router.navigate([`games`]);
+    }
+}
+
 
   getLobbyLaunchUrl() {
     this.uISERVICE.loader=true;
