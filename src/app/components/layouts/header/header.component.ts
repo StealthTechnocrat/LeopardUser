@@ -449,7 +449,6 @@ export class HeaderComponent implements OnInit {
     this.accountService.getCompList(sportsId).then((response) => {
       if (response) {
         this.seriesList = response.Result;
-        console.log("comp",this.seriesList)
       } else {
         this.seriesList = [];
       }
@@ -461,7 +460,6 @@ export class HeaderComponent implements OnInit {
     this.accountService.getEventList(sportsId,seriesId).then((response) => {
       if (response) {
         this.eventList = response.Result;
-        console.log("evt",this.eventList)
       } else {
         this.eventList = [];
       }

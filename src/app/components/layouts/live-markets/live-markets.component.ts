@@ -101,7 +101,6 @@ export class LiveMarketsComponent implements OnInit {
       
       if (response.Status) {
        this.popularGames=response.Result
-       console.log(this.providers)
       }
 
     })
@@ -149,7 +148,6 @@ this.GetEventDetails();
           this.tennInplayEvt = response.TennisInplayCount;
           this.totalInplay = this.cricInplayEvt + this.footInplayEvt  + this.tennInplayEvt;
         }
-        console.log("rtntype",this.rtrnObj)
         // if (this.reqType == "All") {
           this.uISERVICE.News = this.rtrnObj.News;
         //   this.uISERVICE.TopEvents = this.rtrnObj.TopEvents;

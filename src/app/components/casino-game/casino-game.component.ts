@@ -43,7 +43,6 @@ export class CasinoGameComponent implements OnInit {
       if (response.Status) {
         
         this.gameList = response.Result.lists;
-        console.log(this.gameList);
         this.uISERVICE.loader = false;
       } else {
         this.uISERVICE.loader = false;
