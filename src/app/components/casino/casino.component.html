@@ -58,24 +58,24 @@
 </div> -->
 <div class="back_bar ">
   <a routerLink="/games" class="back_btn d-flex align-items-center">
-    <svg class="svg-icon">
+    <svg class="svg-icon mr-2">
       <use href="/assets/icons/icons_defs.svg#svg_event-arrow"></use>
     </svg>
+    <p class="pl-2">Back to Home</p>
     <!-- <p class="pl-2" *ngIf="gameType=='casino'">Live Casino</p>
     <p class="pl-2" *ngIf="gameType=='table'">Table Casino</p> -->
   </a>
 </div>
 <div class="main_wrap">
 
-  <div class="cstm_row full_wid_mid tab_ul mt-4 mt-md-5">
+  <div class="cstm_row full_wid_mid tab_ul mt-1 mt-md-2">
     <ul class="nav nav-tabs d-flex overflow-auto flex-nowrap justify-content-center border-0">
-      <li class="border-right" 
-        ><a data-toggle="tab"
+      <li><a data-toggle="tab"
           href="#home">{{categoryName}}</a></li>
 
     </ul>
     <div class="middle_area">
-      <div class="mid_inner px-0 pt-3 tab-content bg-transparent">
+      <div class="mid_inner px-0 pt-1 tab-content bg-transparent">
         <div id="home" class="tab-pane fade in active show">
           <div class="row">
             <div class="col-4 col-md-3 px-1 px-md-2"  *ngFor="let games of casinoProviderList;let i=index">

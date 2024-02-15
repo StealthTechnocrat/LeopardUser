@@ -44,7 +44,6 @@ export class CasinoGameComponent implements OnInit {
     }
   }
   back() {
-    debugger;
     this.uISERVICE.categoryId = JSON.parse(localStorage.getItem("categoryId"));
     this.uISERVICE.categoryName = JSON.parse(
       localStorage.getItem("categoryName")

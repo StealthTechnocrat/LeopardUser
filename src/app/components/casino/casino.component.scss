@@ -127,18 +127,22 @@ span.bet_open_tag {
 
 .tab_ul {
   ul {
-    background: #fff;
+    // background: #fff;
     border-bottom: 1px solid #204878;
 
     li {
+      width: 100%;
+      text-align: center;
       a {
-        background-color: #0f9652;
-        color: #fff;
-        padding: 8px 10px;
+        // background-color: #0f9652;
+        color: #204878;
+        font-weight: 600;
+        // padding: 14px 10px 0;
         display: flex;
         width: 100%;
         font-size: 18px;
-        padding: 8px 18px;
+        padding: 8px 10px;
+        // justify-content: center;
 
         &:hover {
           text-decoration: none;

@@ -47,7 +47,6 @@ export class LiveGamesComponent implements OnInit {
   }
 
   back() {
-    debugger;
     this.uISERVICE.developername = JSON.parse(localStorage.getItem("developername"))
     if (this.uISERVICE.developername !== ''  && this.uISERVICE.developername != null || this.uISERVICE.developername !== undefined) {
         this.uISERVICE.developerId = JSON.parse(localStorage.getItem("developerId"));
