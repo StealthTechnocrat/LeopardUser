@@ -6,8 +6,8 @@
                     <ul class="nav" id="myTab" role="tablist">
                         <li class="nav-item" role="presentation">
                             <a class="nav-link active" (click)="setTab('Home')" id="today-tab" data-toggle="tab"
-                            data-target="#today" type="button" role="tab" aria-controls="today"
-                            aria-selected="false">
+                                data-target="#today" type="button" role="tab" aria-controls="today"
+                                aria-selected="false">
                                 <!-- <div class="tag-live">
                                     <strong>2</strong>0 
                                 </div>-->
@@ -16,8 +16,8 @@
                         </li>
                         <li class="nav-item" role="presentation">
                             <a class="nav-link" (click)="setTab('Inplay')" id="today-tab" data-toggle="tab"
-                            data-target="#today" type="button" role="tab" aria-controls="today"
-                            aria-selected="false">
+                                data-target="#today" type="button" role="tab" aria-controls="today"
+                                aria-selected="false">
                                 <div class="tag-live min-w-cstm">{{totalInplay}}</div>
                                 <img src="./assets/img/img_inplay.png" alt="img-fluid" alt="img">
                             </a>
@@ -64,31 +64,15 @@
                             </a>
                         </li>
                         <li class="d-lg-none">
-                            <a class="nav-link blinkTxt" (click)="checkLogin('live-games','1')"
-                                *ngIf="!uISERVICE.liveGameStatus">
-                                <!-- <span class="icon">
-                                    <svg class="svg-icon">
-                                        <use href="/assets/img/icons/icons_defs.svg#cards"></use>
-                                    </svg>
-                                </span> 
-                                LiveCasino -->
-                                <!-- <div class="tag-live">
-                                    <strong>2</strong>0
-                                </div> -->
+                            <a class="nav-link blinkTxt" (click)="checkLogin('table','1')"
+                                *ngIf="!uISERVICE.casinoStatus">
+
                                 <img src="./assets/img/img_Casino.png" alt="img-fluid" alt="img">
                             </a>
                         </li>
-                        <li class="d-lg-none"><a class="nav-link blinkTxt" href="#casinoCenr" (click)="checkLogin('table','1')"
-                                *ngIf="!uISERVICE.casinoStatus">
-                                <!-- <span class="icon">
-                                    <svg class="svg-icon">
-                                        <use href="/assets/img/icons/icons_defs.svg#roulette"></use>
-                                    </svg>
-                                </span> 
-                                Casino -->
-                                <!-- <div class="tag-live">
-                                    <strong>2</strong>0
-                                </div> -->
+                        <li class="d-lg-none"><a class="nav-link blinkTxt" href="#casinoCenr"
+                                *ngIf="!uISERVICE.liveGameStatus">
+
                                 <img src="./assets/img/img_Livecasino.png" alt="img-fluid" alt="img">
                             </a>
                         </li>
@@ -96,34 +80,10 @@
                 </div>
                 <div class="tab-content min-h-col pt-1" id="listingTabs">
                     <div class="tab-pane fade show active" id="cricket" role="tabpanel" aria-labelledby="cricket-tab">
-                        <!-- <ul class="nav nav-tabs filterTab" id="myTab" role="tablist">
-                            <li class="nav-item pr-1" role="presentation">
-                                <a class="nav-link" id="today-tab" #todayTab data-toggle="tab" href="#today" role="tab" aria-controls="today" aria-selected="false">
-                                    <span class="icon"><img src="/assets/img/icons/list_ic/Today.svg" alt=""></span> Today
-                                </a>
-                            </li>
-                            <li class="nav-item pr-1" role="presentation">
-                                <button class="nav-link" id="tomorrow-tab" data-toggle="tab" data-target="#tomorrow"
-                                    type="button" role="tab" aria-controls="tomorrow"
-                                    aria-selected="false">Tomorrow</button>
-                            </li> 
-                             <li class="nav-item pr-1" role="presentation">
-                                <button class="nav-link" id="upcoming-tab" data-toggle="tab" data-target="#upcoming"
-                                    type="button" role="tab" aria-controls="upcoming"
-                                    aria-selected="false">Upcoming</button>
-                            </li> 
-                            <li class="nav-item pr-1" role="presentation">
-                                <button class="nav-link" id="upcoming-tab" data-toggle="tab" data-target="#upcoming"
-                                    type="button" role="tab" aria-controls="upcoming"
-                                    aria-selected="false">Home</button>
-                            </li>
-                            <li class="nav-item pr-1" role="presentation">
-                                <button class="nav-link " id="inplay-tab" data-toggle="tab" data-target="#inplay"
-                                    type="button" role="tab" aria-controls="inplay" aria-selected="true">Inplay</button>
-                            </li> 
-                        </ul> -->
+
                         <div class="tab-content " id="listingTabs">
-                            <div class="tab-pane fade show active" id="today" role="tabpanel" aria-labelledby="today-tab">
+                            <div class="tab-pane fade show active" id="today" role="tabpanel"
+                                aria-labelledby="today-tab">
                                 <div class="market" *ngFor="let item of rtrnObj">
                                     <div class="sportsName">
                                         <span>
@@ -139,9 +99,9 @@
                                     <div class="head">
                                         <div class="event_league_name">
                                             <span class="icons">
-                                                <!-- <img src="/assets/img/icons/list_ic/Tennis.svg" alt=""> -->
+
                                                 <img src="/assets/img/icons/cup_ic.svg" alt=""></span>
-                                            <a >Market</a>
+                                            <a>Market</a>
                                         </div>
                                         <div class="event_rates_title">
                                             <div class="point_title">1</div>
@@ -156,8 +116,8 @@
                                                     <div class="animate">
                                                         <ul class="flip-animation">
                                                             <li class="time_date blinkTxt">
-                                                                <span
-                                                                    class="time">{{evnt.EventTime | date:'h:mm a'}}</span>
+                                                                <span class="time">{{evnt.EventTime | date:'h:mm
+                                                                    a'}}</span>
                                                             </li>
                                                             <li class="blinkTxt">
                                                                 <span class="in-play-light" *ngIf="evnt.Inplay"><i
@@ -270,7 +230,7 @@
                                         <div class="event_league_name">
                                             <span class="icons"><img src="/assets/img/icons/list_ic/Tennis.svg"
                                                     alt=""><img src="/assets/img/icons/cup_ic.svg" alt=""></span>
-                                            <a >Market</a>
+                                            <a>Market</a>
                                         </div>
                                         <div class="event_rates_title">
                                             <div class="point_title">1</div>
@@ -286,8 +246,8 @@
                                                         <div class="animate">
                                                             <ul class="flip-animation">
                                                                 <li class="time_date blinkTxt">
-                                                                    <span
-                                                                        class="time">{{evnt.EventTime | date:'h:mm a'}}</span>
+                                                                    <span class="time">{{evnt.EventTime | date:'h:mm
+                                                                        a'}}</span>
                                                                 </li>
                                                                 <li class="blinkTxt">
                                                                     <span class="in-play-light" *ngIf="evnt.Inplay"><i
@@ -305,8 +265,8 @@
                                                         <div class="animate">
                                                             <ul class="flip-animation">
                                                                 <li class="time_date d-flex flex-column">
-                                                                    <span
-                                                                        class="time">{{evnt.EventTime | date:'dd/MM/yy'}}</span>
+                                                                    <span class="time">{{evnt.EventTime |
+                                                                        date:'dd/MM/yy'}}</span>
                                                                     <span class="time">
                                                                         {{evnt.EventTime | date:'h:mm a'}}</span>
                                                                 </li>
@@ -394,379 +354,12 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- <div class="tab-pane fade" id="tomorrow" role="tabpanel" aria-labelledby="tomorrow-tab">
-                                <div class="market">
-                                    <div class="sportsName">
-                                        <span>
-                                            <img src="/assets/img/icons/list_ic/Cricket.svg" alt="">
-                                            <img src="/assets/img/icons/list_ic/Tennis.svg" alt="">
-                                            <img src="/assets/img/icons/list_ic/FootBall.svg" alt="">
-                                        </span>
-                                         Cricket
-                                    </div>
-                                    <div class="head">
-                                        <div class="event_league_name">
-                                            <span class="icons">
-                                                    <img src="/assets/img/icons/cup_ic.svg" alt=""></span>
-                                            <a >Market</a>
-                                        </div>
-                                        <div class="event_rates_title">
-                                            <div class="point_title">1</div>
-                                            <div class="point_title">X</div>
-                                            <div class="point_title">2</div>
-                                        </div>
-                                    </div>
-                                    <div class="event_list_wrappper" *ngIf="rtrnObj!=null">
-                                        <div class="event_l" *ngFor="let evnt of rtrnObj.TomEvents; let i = index">
-                                            <div class="event_league_name d-flex align-items-center">
-                                                <div class="timeCol ">
-                                                    <div class="animate">
-                                                        <ul class="flip-animation">
-                                                            <li class="time_date d-flex flex-column">
-                                                                <span
-                                                                    class="time">{{evnt.EventTime | date:'dd/MM/yy'}}</span>
-                                                                <span class="time">
-                                                                    {{evnt.EventTime | date:'h:mm a'}}</span>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="event_teams upcomingMtch d-flex align-items-start flex-column pt-0"
-                                                    routerLink="/set-bet/{{evnt.SportsId}}/{{evnt.EventId}}">
-                                                    <div class="d-flex align-items-center w-100">
-                                                        <div class="teamNameVs ellipscont">
-                                                            <p>{{evnt.Runner1}}</p>
-                                                            <span class="vrs"><svg fill="#5c6060"
-                                                                    xmlns="http://www.w3.org/2000/svg"
-                                                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                                    width="18" height="18" viewBox="0 0 65.141 65.34">
-                                                                    <defs>
-                                                                        <clipPath id="clip-path">
-                                                                            <rect width="65.141" height="65.34"
-                                                                                fill="none">
-                                                                            </rect>
-                                                                        </clipPath>
-                                                                    </defs>
-                                                                    <g id="Repeat_Grid_1" data-name="Repeat Grid 1"
-                                                                        clip-path="url(#clip-path)">
-                                                                        <g id="Group_3" data-name="Group 3"
-                                                                            transform="translate(-757.532 -436.426)">
-                                                                            <path id="Subtraction_2"
-                                                                                data-name="Subtraction 2"
-                                                                                d="M27,54A27.007,27.007,0,0,1,16.49,2.122,27.007,27.007,0,0,1,37.51,51.878,26.832,26.832,0,0,1,27,54Zm5.451-22.123L28.6,32.7a6.748,6.748,0,0,0,3.262,4.27,11.626,11.626,0,0,0,5.729,1.37,10.188,10.188,0,0,0,6.324-1.861,6.086,6.086,0,0,0,2.442-5.1A6.335,6.335,0,0,0,45.2,27.7c-.77-1.106-2.3-1.955-4.56-2.522L36.9,24.24c-2.031-.5-3.061-1.392-3.061-2.643a2.414,2.414,0,0,1,.975-1.966,4.488,4.488,0,0,1,2.828-.773c2.117,0,3.483.84,4.061,2.5l3.77-.935a5.612,5.612,0,0,0-2.844-3.513,10.3,10.3,0,0,0-5.068-1.24,8.643,8.643,0,0,0-5.607,1.78,5.813,5.813,0,0,0-2.191,4.73,6.448,6.448,0,0,0,.62,2.787,5.048,5.048,0,0,0,1.651,2.022,10.4,10.4,0,0,0,3.191,1.281l4.206,1.1a3.722,3.722,0,0,1,2.208,1.2,2.938,2.938,0,0,1,.516,1.668,2.512,2.512,0,0,1-1.136,2.078,5.426,5.426,0,0,1-3.247.838,6.961,6.961,0,0,1-3.641-.818A3.639,3.639,0,0,1,32.451,31.877ZM9.065,16.006,15.848,38h4.028l6.881-21.994h-3.3L18.3,32.86,13.254,16.006Z"
-                                                                                transform="translate(763 442)"></path>
-                                                                            <path id="Path_2" data-name="Path 2"
-                                                                                d="M768.4,489.5l2.639,2.463-9.473,9.438h0s-1.527,1.734-3.042.172a1.77,1.77,0,0,1,.2-2.8Z"
-                                                                                transform="translate(1580.574 938.646) rotate(180)">
-                                                                            </path>
-                                                                            <path id="Path_3" data-name="Path 3"
-                                                                                d="M768.4,489.5l2.639,2.463-9.473,9.438h0s-1.527,1.734-3.042.172a1.77,1.77,0,0,1,.2-2.8Z"
-                                                                                transform="translate(-0.369 -0.455)">
-                                                                            </path>
-                                                                        </g>
-                                                                    </g>
-                                                                </svg></span>
-                                                            <p>{{evnt.Runner2}}</p>
-                                                        </div>
-                                                    </div>
-                                                   
-                                                    <span class="game-subtitle">{{evnt.SeriesName}}</span>
-                                                </div>
-                                            </div>
-                                            <div class="event_rates_title mobile_rate_title d-md-none mob-noneCol">
-                                                <div class="point_title">1</div>
-                                                <div class="point_title">X</div>
-                                                <div class="point_title">2</div>
-                                            </div>
-                                            <div class="event_rates_title mob-noneCol">
-                                                <div class="point_title">
-                                                    <div class="rate_div back blink" >
-                                                        <span class="inner">{{evnt.Back1}}</span>
-                                                    </div>
-                                                    <div class="rate_div lay blink" >
-                                                        <span class="inner">{{evnt.Lay1}}</span>
-                                                    </div>
-                                                </div>
-                                                <div class="point_title">
-                                                    <div class="rate_div back blink" >
-                                                        <span class="inner">{{evnt.Back2}}</span>
-                                                    </div>
-                                                    <div class="rate_div lay blink" >
-                                                        <span class="inner">{{evnt.Lay2}}</span>
-                                                    </div>
-                                                </div>
-                                                <div class="point_title">
-                                                    <div class="rate_div back blink" >
-                                                        <span class="inner">{{evnt.Back3}}</span>
-                                                    </div>
-                                                    <div class="rate_div lay blink" >
-                                                        <span class="inner">{{evnt.Lay3}}</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="no_events text-center py-2" *ngIf="rtrnObj.TomEvents.length==0">
-                                            <h6>No Upcoming Event</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="upcoming" role="tabpanel" aria-labelledby="upcoming-tab">
-                                <div class="market">
-                                    <div class="sportsName">
-                                        <span>
-                                            <img src="/assets/img/icons/list_ic/Cricket.svg" alt="">
-                                            <img src="/assets/img/icons/list_ic/Tennis.svg" alt="">
-                                            <img src="/assets/img/icons/list_ic/FootBall.svg" alt="">
-                                        </span> 
-                                        Cricket
-                                    </div>
-                                    <div class="head">
-                                        <div class="event_league_name">
-                                            <span class="icons"><img src="/assets/img/icons/list_ic/Tennis.svg"
-                                                    alt=""><img src="/assets/img/icons/cup_ic.svg" alt=""></span>
-                                            <a >Market</a>
-                                        </div>
-                                        <div class="event_rates_title">
-                                            <div class="point_title">1</div>
-                                            <div class="point_title">X</div>
-                                            <div class="point_title">2</div>
-                                        </div>
-                                    </div>
-                                    <div class="event_list_wrappper" *ngIf="rtrnObj!=null">
-                                        <div class="event_l" *ngFor="let evnt of rtrnObj.UpEvents; let i = index">
-                                            <div class="event_league_name d-flex align-items-center">
-                                                <div class="timeCol ">
-                                                    <div class="animate">
-                                                        <ul class="flip-animation">
-                                                            <li class="time_date d-flex flex-column">
-                                                                <span
-                                                                    class="time">{{evnt.EventTime | date:'dd/MM/yy'}}</span>
-                                                                <span class="time">
-                                                                    {{evnt.EventTime | date:'h:mm a'}}</span>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="event_teams upcomingMtch d-flex align-items-start flex-column pt-0"
-                                                    routerLink="/set-bet/{{evnt.SportsId}}/{{evnt.EventId}}">
-                                                    <div class="d-flex align-items-center w-100">
-                                                        <div class="teamNameVs ellipscont">
-                                                            <p>{{evnt.Runner1}}</p>
-                                                            <span class="vrs"><svg fill="#5c6060"
-                                                                    xmlns="http://www.w3.org/2000/svg"
-                                                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                                    width="18" height="18" viewBox="0 0 65.141 65.34">
-                                                                    <defs>
-                                                                        <clipPath id="clip-path">
-                                                                            <rect width="65.141" height="65.34"
-                                                                                fill="none">
-                                                                            </rect>
-                                                                        </clipPath>
-                                                                    </defs>
-                                                                    <g id="Repeat_Grid_1" data-name="Repeat Grid 1"
-                                                                        clip-path="url(#clip-path)">
-                                                                        <g id="Group_3" data-name="Group 3"
-                                                                            transform="translate(-757.532 -436.426)">
-                                                                            <path id="Subtraction_2"
-                                                                                data-name="Subtraction 2"
-                                                                                d="M27,54A27.007,27.007,0,0,1,16.49,2.122,27.007,27.007,0,0,1,37.51,51.878,26.832,26.832,0,0,1,27,54Zm5.451-22.123L28.6,32.7a6.748,6.748,0,0,0,3.262,4.27,11.626,11.626,0,0,0,5.729,1.37,10.188,10.188,0,0,0,6.324-1.861,6.086,6.086,0,0,0,2.442-5.1A6.335,6.335,0,0,0,45.2,27.7c-.77-1.106-2.3-1.955-4.56-2.522L36.9,24.24c-2.031-.5-3.061-1.392-3.061-2.643a2.414,2.414,0,0,1,.975-1.966,4.488,4.488,0,0,1,2.828-.773c2.117,0,3.483.84,4.061,2.5l3.77-.935a5.612,5.612,0,0,0-2.844-3.513,10.3,10.3,0,0,0-5.068-1.24,8.643,8.643,0,0,0-5.607,1.78,5.813,5.813,0,0,0-2.191,4.73,6.448,6.448,0,0,0,.62,2.787,5.048,5.048,0,0,0,1.651,2.022,10.4,10.4,0,0,0,3.191,1.281l4.206,1.1a3.722,3.722,0,0,1,2.208,1.2,2.938,2.938,0,0,1,.516,1.668,2.512,2.512,0,0,1-1.136,2.078,5.426,5.426,0,0,1-3.247.838,6.961,6.961,0,0,1-3.641-.818A3.639,3.639,0,0,1,32.451,31.877ZM9.065,16.006,15.848,38h4.028l6.881-21.994h-3.3L18.3,32.86,13.254,16.006Z"
-                                                                                transform="translate(763 442)"></path>
-                                                                            <path id="Path_2" data-name="Path 2"
-                                                                                d="M768.4,489.5l2.639,2.463-9.473,9.438h0s-1.527,1.734-3.042.172a1.77,1.77,0,0,1,.2-2.8Z"
-                                                                                transform="translate(1580.574 938.646) rotate(180)">
-                                                                            </path>
-                                                                            <path id="Path_3" data-name="Path 3"
-                                                                                d="M768.4,489.5l2.639,2.463-9.473,9.438h0s-1.527,1.734-3.042.172a1.77,1.77,0,0,1,.2-2.8Z"
-                                                                                transform="translate(-0.369 -0.455)">
-                                                                            </path>
-                                                                        </g>
-                                                                    </g>
-                                                                </svg></span>
-                                                            <p>{{evnt.Runner2}}</p>
-                                                        </div>
-                                                    </div>
-                                                   
-                                                    <span class="game-subtitle">{{evnt.SeriesName}}</span>
-                                                </div>
-                                            </div>
-                                            <div class="event_rates_title mobile_rate_title d-md-none mob-noneCol">
-                                                <div class="point_title">1</div>
-                                                <div class="point_title">X</div>
-                                                <div class="point_title">2</div>
-                                            </div>
-                                            <div class="event_rates_title mob-noneCol">
-                                                <div class="point_title">
-                                                    <div class="rate_div back blink">
-                                                        <span class="inner">{{evnt.Back1}}</span>
-                                                    </div>
-                                                    <div class="rate_div lay blink">
-                                                        <span class="inner">{{evnt.Lay1}}</span>
-                                                    </div>
-                                                </div>
-                                                <div class="point_title">
-                                                    <div class="rate_div back blink">
-                                                        <span class="inner">{{evnt.Back2}}</span>
-                                                    </div>
-                                                    <div class="rate_div lay blink">
-                                                        <span class="inner">{{evnt.Lay2}}</span>
-                                                    </div>
-                                                </div>
-                                                <div class="point_title">
-                                                    <div class="rate_div back blink">
-                                                        <span class="inner">{{evnt.Back3}}</span>
-                                                    </div>
-                                                    <div class="rate_div lay blink">
-                                                        <span class="inner">{{evnt.Lay3}}</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="no_events text-center py-2" *ngIf="rtrnObj.UpEvents?.length==0">
-                                            <h6>No Upcoming Event</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="inplay" role="tabpanel"
-                                aria-labelledby="inplay-tab">
-                                <div class="market">
-                                    <div class="sportsName">
-                                        <span>
-                                            <img src="/assets/img/icons/list_ic/Cricket.svg" alt="">
-                                            <img src="/assets/img/icons/list_ic/Tennis.svg" alt="">
-                                            <img src="/assets/img/icons/list_ic/FootBall.svg" alt="">
-                                        </span>
-                                         Cricket
-                                    </div>
-                                    <div class="head">
-                                        <div class="event_league_name">
-                                            <span class="icons">
-                                                <img src="/assets/img/icons/cup_ic.svg" alt=""></span>
-                                            <a >Market</a>
-                                        </div>
-                                        <div class="event_rates_title">
-                                            <div class="point_title">1</div>
-                                            <div class="point_title">X</div>
-                                            <div class="point_title">2</div>
-                                        </div>
-                                    </div>
-                                    <div class="event_list_wrappper" *ngIf="rtrnObj!=null">
-                                        <div class="event_l" *ngFor="let evnt of rtrnObj.TopInplay; let i = index">
-                                            <div class="event_league_name eventLiveInplay">
-                                                <div class="timeCol inplayBlink">
-                                                    <div class="animate">
-                                                        <ul class="flip-animation">
-                                                            <li class="time_date blinkTxt">
-                                                                <span
-                                                                    class="time">{{evnt.EventTime | date:'h:mm a'}}</span>
-                                                            </li>
-                                                            <li class="blinkTxt">
-                                                                <span class="in-play-light" ><i class="fa fa-play"
-                                                                        aria-hidden="true"></i> In-Play </span>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-
-                                                <div class="event_teams"
-                                                    routerLink="/set-bet/{{evnt.SportsId}}/{{evnt.EventId}}">
-                                                    <div class="d-flex align-items-center  live_blinking">
-                                                        <div class="teamNameVs ellipscont">
-                                                            <p>{{evnt.Runner1}}</p>
-                                                            <span class="vrs"><svg fill="#5c6060"
-                                                                    xmlns="http://www.w3.org/2000/svg"
-                                                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                                    width="18" height="18" viewBox="0 0 65.141 65.34">
-                                                                    <defs>
-                                                                        <clipPath id="clip-path">
-                                                                            <rect width="65.141" height="65.34"
-                                                                                fill="none">
-                                                                            </rect>
-                                                                        </clipPath>
-                                                                    </defs>
-                                                                    <g id="Repeat_Grid_1" data-name="Repeat Grid 1"
-                                                                        clip-path="url(#clip-path)">
-                                                                        <g id="Group_3" data-name="Group 3"
-                                                                            transform="translate(-757.532 -436.426)">
-                                                                            <path id="Subtraction_2"
-                                                                                data-name="Subtraction 2"
-                                                                                d="M27,54A27.007,27.007,0,0,1,16.49,2.122,27.007,27.007,0,0,1,37.51,51.878,26.832,26.832,0,0,1,27,54Zm5.451-22.123L28.6,32.7a6.748,6.748,0,0,0,3.262,4.27,11.626,11.626,0,0,0,5.729,1.37,10.188,10.188,0,0,0,6.324-1.861,6.086,6.086,0,0,0,2.442-5.1A6.335,6.335,0,0,0,45.2,27.7c-.77-1.106-2.3-1.955-4.56-2.522L36.9,24.24c-2.031-.5-3.061-1.392-3.061-2.643a2.414,2.414,0,0,1,.975-1.966,4.488,4.488,0,0,1,2.828-.773c2.117,0,3.483.84,4.061,2.5l3.77-.935a5.612,5.612,0,0,0-2.844-3.513,10.3,10.3,0,0,0-5.068-1.24,8.643,8.643,0,0,0-5.607,1.78,5.813,5.813,0,0,0-2.191,4.73,6.448,6.448,0,0,0,.62,2.787,5.048,5.048,0,0,0,1.651,2.022,10.4,10.4,0,0,0,3.191,1.281l4.206,1.1a3.722,3.722,0,0,1,2.208,1.2,2.938,2.938,0,0,1,.516,1.668,2.512,2.512,0,0,1-1.136,2.078,5.426,5.426,0,0,1-3.247.838,6.961,6.961,0,0,1-3.641-.818A3.639,3.639,0,0,1,32.451,31.877ZM9.065,16.006,15.848,38h4.028l6.881-21.994h-3.3L18.3,32.86,13.254,16.006Z"
-                                                                                transform="translate(763 442)"></path>
-                                                                            <path id="Path_2" data-name="Path 2"
-                                                                                d="M768.4,489.5l2.639,2.463-9.473,9.438h0s-1.527,1.734-3.042.172a1.77,1.77,0,0,1,.2-2.8Z"
-                                                                                transform="translate(1580.574 938.646) rotate(180)">
-                                                                            </path>
-                                                                            <path id="Path_3" data-name="Path 3"
-                                                                                d="M768.4,489.5l2.639,2.463-9.473,9.438h0s-1.527,1.734-3.042.172a1.77,1.77,0,0,1,.2-2.8Z"
-                                                                                transform="translate(-0.369 -0.455)">
-                                                                            </path>
-                                                                        </g>
-                                                                    </g>
-                                                                </svg></span>
-                                                            <p>{{evnt.Runner2}}</p>
-                                                        </div>
-                                                        <div class="event_info ml-auto">
-                                                           
-                                                            <span class="tv_ic">
-                                                                <svg class="svg-icon ">
-                                                                    <use
-                                                                        href="/assets/img/icons/icons_defs.svg#svg_broadcast">
-                                                                    </use>
-                                                                </svg>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                    <span class="game-subtitle">{{evnt.SeriesName}}</span>
-                                                </div>
-                                            </div>
-                                            <div class="event_rates_title mobile_rate_title d-md-none mob-noneCol">
-                                                <div class="point_title">1</div>
-                                                <div class="point_title">X</div>
-                                                <div class="point_title">2</div>
-                                            </div>
-                                            <div class="event_rates_title mob-noneCol">
-                                                <div class="point_title">
-                                                    <div class="rate_div back">
-                                                        <span class="inner">{{evnt.Back1}}</span>
-                                                    </div>
-                                                    <div class="rate_div lay">
-                                                        <span class="inner">{{evnt.Lay1}}</span>
-                                                    </div>
-                                                </div>
-                                                <div class="point_title">
-                                                    <div class="rate_div back">
-                                                        <span class="inner">{{evnt.Back2}}</span>
-                                                    </div>
-                                                    <div class="rate_div lay">
-                                                        <span class="inner">{{evnt.Lay2}}</span>
-                                                    </div>
-                                                </div>
-                                                <div class="point_title">
-                                                    <div class="rate_div back">
-                                                        <span class="inner">{{evnt.Back3}}</span>
-                                                    </div>
-                                                    <div class="rate_div lay">
-                                                        <span class="inner">{{evnt.Lay3}}</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                        <div class="no_events text-center py-2" *ngIf="rtrnObj.TodayEvents?.length==0">
-                                            <h6>No Event</h6>
-                                        </div>
-                                    </div>
-                                   
-                                </div>
-                            </div> -->
                         </div>
                     </div>
                 </div>
                 <div class="casinoHome">
-                    <div *ngIf="popularGames != null && popularGames.games != null && popularGames.games.length > 0" class="indian-card-games pt-5" id="casinoCenr">
+                    <div *ngIf="popularGames != null && popularGames.games != null && popularGames.games.length > 0"
+                        class="indian-card-games pt-5" id="casinoCenr">
                         <div class="game-heading">
                             <h1>
                                 <img src="assets/img/ic_icCard.png" alt="indian-card-game-icon">
@@ -782,32 +375,33 @@
                             </li>
                         </ul>
                     </div>
-                    
+
                     <div *ngIf="uISERVICE.casinoCategoryList!=null" class="promotion-buttons">
                         <ul class="list-unstyled">
                             <li *ngFor="let data of uISERVICE.casinoCategoryList;let i=index">
-                                <a  class="promotion-banner" routerLink="/casino/{{data.id}}/{{data.category_name}}">
+                                <a class="promotion-banner" routerLink="/casino/{{data.id}}/{{data.category_name}}">
                                     <img [src]="data.category_image" alt="aviator" class="img-fluid">
                                 </a>
                                 <p>Soar high, win bigger!</p>
                             </li>
                         </ul>
                     </div>
-                    <div *ngIf="popularGames != null && popularGames.games != null && popularGames.games.length > 0" class="indian-card-games populaGamesSection pb-4">
+                    <div *ngIf="popularGames != null && popularGames.games != null && popularGames.games.length > 0"
+                        class="indian-card-games populaGamesSection pb-4">
                         <div class="game-heading">
                             <h1>
                                 <img src="assets/img/ic_popularGames.png" alt="popular-games-icon">
                                 Popular Games
                             </h1>
-                            <a  class="openbets">{{popularGames.games[1].provider}}</a>
+                            <a class="openbets">{{popularGames.games[1].provider}}</a>
                         </div>
                         <ul class="exchangeGames-content list-unstyled">
                             <li class="exchangeGames-item" *ngFor="let data of popularGames.games[1].list">
-                                <a  routerLink="/live-games/{{data.game_code}}">
+                                <a routerLink="/live-games/{{data.game_code}}">
                                     <img [src]="data.image" alt="img" class="img-fluid">
                                 </a>
                             </li>
-                            
+
                         </ul>
                     </div>
                 </div>

@@ -77,7 +77,7 @@ export class AccountService {
     }
     GetLobbyLaunch(game_code: any): Promise<any> {
       return this.baseHttpService
-        .Get(this.GetLobbyLaunchUrl + "?game_code=" + game_code + "&website_domain=" + "bigdaddy99exch.com")
+        .Get(this.GetLobbyLaunchUrl + "?game_code=" + game_code + "&website_domain=" + "leopardexch247.com")
         .then(function (response) {
           return response.json();
         });

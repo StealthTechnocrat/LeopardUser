@@ -26,7 +26,7 @@ const routes: Routes = [
   // {path:'live-games/:page/:system', component:LiveGamesComponent},
   { path: 'casino_games/:developerId/:developer_name', component: CasinoGameComponent },
   { path: 'casino/:categoryId/:name', component: CasinoComponent },
-  // {path:'casino/:type', component:CasinoComponent},
+  //{path:'casino/:type', component:CasinoComponent},
   // {path:'casino/:type/:index/:systemId', component:CasinoComponent},
   {path:'cup-rate/:sportsId/:eventId', component:CupRateComponent},
   {path:'match-list/:sportsId', component:MatchListComponent},

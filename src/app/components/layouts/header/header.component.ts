@@ -316,7 +316,7 @@ export class HeaderComponent implements OnInit {
           } else {
             this.loader = false;
             this.userName = response.Result.UserId;
-            console.log(response)
+           
             this.uISERVICE.casinoStatus = response.Result.casinoStatus;
             this.uISERVICE.liveGameStatus = response.Result.liveGameStatus;
             this.uISERVICE.UserName = response.Result.UserId;

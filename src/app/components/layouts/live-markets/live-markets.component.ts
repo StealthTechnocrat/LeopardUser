@@ -220,7 +220,7 @@ this.GetEventDetails();
       } else {
         switch (type) {
           case 'table':
-            this.router.navigate(["/casino/", type]);
+            this.router.navigate(["/casino/0", type]);
             break;
           case 'live-games':
             this.router.navigate(["/casino/", type]);
@@ -244,7 +244,7 @@ this.GetEventDetails();
     } else {
       switch (type) {
         case 'table':
-          this.router.navigate(["/casino/", type]);
+          this.router.navigate(["/casino/0", type]);
           break;
         case 'live-games':
           this.router.navigate(["/casino/", type]);
