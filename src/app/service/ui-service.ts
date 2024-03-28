@@ -62,5 +62,7 @@ export class UiService {
     categoryName: any;
     developerId : any;
     developername:any;
+    BetStatus: boolean = false;
+
 }
 

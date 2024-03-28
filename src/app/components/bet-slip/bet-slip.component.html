@@ -1,4 +1,4 @@
-<div class="bet_slip">
+<div *ngIf="uISERVICE.BetStatus== false" class="bet_slip">
   <div class="betslip_btm"
     [ngClass]="{'lay':uISERVICE.betType=='Lay' || uISERVICE.betType=='No','back':uISERVICE.betType=='Back' || uISERVICE.betType=='Yes'}">
     <div class="mobile_content d-md-none">

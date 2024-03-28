@@ -5,7 +5,7 @@ import { Cookie } from 'ng2-cookies';
 import { AccountService } from 'src/app/service/account-service';
 import { UiService } from 'src/app/service/ui-service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { parse } from 'path';
 import * as $ from "jquery";
 // import 'jquery-ui-dist/jquery-ui';
@@ -38,8 +38,9 @@ export class SetBetComponent implements OnInit {
   sessonBookList: any = [];
   modalVisible: boolean = false;
   closeResult = '';
-  scoreUrlFrame:SafeResourceUrl;
-
+  scoreUrlFrame: SafeResourceUrl;
+  fancyBetStatus: boolean = false;
+  BetStatus: boolean = false;
 
   constructor(private router: Router, public sanitizer: DomSanitizer, private http: HttpClient, private accountService: AccountService, private route: ActivatedRoute, public uISERVICE: UiService, private modalService: NgbModal) { }
   toggleModal() {
@@ -72,18 +73,18 @@ export class SetBetComponent implements OnInit {
     }
   }
   GetAllBets() {
-    this.uISERVICE.backUpBets=[];
+    this.uISERVICE.backUpBets = [];
     this.accountService.getPendingBets('Null', this.sportsId, this.marketName, this.BetType, 0, 0).then((response) => {
       if (response.Status) {
-        
-        this.uISERVICE.backUpBets = response.Result.filter(x=>x.EventName==this.rtrnObj.EventName);
+
+        this.uISERVICE.backUpBets = response.Result.filter(x => x.EventName == this.rtrnObj.EventName);
       } else {
         this.uISERVICE.backUpBets = [];
       }
     });
   }
   open(content) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
@@ -157,7 +158,7 @@ export class SetBetComponent implements OnInit {
         }
       });
     }
-    
+
   }
 
   getSessionPl(runnerId): number {
@@ -221,7 +222,7 @@ export class SetBetComponent implements OnInit {
   async getScore() {
     this.http.get(this.rtrnObj.apiUrls.ScoreUrl + this.eventId).subscribe(data => {
       this.scoreData = data;
-      
+
       if (this.scoreData.length > 0) {
         this.scoreApi = true;
       } else {
@@ -235,41 +236,57 @@ export class SetBetComponent implements OnInit {
     //this.uISERVICE.loader = true;
     this.accountService.getEvntDetail(this.eventId, this.type).then((response) => {
       if (response.Status) {
-        this.uISERVICE.Bets = response.Result.Bets;
-        response.Result.markets.forEach((element, i) => {
-          if (element.marketName == "Match Odds") {
-            this.MtchMrkt = element.MarketId;
-          }
-          
-          if (element.marketName == "To Win the Toss") {
-            element.runners.forEach(data => {
-              data.runners = {
-                'availableToBack': [{ 'price': 1.95, 'size': 100 }, { 'price': 0, 'size': 0 }, { 'price': 0, 'size': 0 }],
-                'availableToLay': [{ 'price': 0, 'size': 0 }, { 'price': 0, 'size': 0 }, { 'price': 0, 'size': 0 }]
+        if (response.Result.userInfo.deleted == true) {
+          this.uISERVICE.Error = true;
+          this.uISERVICE.Message = "Account Deleted";
+          setTimeout(() => {
+            this.uISERVICE.Error = false;
+          }, 2000);
+        } else {
+          if (response.Result.userInfo.status == true) {
+            this.fancyBetStatus = response.Result.userInfo.FancyBetStatus;
+            this.uISERVICE.BetStatus = response.Result.userInfo.BetStatus;
+            this.uISERVICE.Error = true;
+            this.uISERVICE.Message = "Account Blocked";
+            setTimeout(() => {
+              this.uISERVICE.Error = false;
+            }, 2000);
+          } else {
+            this.uISERVICE.Bets = response.Result.Bets;
+            response.Result.markets.forEach((element, i) => {
+              if (element.marketName == "Match Odds") {
+                this.MtchMrkt = element.MarketId;
+              }
+
+              if (element.marketName == "To Win the Toss") {
+                element.runners.forEach(data => {
+                  data.runners = {
+                    'availableToBack': [{ 'price': 1.95, 'size': 100 }, { 'price': 0, 'size': 0 }, { 'price': 0, 'size': 0 }],
+                    'availableToLay': [{ 'price': 0, 'size': 0 }, { 'price': 0, 'size': 0 }, { 'price': 0, 'size': 0 }]
+                  }
+                });
+              } else {
+                element.runners.forEach(data => {
+                  data.runners = {
+                    'availableToBack': [{ 'price': 0, 'size': 0 }, { 'price': 0, 'size': 0 }, { 'price': 0, 'size': 0 }],
+                    'availableToLay': [{ 'price': 0, 'size': 0 }, { 'price': 0, 'size': 0 }, { 'price': 0, 'size': 0 }]
+                  }
+                });
               }
             });
-          } else {
-              element.runners.forEach(data => {
-                data.runners = {
-                  'availableToBack': [{ 'price': 0, 'size': 0 }, { 'price': 0, 'size': 0 }, { 'price': 0, 'size': 0 }],
-                  'availableToLay': [{ 'price': 0, 'size': 0 }, { 'price': 0, 'size': 0 }, { 'price': 0, 'size': 0 }]
-                }
-              });
+            this.uISERVICE.loader = false;
+            this.rtrnObj = response.Result;
+            this.uISERVICE.betSlip = this.rtrnObj.chips;
+            this.getAPIData();
+            this.checkToss();
           }
-        });
-        this.uISERVICE.loader = false;
-        this.rtrnObj = response.Result;
-        this.uISERVICE.betSlip = this.rtrnObj.chips;
-        this.getAPIData();
-        this.checkToss();
+        }
       } else {
         this.uISERVICE.loader = false;
         this.rtrnObj = [];
       }
     });
   }
-
-
 
   async getAPIData() {
     switch (this.sportsId) {
@@ -292,12 +309,12 @@ export class SetBetComponent implements OnInit {
           if (this.matchData.ApiUrlType == 1) {
             await this.http.get(this.rtrnObj.apiUrls.DaimondUrl + this.MtchMrkt + "/" + this.eventId).subscribe(data => {
               this.apiData = data;
-              
+
               if (this.apiData.market != null && this.apiData.market?.length > 0) {
                 this.sesnObj = this.apiData.session.filter(x => !x.RunnerName.includes(".3"));
                 this.sesnObj.sort((a, b) => a.RunnerName.localeCompare(b.RunnerName));
                 this.updateRunnerData(this.matchData.runners, this.apiData.market[0].events, this.sportsId);
-              }if(this.apiData.session!=null && this.apiData.session?.length>0){
+              } if (this.apiData.session != null && this.apiData.session?.length > 0) {
                 this.sesnObj = this.apiData.session.filter(x => !x.RunnerName.includes(".3"));
                 this.sesnObj.sort((a, b) => a.RunnerName.localeCompare(b.RunnerName));
               }
@@ -333,9 +350,9 @@ export class SetBetComponent implements OnInit {
 
   updateRunnerData(runners, apiRunners, sportsId) {
 
-    runners.forEach((element,index) => {
+    runners.forEach((element, index) => {
       if (sportsId == 4) {
-        const runner =apiRunners[index];//apiRunners.find(x => x.SelectionId == element.RunnerId.toString());
+        const runner = apiRunners[index];//apiRunners.find(x => x.SelectionId == element.RunnerId.toString());
         element.runners.availableToBack[0].price = runner.BackPrice1;
         element.runners.availableToBack[0].size = runner.BackSize1;
         element.runners.availableToBack[1].price = runner.BackPrice3;
@@ -487,9 +504,9 @@ export class SetBetComponent implements OnInit {
     }
   }
 
-  scoreUrl(){
+  scoreUrl() {
     debugger;
-    this.url = "https://nxbet247.com/live-score-card/"+this.sportsId+"/"+this.eventId;
+    this.url = "https://nxbet247.com/live-score-card/" + this.sportsId + "/" + this.eventId;
     this.scoreUrlFrame = this.sanitizer.bypassSecurityTrustResourceUrl(this.url);
   }
 
@@ -557,7 +574,7 @@ export class SetBetComponent implements OnInit {
 
 
   checkToss() {
-    
+
     this.date = new Date();
     let crntDate = this.date.toString();
     const diffInMs = Date.parse(this.rtrnObj.EventTime) - Date.parse(crntDate);
@@ -567,13 +584,13 @@ export class SetBetComponent implements OnInit {
       if (tossMrkt != null) {
         tossMrkt.status = true;
 
-        this.rtrnObj.markets.splice(this.rtrnObj.markets.indexOf(tossMrkt),1);
+        this.rtrnObj.markets.splice(this.rtrnObj.markets.indexOf(tossMrkt), 1);
       }
     }
   }
   // ngAfterViewInit() {
-   
-    
+
+
 
 
   //   $('.tvModal .modal-content').resizable({
@@ -582,7 +599,7 @@ export class SetBetComponent implements OnInit {
   //     minWidth: 300
   // });
   // $('.tvModal ').draggable();
-  
+
   // $('#myModal').on('show.bs.modal', function () {
   //     $(this).find('.tvModal ').css({
   //         'max-height':'100%'
