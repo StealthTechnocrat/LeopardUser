@@ -85,8 +85,8 @@
                 </div>
             </div>
             <div class="bet_table_row" *ngFor="let rnr of mrkt.runners;let r=index"
-                [ngClass]="{'bet_locked':rtrnObj.status || mrkt.status || (rnr.runners.availableToLay[0].price==0 && rnr.runners.availableToBack[0].price==0)}">
-                <div class="nation_name">
+            [ngClass]="{'bet_locked': (mrkt.marketName=='Match Odds' &&  rnr.runners.availableToLay[0].price>=30) ||  rtrnObj.status  || mrkt.status || (rnr.runners.availableToLay[0].price==0 && rnr.runners.availableToBack[0].price==0)}">
+            <div class="nation_name">
                     <p>{{rnr.RunnerName}}</p>
                     <span class="btm">
                         <span class="profitloss"

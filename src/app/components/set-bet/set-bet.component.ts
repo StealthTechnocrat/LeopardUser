@@ -320,12 +320,22 @@ export class SetBetComponent implements OnInit {
               }
             });
           } else {
-            await this.http.get(this.rtrnObj.apiUrls.BetfairUrl + this.sportsId + "&marketid=" + this.MtchMrkt).subscribe(data => {
-              this.apiData = data;
-              if (this.apiData.marketId != null) {
-                this.updateRunnerData(this.matchData.runners, this.apiData.runners, 1);
-              }
-            });
+            if(this.MtchMrkt=="1.214830846"){
+              await this.http.get("https://mlive365day.com/apps/testA-t.php?sportsid=1&marketid=" + this.MtchMrkt).subscribe(data => {
+                this.apiData = data;
+                debugger;
+                if (this.apiData.marketId != null) {
+                  this.updateRunnerData(this.matchData.runners, this.apiData.runners, 1);
+                }
+              });
+            }else{
+              await this.http.get(this.rtrnObj.apiUrls.BetfairUrl + this.sportsId + "&marketid=" + this.MtchMrkt).subscribe(data => {
+                this.apiData = data;
+                if (this.apiData.marketId != null) {
+                  this.updateRunnerData(this.matchData.runners, this.apiData.runners, 1);
+                }
+              });
+            }
           }
         }
         if (BookData != null) {
