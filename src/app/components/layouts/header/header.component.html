@@ -72,10 +72,10 @@
           </div>
         </li>
         <li class="ml-auto sign_upBtn" *ngIf="!uISERVICE.Header">
-          
+
         </li>
         <li class="ml-2 login_btns" *ngIf="!uISERVICE.Header">
-          
+
           <button class="btn btn-primary" id="loginBtn" type="button" data-toggle="modal" data-target="#loginModal"><i
               class="fas fa-user"></i> Login </button>
 
@@ -85,7 +85,7 @@
         <div class="ml-auto login_btns" *ngIf="!uISERVICE.Header">
           <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#loginModal"><i
               class="fas fa-user"></i> Login </button>
-         
+
           <div class="login_form">
 
 
@@ -196,7 +196,8 @@
                 <th>Odds</th>
                 <th>Stake</th>
                 <th>PL</th>
-
+                <th>Price</th>
+                <th>Type</th>
                 <th>
                   <div>Date</div>
                 </th>
@@ -212,6 +213,8 @@
                 <td>{{bets.Stake}}</td>
                 <td *ngIf="bets.BetType=='Back' || bets.BetType=='Yes'" style="color: green;">{{bets.Profit}}</td>
                 <td *ngIf="bets.BetType=='Lay' || bets.BetType=='No'" style="color: red;">{{bets.Exposure}}</td>
+                <td>{{bets.Price}}</td>
+                <td>{{bets.BetType}}</td>
 
                 <td>{{bets.createdOn | date:'MMM d, y, h:mm:ss a'}}</td>
               </tr>
@@ -262,125 +265,113 @@
     <li>
       <ul class="list">
         <li>
-            <a href="javascript:void(0)" (click)="getCompList(4)" class="main_drop">
-                <span class="clickmain">
-                    <span class="sports-icon cricket"></span>
-                    Cricket
-                    <span class="arrow ml-auto">
-                        <i class="fa fa-plus mt-1"></i>
-                    </span>
+          <a href="javascript:void(0)" (click)="getCompList(4)" class="main_drop">
+            <span class="clickmain">
+              <span class="sports-icon cricket"></span>
+              Cricket
+              <span class="arrow ml-auto">
+                <i class="fa fa-plus mt-1"></i>
+              </span>
+            </span>
+          </a>
+          <ul class="step_1" id="accordion">
+            <li *ngFor="let lst of seriesList">
+              <a class="dropInner" (click)="getEventList(4,lst.SeriesId)" href="javascript:void(0)"><span
+                  class="icon"><img src="/assets/img/icons/cup_ic.svg" alt=""></span>{{lst.SeriesName}}
+                <span class="arrow ml-auto">
+                  <i class="fa fa-plus mt-1"></i>
                 </span>
-            </a>
-            <ul class="step_1" id="accordion">
-                <li *ngFor="let lst of seriesList">
-                    <a class="dropInner" (click)="getEventList(4,lst.SeriesId)" href="javascript:void(0)"><span
-                            class="icon"><img src="/assets/img/icons/cup_ic.svg"
-                                alt=""></span>{{lst.SeriesName}}
-                        <span class="arrow ml-auto">
-                            <i class="fa fa-plus mt-1"></i>
-                        </span>
-                    </a>
-                    <ul class="step_2">
-                        <li *ngFor="let evnt of eventList">
-                            <a href="javascript:void(0)"
-                                (click)="redirectfun(evnt.SportsId, evnt.EventId)">
-                                <p><span class="icon"><img src="/assets/img/icons/yellow_tee.png"
-                                            alt=""></span> {{evnt.Runner1}} <span
-                                        class="value">{{evnt.Back1}}</span></p>
-                                <p><span class="icon"><img src="/assets/img/icons/green_tee.png"
-                                            alt=""></span> {{evnt.Runner2}} <span
-                                        class="value">{{evnt.Back3}}</span></p>
-                            </a>
-                        </li>
-                    </ul>
+              </a>
+              <ul class="step_2">
+                <li *ngFor="let evnt of eventList">
+                  <a href="javascript:void(0)" (click)="redirectfun(evnt.SportsId, evnt.EventId)">
+                    <p><span class="icon"><img src="/assets/img/icons/yellow_tee.png" alt=""></span> {{evnt.Runner1}}
+                      <span class="value">{{evnt.Back1}}</span></p>
+                    <p><span class="icon"><img src="/assets/img/icons/green_tee.png" alt=""></span> {{evnt.Runner2}}
+                      <span class="value">{{evnt.Back3}}</span></p>
+                  </a>
                 </li>
-            </ul>
+              </ul>
+            </li>
+          </ul>
         </li>
         <li>
-            <a href="javascript:void(0)" (click)="getCompList(1)" class="main_drop">
-                <span class="clickmain">
-                    <span class="sports-icon soccer"></span>
-                    Football
-                    <span class="arrow ml-auto">
-                        <i class="fa fa-plus mt-1"></i>
-                    </span>
+          <a href="javascript:void(0)" (click)="getCompList(1)" class="main_drop">
+            <span class="clickmain">
+              <span class="sports-icon soccer"></span>
+              Football
+              <span class="arrow ml-auto">
+                <i class="fa fa-plus mt-1"></i>
+              </span>
+            </span>
+          </a>
+          <ul class="step_1" id="accordion">
+            <li *ngFor="let lst of seriesList">
+              <a class="dropInner" (click)="getEventList(1,lst.SeriesId)" href="javascript:void(0)"><span
+                  class="icon"><img src="/assets/img/icons/cup_ic.svg" alt=""></span>{{lst.SeriesName}}
+                <span class="arrow ml-auto">
+                  <i class="fa fa-plus mt-1"></i>
                 </span>
-            </a>
-            <ul class="step_1" id="accordion">
-                <li *ngFor="let lst of seriesList">
-                    <a class="dropInner" (click)="getEventList(1,lst.SeriesId)" href="javascript:void(0)"><span
-                            class="icon"><img src="/assets/img/icons/cup_ic.svg"
-                                alt=""></span>{{lst.SeriesName}}
-                        <span class="arrow ml-auto">
-                            <i class="fa fa-plus mt-1"></i>
-                        </span>
-                    </a>
-                    <ul class="step_2">
-                        <li *ngFor="let evnt of eventList">
-                            <a href="javascript:void(0)"
-                                (click)="redirectfun(evnt.SportsId, evnt.EventId)">
-                                <p><span class="icon"><img src="/assets/img/icons/yellow_tee.png"
-                                            alt=""></span> {{evnt.Runner1}} <span
-                                        class="value">{{evnt.Back1}}</span></p>
-                                <p><span class="icon"><img src="/assets/img/icons/green_tee.png"
-                                            alt=""></span> {{evnt.Runner2}} <span
-                                        class="value">{{evnt.Back3}}</span></p>
-                            </a>
-                        </li>
-                    </ul>
+              </a>
+              <ul class="step_2">
+                <li *ngFor="let evnt of eventList">
+                  <a href="javascript:void(0)" (click)="redirectfun(evnt.SportsId, evnt.EventId)">
+                    <p><span class="icon"><img src="/assets/img/icons/yellow_tee.png" alt=""></span> {{evnt.Runner1}}
+                      <span class="value">{{evnt.Back1}}</span></p>
+                    <p><span class="icon"><img src="/assets/img/icons/green_tee.png" alt=""></span> {{evnt.Runner2}}
+                      <span class="value">{{evnt.Back3}}</span></p>
+                  </a>
                 </li>
-            </ul>
+              </ul>
+            </li>
+          </ul>
         </li>
-        
+
         <li>
-            <a href="javascript:void(0)" (click)="getCompList(2)" class="main_drop">
-                <span class="clickmain">
-                    <span class="sports-icon tennis"></span>
-                    Tennis
-                    <span class="arrow ml-auto">
-                        <i class="fa fa-plus mt-1"></i>
-                    </span>
+          <a href="javascript:void(0)" (click)="getCompList(2)" class="main_drop">
+            <span class="clickmain">
+              <span class="sports-icon tennis"></span>
+              Tennis
+              <span class="arrow ml-auto">
+                <i class="fa fa-plus mt-1"></i>
+              </span>
+            </span>
+          </a>
+          <ul class="step_1" id="accordion">
+            <li *ngFor="let lst of seriesList">
+              <a class="dropInner" (click)="getEventList(2,lst.SeriesId)" href="javascript:void(0)"><span
+                  class="icon"><img src="/assets/img/icons/cup_ic.svg" alt=""></span>{{lst.SeriesName}}
+                <span class="arrow ml-auto">
+                  <i class="fa fa-plus mt-1"></i>
                 </span>
-            </a>
-            <ul class="step_1" id="accordion">
-                <li *ngFor="let lst of seriesList">
-                    <a class="dropInner" (click)="getEventList(2,lst.SeriesId)" href="javascript:void(0)"><span
-                            class="icon"><img src="/assets/img/icons/cup_ic.svg"
-                                alt=""></span>{{lst.SeriesName}}
-                        <span class="arrow ml-auto">
-                            <i class="fa fa-plus mt-1"></i>
-                        </span>
-                    </a>
-                    <ul class="step_2">
-                        <li *ngFor="let evnt of eventList">
-                            <a href="javascript:void(0)"
-                                (click)="redirectfun(evnt.SportsId, evnt.EventId)">
-                                <p><span class="icon"><img src="/assets/img/icons/yellow_tee.png"
-                                            alt=""></span> {{evnt.Runner1}} <span
-                                        class="value">{{evnt.Back1}}</span></p>
-                                <p><span class="icon"><img src="/assets/img/icons/green_tee.png"
-                                            alt=""></span> {{evnt.Runner2}} <span
-                                        class="value">{{evnt.Back3}}</span></p>
-                            </a>
-                        </li>
-                    </ul>
+              </a>
+              <ul class="step_2">
+                <li *ngFor="let evnt of eventList">
+                  <a href="javascript:void(0)" (click)="redirectfun(evnt.SportsId, evnt.EventId)">
+                    <p><span class="icon"><img src="/assets/img/icons/yellow_tee.png" alt=""></span> {{evnt.Runner1}}
+                      <span class="value">{{evnt.Back1}}</span></p>
+                    <p><span class="icon"><img src="/assets/img/icons/green_tee.png" alt=""></span> {{evnt.Runner2}}
+                      <span class="value">{{evnt.Back3}}</span></p>
+                  </a>
                 </li>
-            </ul>
+              </ul>
+            </li>
+          </ul>
         </li>
         <li *ngIf="!uISERVICE.casinoStatus">
-            <a href="javascript:void(0)" class="main_drop clcout">
-                <span class="icon">
-                    <svg class="svg-icon">
-                        <use href="/assets/icons/icons_defs.svg#roulette"></use>
-                    </svg>
-                </span> Casino</a>
+          <a href="javascript:void(0)" class="main_drop clcout">
+            <span class="icon">
+              <svg class="svg-icon">
+                <use href="/assets/icons/icons_defs.svg#roulette"></use>
+              </svg>
+            </span> Casino</a>
         </li>
         <li *ngIf="!uISERVICE.liveGameStatus">
-            <a class="main_drop clcout"><span class="icon"><svg class="svg-icon">
-                        <use href="/assets/icons/icons_defs.svg#cards"></use>
-                    </svg></span> Live Casino</a>
+          <a class="main_drop clcout"><span class="icon"><svg class="svg-icon">
+                <use href="/assets/icons/icons_defs.svg#cards"></use>
+              </svg></span> Live Casino</a>
         </li>
-    </ul>
+      </ul>
     </li>
     <!-- <li (click)="checkLogin('Live','1')">
       <a routerLink="match-list/4"><span class="icon"><svg class="svg-icon">
@@ -404,7 +395,7 @@
             class="svg-icon">
             <use href="/assets/img/icons/icons_defs.svg#roulette"></use>
           </svg></span> Casino</a></li> -->
-   
+
   </ul>
 </div>
 <div class="m_right_sidebar">
@@ -442,7 +433,7 @@
             <use href="/assets/img/icons/icons_defs.svg#svg_name_new"></use>
           </svg> Profile
         </li>
-       
+
         <li data-toggle="modal" data-target="#rulesModal">
           <svg class="svg-icon">
             <use href="/assets/img/icons/icons_defs.svg#svg_notice"></use>
@@ -562,8 +553,8 @@
                   <div class="mt-3">
                     <p class="mb-1 text-center apkCont">Easy bet place on multiple sports,casino with our mobile
                       application</p>
-                    <a class="d-flex hover-text-decoration-none" href="https://futurelearn.co.in/apk-down/LeopardExch24724.apk"
-                      download="link">
+                    <a class="d-flex hover-text-decoration-none"
+                      href="https://futurelearn.co.in/apk-down/LeopardExch24724.apk" download="link">
                       <button class="btn btn-primary downloadApk ">Download APK
                         <span class="icon">
                           <svg xmlns="http://www.w3.org/2000/svg" width="18.814" height="22.578"
@@ -574,9 +565,10 @@
                           </svg>
                         </span>
                       </button>
-                    </a>                   
+                    </a>
                   </div>
-                  <button class="btn btn-primary mt-2" id="cnfrmPwd" data-toggle="modal" data-target="#changePassword" type="button" style="display: none;">Change Password</button>
+                  <button class="btn btn-primary mt-2" id="cnfrmPwd" data-toggle="modal" data-target="#changePassword"
+                    type="button" style="display: none;">Change Password</button>
                 </div>
 
               </div>
@@ -598,7 +590,8 @@
   <div class="modal-dialog modal-lg modal-dialog-centered mobCstmWdth">
     <div class="modal-content">
       <div class="login_form">
-        <button type="button" class="btn-close" id="loginClose" data-dismiss="modal" aria-label="Close" (click)="LogOut()">X</button>
+        <button type="button" class="btn-close" id="loginClose" data-dismiss="modal" aria-label="Close"
+          (click)="LogOut()">X</button>
         <div class="row loginWrap">
           <div class="col-md-6 p-0 d-none d-md-block">
             <div class="leftImg">
@@ -617,8 +610,7 @@
                         <use href="/assets/img/icons/icons_defs.svg#svg_lock"></use>
                       </svg>
                     </span>
-                    <input type="text" class="form-control" placeholder="old password"
-                      [(ngModel)]="oldpwd">
+                    <input type="text" class="form-control" placeholder="old password" [(ngModel)]="oldpwd">
                   </div>
                 </div>
                 <div class="form-group">
@@ -629,8 +621,7 @@
                         <use href="/assets/img/icons/icons_defs.svg#svg_lock"></use>
                       </svg>
                     </span>
-                    <input type="text" class="form-control" placeholder="newpwd"
-                      [(ngModel)]="newpwd">
+                    <input type="text" class="form-control" placeholder="newpwd" [(ngModel)]="newpwd">
                   </div>
                 </div>
                 <div class="form-group">
@@ -641,10 +632,9 @@
                         <use href="/assets/img/icons/icons_defs.svg#svg_lock"></use>
                       </svg>
                     </span>
-                    <input type="text" class="form-control" placeholder="confrmPwd"
-                      [(ngModel)]="confrmPwd">
+                    <input type="text" class="form-control" placeholder="confrmPwd" [(ngModel)]="confrmPwd">
 
-                    
+
                   </div>
                 </div>
                 <div class="sub_btn_area">

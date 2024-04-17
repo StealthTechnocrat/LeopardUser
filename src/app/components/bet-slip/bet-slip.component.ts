@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { PlaceBetModel } from 'src/app/Model/placebet_model';
 import { Cookie } from 'ng2-cookies';
 import { AccountService } from 'src/app/service/account-service';
-
+import { SharedService } from 'src/app/service/shared.service';
 
 
 @Component({
@@ -17,7 +17,7 @@ export class BetSlipComponent implements OnInit {
   apiData: any = [];
   betValid: boolean = true;
   public placeBetModel: PlaceBetModel;
-  constructor(public uISERVICE: UiService, private http: HttpClient, private accountService: AccountService) { }
+  constructor(public uISERVICE: UiService, private http: HttpClient, private accountService: AccountService,  public sharedService: SharedService) { }
 
   ngOnInit(): void {
     if (Cookie.check('usersCookies')) {
@@ -40,6 +40,12 @@ export class BetSlipComponent implements OnInit {
       this.uISERVICE.Header = false;
     }
   }
+  // ngOnDestroy(){
+  //   this.uISERVICE.mrktName = "";
+  //   this.uISERVICE.rnrId = undefined;
+  //   this.uISERVICE.BackBook = 0;
+  //   this.uISERVICE.LayBook = 0;
+  // }
 
   getValue(value) {
     this.uISERVICE.stake = this.uISERVICE.stake + value;
@@ -66,10 +72,32 @@ export class BetSlipComponent implements OnInit {
       case "Back":
         this.uISERVICE.profit = this.uISERVICE.mrktName=="BookMaker"?this.uISERVICE.stake * (this.uISERVICE.odds/100):this.uISERVICE.stake * (this.uISERVICE.odds - 1);
         this.uISERVICE.exposure = this.uISERVICE.stake;
+        if(this.uISERVICE.sportsId == 4){
+          if(this.uISERVICE.mrktName == "Match Odds"){
+            this.uISERVICE.BackBook = this.uISERVICE.profit;
+            this.uISERVICE.LayBook = this.uISERVICE.exposure;
+          }else if(this.uISERVICE.mrktName == "BookMaker"){
+            this.uISERVICE.BackBook = this.uISERVICE.profit;
+            this.uISERVICE.LayBook = this.uISERVICE.exposure;
+          }else{
+            this.uISERVICE.BackBook = this.uISERVICE.profit;
+            this.uISERVICE.LayBook = this.uISERVICE.exposure;
+          }
+        }
         break;
       case "Lay":
         this.uISERVICE.profit = this.uISERVICE.stake;
         this.uISERVICE.exposure = this.uISERVICE.mrktName=="BookMaker"?this.uISERVICE.stake * (this.uISERVICE.odds/100):this.uISERVICE.stake * (this.uISERVICE.odds - 1);
+        if(this.uISERVICE.sportsId == 4){
+          debugger;
+          if(this.uISERVICE.mrktName == "Match Odds"){
+            this.uISERVICE.BackBook = this.uISERVICE.profit;
+            this.uISERVICE.LayBook = this.uISERVICE.exposure;
+          }else{
+            this.uISERVICE.BackBook = this.uISERVICE.profit;
+            this.uISERVICE.LayBook = this.uISERVICE.exposure;
+          }
+        }
         break;
     }
   }
@@ -180,6 +208,8 @@ export class BetSlipComponent implements OnInit {
     this.uISERVICE.exposure = 0;
     this.uISERVICE.showSlip = [false, false, false, false];
     this.uISERVICE.fancySlip = [];
+    this.uISERVICE.BackBook = 0;
+    this.uISERVICE.LayBook = 0;
   }
 
   ConcateChipvalue(numberConcate) {

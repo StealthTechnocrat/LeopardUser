@@ -63,6 +63,7 @@ export class UiService {
     developerId : any;
     developername:any;
     BetStatus: boolean = false;
-
+    BackBook: number = 0;
+    LayBook: number= 0;
 }
 
