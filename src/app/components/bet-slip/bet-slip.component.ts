@@ -202,6 +202,7 @@ export class BetSlipComponent implements OnInit {
   }
 
   cancelAll() {
+    this.uISERVICE.mrktName = ""
     this.uISERVICE.profit = 0;
     this.uISERVICE.stake = 0;
     this.uISERVICE.exposure = 0;

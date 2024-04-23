@@ -627,16 +627,20 @@ export class SetBetComponent implements OnInit {
               if (data.RunnerId == element.id.toString()) {
                 if (data.BetType == "Back") {
                   element.Book = element.Book + data.Profit;
+                  element.newbook = element.newbook + element.Book ;
                 }
                 else {
                   element.Book = element.Book - data.Exposure;
+                  element.newbook = element.newbook + element.Book ;
                 }
               } else {
                 if (data.BetType == "Back") {
                   element.Book = element.Book - data.Exposure;
+                  element.newbook = element.newbook + element.Book ;
                 }
                 else {
                   element.Book = element.Book + data.Profit;
+                  element.newbook = element.newbook + element.Book ;
                 }
               }
             });
@@ -652,6 +656,7 @@ export class SetBetComponent implements OnInit {
                 if (data.RunnerId == element.id.toString()) {
                   if (data.BetType == "Back") {
                     element.Book = element.Book + data.Profit;
+                    element.newbook = element.newbook + element.Book ;
                   }
                   // else {
                   //   element.Book = element.Book - data.Exposure;
@@ -659,6 +664,7 @@ export class SetBetComponent implements OnInit {
                 } else {
                   if (data.BetType == "Back") {
                     element.Book = element.Book - data.Exposure;
+                    element.newbook = element.newbook + element.Book ;
                   }
                   // else {
                   //   element.Book = element.Book + data.Profit;
@@ -843,6 +849,7 @@ export class SetBetComponent implements OnInit {
               });
             }
             //To Win the Toss
+            
             var tossMrkt = this.rtrnObj.markets.find(x => x.marketName == "To Win the Toss");
             tossMrkt.runners.forEach(e => {
               if (e.id === this.uISERVICE.rnrId) {
