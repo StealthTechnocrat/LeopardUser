@@ -1,4 +1,4 @@
-<!-- <div class="back_bar d-lg-none" *ngIf="categoryName=='table'">
+<div class="back_bar d-lg-none" *ngIf="categoryName=='table'">
   <a routerLink="/games" class="back_btn d-flex align-items-center">
     <svg class="svg-icon">
       <use href="/assets/icons/icons_defs.svg#svg_event-arrow"></use>
@@ -29,20 +29,19 @@
     </div>
   </div>
 </div>
-dghfj,jmn -->
 
 
 
-<div class="back_bar ">
+<div class="back_bar " *ngIf="categoryName!='table'">
   <a routerLink="/games" class="back_btn d-flex align-items-center">
     <svg class="svg-icon mr-2">
       <use href="/assets/icons/icons_defs.svg#svg_event-arrow"></use>
     </svg>
     <p class="pl-2">Back to Home</p>
-    <p class="pl-2" *ngIf="gameType=='table'">Table Casino</p>
+    <p class="pl-2">Live Casino</p>
   </a>
 </div>
-<div class="main_wrap">
+<div class="main_wrap" *ngIf="categoryName!='table'">
 
   <div class="cstm_row full_wid_mid tab_ul mt-1 mt-md-2">
     <ul class="nav nav-tabs d-flex overflow-auto flex-nowrap justify-content-center border-0">

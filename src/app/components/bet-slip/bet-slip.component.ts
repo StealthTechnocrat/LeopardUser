@@ -4,7 +4,6 @@ import { HttpClient } from '@angular/common/http';
 import { PlaceBetModel } from 'src/app/Model/placebet_model';
 import { Cookie } from 'ng2-cookies';
 import { AccountService } from 'src/app/service/account-service';
-import { SharedService } from 'src/app/service/shared.service';
 
 
 @Component({
@@ -17,7 +16,7 @@ export class BetSlipComponent implements OnInit {
   apiData: any = [];
   betValid: boolean = true;
   public placeBetModel: PlaceBetModel;
-  constructor(public uISERVICE: UiService, private http: HttpClient, private accountService: AccountService,  public sharedService: SharedService) { }
+  constructor(public uISERVICE: UiService, private http: HttpClient, private accountService: AccountService) { }
 
   ngOnInit(): void {
     if (Cookie.check('usersCookies')) {

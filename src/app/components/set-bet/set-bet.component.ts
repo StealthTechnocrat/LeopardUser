@@ -6,9 +6,6 @@ import { AccountService } from 'src/app/service/account-service';
 import { UiService } from 'src/app/service/ui-service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-import { parse } from 'path';
-import { SharedService } from 'src/app/service/shared.service';
-import * as $ from "jquery";
 // import 'jquery-ui-dist/jquery-ui';
 @Component({
   selector: 'app-set-bet',
@@ -44,7 +41,7 @@ export class SetBetComponent implements OnInit {
   BetStatus: boolean = false;
   rnr1Book: number=0
   rnr2Book: number=0
-  constructor(private router: Router, public sharedService: SharedService, public sanitizer: DomSanitizer, private http: HttpClient, private accountService: AccountService, private route: ActivatedRoute, public uISERVICE: UiService, private modalService: NgbModal) { }
+  constructor(private router: Router, public sanitizer: DomSanitizer, private http: HttpClient, private accountService: AccountService, private route: ActivatedRoute, public uISERVICE: UiService, private modalService: NgbModal) { }
   toggleModal() {
     this.modalVisible = !this.modalVisible;
   }
