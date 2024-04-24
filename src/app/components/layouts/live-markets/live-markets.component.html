@@ -63,6 +63,10 @@
                                 <img src="./assets/img/Button-Football.jpg" alt="img-fluid" alt="img">
                             </a>
                         </li>
+                        <li class="nav-item"><a class="nav-link blinkTxt" routerLink="/set-bet/{{5}}/{{0}}">
+                                <img src="./assets/img/election.jpg" alt="img-fluid" alt="img">
+                            </a>
+                        </li>
                         <li class="d-lg-none">
                             <a class="nav-link blinkTxt" (click)="checkLogin('table','1')"
                                 *ngIf="!uISERVICE.casinoStatus">
@@ -76,6 +80,7 @@
                                 <img src="./assets/img/img_Livecasino.png" alt="img-fluid" alt="img">
                             </a>
                         </li>
+
                     </ul>
                 </div>
                 <div class="tab-content min-h-col pt-1" id="listingTabs">
@@ -135,9 +140,8 @@
                                                     <div class="d-flex align-items-center  live_blinking">
                                                         <div class="teamNameVs ellipscont">
                                                             <p>{{evnt.Runner1}}</p>
-                                                            <span  *ngIf="evnt.EventId!='28127348'" class="vrs">
-                                                                <svg fill="#5c6060"
-                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                            <span *ngIf="evnt.EventId!='28127348'" class="vrs">
+                                                                <svg fill="#5c6060" xmlns="http://www.w3.org/2000/svg"
                                                                     xmlns:xlink="http://www.w3.org/1999/xlink"
                                                                     width="18" height="18" viewBox="0 0 65.141 65.34">
                                                                     <defs>

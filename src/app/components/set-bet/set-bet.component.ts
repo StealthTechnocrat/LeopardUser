@@ -41,6 +41,7 @@ export class SetBetComponent implements OnInit {
   BetStatus: boolean = false;
   rnr1Book: number=0
   rnr2Book: number=0
+  isElection: boolean = false;
   constructor(private router: Router, public sanitizer: DomSanitizer, private http: HttpClient, private accountService: AccountService, private route: ActivatedRoute, public uISERVICE: UiService, private modalService: NgbModal) { }
   toggleModal() {
     this.modalVisible = !this.modalVisible;
@@ -56,11 +57,22 @@ export class SetBetComponent implements OnInit {
       this.route.paramMap.subscribe(params => {
         this.sportsId = parseInt(params.get('sportsId'));
         this.eventId = params.get('eventId');
+        if(this.eventId === '0'){
+          this.isElection = true;
+          this.getElection()
+          setTimeout(() => {
+            this.myFunctionElection();
+
+          }, 2000);
+        }else{
+          this.isElection = false;
+          this.scoreUrl();
+          setTimeout(() => {
+            this.myFunction();
+          }, 2000);
+        }
         this.getEventDetail();
-        this.scoreUrl();
-        setTimeout(() => {
-          this.myFunction();
-        }, 2000);
+  
       });
     } else {
       this.uISERVICE.Error = true;
@@ -71,6 +83,27 @@ export class SetBetComponent implements OnInit {
       }, 2000);
     }
   }
+
+  async myFunctionElection() {
+    return await new Promise(resolve => {
+      this._setInterval1 = setInterval(() => {
+        this.getElection();
+      }, 1000);
+    });
+  }
+
+  async getElection(){
+    await this.http.get("https://election.cuprate.in/api/MatchOdds/GetOddslite/4/1.181215162121/1812151619").subscribe(data => {
+      this.sesnObj = data;
+      this.apiData = data;
+      if (this.sesnObj.session != null && this.sesnObj.session?.length > 0) {
+        this.matchData = this.rtrnObj.markets.find(x => x.marketName === "Match Odds");
+        this.sesnObj = this.sesnObj.session.filter(x => !x.RunnerName.includes(".3"));
+        this.sesnObj.sort((a, b) => a.RunnerName.localeCompare(b.RunnerName));
+      }
+    });
+  }
+
   GetAllBets() {
     this.uISERVICE.backUpBets = [];
     this.accountService.getPendingBets('Null', this.sportsId, this.marketName, this.BetType, 0, 0).then((response) => {
