@@ -69,6 +69,7 @@ export class BetSlipComponent implements OnInit {
         this.uISERVICE.exposure = (this.uISERVICE.stake * parseInt(this.uISERVICE.price)) / 100;
         break;
       case "Back":
+        debugger
         this.uISERVICE.profit = this.uISERVICE.mrktName=="BookMaker"?this.uISERVICE.stake * (this.uISERVICE.odds/100):this.uISERVICE.stake * (this.uISERVICE.odds - 1);
         this.uISERVICE.exposure = this.uISERVICE.stake;
         if(this.uISERVICE.sportsId == 4){
@@ -210,6 +211,8 @@ export class BetSlipComponent implements OnInit {
     this.uISERVICE.fancySlip = [];
     this.uISERVICE.BackBook = 0;
     this.uISERVICE.LayBook = 0;
+    this.uISERVICE.rnrId = ''
+    this.uISERVICE.betType = ''
   }
 
   ConcateChipvalue(numberConcate) {

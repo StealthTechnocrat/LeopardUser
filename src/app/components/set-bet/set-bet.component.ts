@@ -39,8 +39,8 @@ export class SetBetComponent implements OnInit {
   scoreUrlFrame: SafeResourceUrl;
   fancyBetStatus: boolean = false;
   BetStatus: boolean = false;
-  rnr1Book: number=0
-  rnr2Book: number=0
+  rnr1Book: number = 0
+  rnr2Book: number = 0
   isElection: boolean = false;
   constructor(private router: Router, public sanitizer: DomSanitizer, private http: HttpClient, private accountService: AccountService, private route: ActivatedRoute, public uISERVICE: UiService, private modalService: NgbModal) { }
   toggleModal() {
@@ -57,14 +57,14 @@ export class SetBetComponent implements OnInit {
       this.route.paramMap.subscribe(params => {
         this.sportsId = parseInt(params.get('sportsId'));
         this.eventId = params.get('eventId');
-        if(this.eventId === '0'){
+        if (this.eventId === '0') {
           this.isElection = true;
           this.getElection()
           setTimeout(() => {
             this.myFunctionElection();
 
           }, 2000);
-        }else{
+        } else {
           this.isElection = false;
           this.scoreUrl();
           setTimeout(() => {
@@ -72,7 +72,7 @@ export class SetBetComponent implements OnInit {
           }, 2000);
         }
         this.getEventDetail();
-  
+
       });
     } else {
       this.uISERVICE.Error = true;
@@ -92,7 +92,7 @@ export class SetBetComponent implements OnInit {
     });
   }
 
-  async getElection(){
+  async getElection() {
     await this.http.get("https://election.cuprate.in/api/MatchOdds/GetOddslite/4/1.181215162121/1812151619").subscribe(data => {
       this.sesnObj = data;
       this.apiData = data;
@@ -139,7 +139,7 @@ export class SetBetComponent implements OnInit {
       }, 1500);
       this._setInterval2 = setInterval(() => {
         this.calculateBook();
-      },3000);
+      }, 3000);
     });
   }
 
@@ -291,7 +291,7 @@ export class SetBetComponent implements OnInit {
               }
               if (element.marketName == "To Win the Toss") {
                 element.runners.forEach(data => {
-                  data.newbook=0
+                  data.newbook = 0
                   data.runners = {
                     'availableToBack': [{ 'price': 1.95, 'size': 100 }, { 'price': 0, 'size': 0 }, { 'price': 0, 'size': 0 }],
                     'availableToLay': [{ 'price': 0, 'size': 0 }, { 'price': 0, 'size': 0 }, { 'price': 0, 'size': 0 }]
@@ -299,7 +299,7 @@ export class SetBetComponent implements OnInit {
                 });
               } else {
                 element.runners.forEach(data => {
-                  data.newbook=0
+                  data.newbook = 0
                   data.runners = {
                     'availableToBack': [{ 'price': 0, 'size': 0 }, { 'price': 0, 'size': 0 }, { 'price': 0, 'size': 0 }],
                     'availableToLay': [{ 'price': 0, 'size': 0 }, { 'price': 0, 'size': 0 }, { 'price': 0, 'size': 0 }]
@@ -345,11 +345,13 @@ export class SetBetComponent implements OnInit {
               this.apiData = data;
 
               if (this.apiData.market != null && this.apiData.market?.length > 0) {
-                this.sesnObj = this.apiData.session.filter(x => !x.RunnerName.includes(".3"));
+                this.sesnObj = this.apiData.session.filter(x => !x.RunnerName.includes(".3") && !x.RunnerName.includes("30s") && !x.RunnerName.includes("bhav") &&
+                  !x.RunnerName.endsWith("2") && !x.RunnerName.endsWith("3") && !x.RunnerName.includes("50 Plus"));
                 this.sesnObj.sort((a, b) => a.RunnerName.localeCompare(b.RunnerName));
                 this.updateRunnerData(this.matchData.runners, this.apiData.market[0].events, this.sportsId);
               } if (this.apiData.session != null && this.apiData.session?.length > 0) {
-                this.sesnObj = this.apiData.session.filter(x => !x.RunnerName.includes(".3"));
+                this.sesnObj = this.apiData.session.filter(x => !x.RunnerName.includes(".3") && !x.RunnerName.includes("30s") && !x.RunnerName.includes("bhav") &&
+                  !x.RunnerName.endsWith("2") && !x.RunnerName.endsWith("3") && !x.RunnerName.includes("50 Plus"));
                 this.sesnObj.sort((a, b) => a.RunnerName.localeCompare(b.RunnerName));
               }
             });
@@ -631,23 +633,26 @@ export class SetBetComponent implements OnInit {
             if (data.RunnerId == element.id.toString()) {
               if (data.BetType == "Back") {
                 element.Book = element.Book + data.Profit;
-              element.newbook = element.newbook + element.Book ;
+
               }
               else {
                 element.Book = element.Book - data.Exposure;
-              element.newbook = element.newbook + element.Book ;
+
               }
             } else {
               if (data.BetType == "Back") {
                 element.Book = element.Book - data.Exposure;
-              element.newbook = element.newbook + element.Book ;
+
               }
               else {
                 element.Book = element.Book + data.Profit;
-             element.newbook = element.newbook + element.Book ;
+
               }
             }
           });
+        });
+        market.runners.forEach(element => {
+          element.newbook = element.newbook + element.Book;
         });
       }
       if (this.sportsId == 4) {
@@ -660,23 +665,26 @@ export class SetBetComponent implements OnInit {
               if (data.RunnerId == element.id.toString()) {
                 if (data.BetType == "Back") {
                   element.Book = element.Book + data.Profit;
-                  element.newbook = element.newbook + element.Book ;
+
                 }
                 else {
                   element.Book = element.Book - data.Exposure;
-                  element.newbook = element.newbook + element.Book ;
+
                 }
               } else {
                 if (data.BetType == "Back") {
                   element.Book = element.Book - data.Exposure;
-                  element.newbook = element.newbook + element.Book ;
+
                 }
                 else {
                   element.Book = element.Book + data.Profit;
-                  element.newbook = element.newbook + element.Book ;
+
                 }
               }
             });
+          });
+          bookMrkt.runners.forEach(element => {
+            element.newbook = element.newbook + element.Book;
           });
         }
         //To Win the Toss
@@ -689,7 +697,7 @@ export class SetBetComponent implements OnInit {
                 if (data.RunnerId == element.id.toString()) {
                   if (data.BetType == "Back") {
                     element.Book = element.Book + data.Profit;
-                    element.newbook = element.newbook + element.Book ;
+                    
                   }
                   // else {
                   //   element.Book = element.Book - data.Exposure;
@@ -697,13 +705,16 @@ export class SetBetComponent implements OnInit {
                 } else {
                   if (data.BetType == "Back") {
                     element.Book = element.Book - data.Exposure;
-                    element.newbook = element.newbook + element.Book ;
+                    
                   }
                   // else {
                   //   element.Book = element.Book + data.Profit;
                   // }
                 }
               });
+            });
+            tossMrkt.runners.forEach(element => {
+              element.newbook = element.newbook + element.Book;
             });
           }
         }
@@ -766,7 +777,7 @@ export class SetBetComponent implements OnInit {
             } else {
               if (this.uISERVICE.betType == 'Back') {
                 if (this.uISERVICE.LayBook > 0) {
-                  e.Book =0
+                  e.Book = 0
                   e.newbook = -this.uISERVICE.LayBook
                 } else {
                   e.Book = 0
@@ -833,7 +844,7 @@ export class SetBetComponent implements OnInit {
               } else {
                 if (this.uISERVICE.betType == 'Back') {
                   if (this.uISERVICE.LayBook > 0) {
-                    e.Book =0
+                    e.Book = 0
                     e.newbook = -this.uISERVICE.LayBook
                   } else {
                     e.Book = 0
@@ -841,7 +852,7 @@ export class SetBetComponent implements OnInit {
                   }
                 } else {
                   if (this.uISERVICE.LayBook > 0) {
-                    e.Book =0
+                    e.Book = 0
                     e.newbook = this.uISERVICE.LayBook
                   } else {
                     e.Book = 0
@@ -851,11 +862,11 @@ export class SetBetComponent implements OnInit {
               }
             });
             //maatch odds
-             var market = this.rtrnObj.markets.find(x => x.marketName == "Match Odds");
-          market.runners.forEach(element => {
-            element.Book = 0;
-            element.newbook = 0;
-          });
+            var market = this.rtrnObj.markets.find(x => x.marketName == "Match Odds");
+            market.runners.forEach(element => {
+              element.Book = 0;
+              element.newbook = 0;
+            });
             //To Win the Toss
             var tossMrkt = this.rtrnObj.markets.find(x => x.marketName == "To Win the Toss");
             if (tossMrkt != null && tossMrkt != undefined) {
@@ -882,7 +893,7 @@ export class SetBetComponent implements OnInit {
               });
             }
             //To Win the Toss
-            
+
             var tossMrkt = this.rtrnObj.markets.find(x => x.marketName == "To Win the Toss");
             tossMrkt.runners.forEach(e => {
               if (e.id === this.uISERVICE.rnrId) {
@@ -914,7 +925,7 @@ export class SetBetComponent implements OnInit {
   }
 
 
-  
+
 
 
 

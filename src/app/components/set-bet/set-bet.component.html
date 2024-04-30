@@ -92,10 +92,15 @@
                         <span *ngIf="uISERVICE.profit == 0" class="profitloss"
                             [ngClass]="{'negative':rnr.Book<0}">{{rnr.Book |
                             number:'1.2-2'}}</span>
-                        <span *ngIf="uISERVICE.profit != 0" class="profitloss"
-                            [ngClass]="{'negative':rnr.newbook<0}">{{rnr.Book |
-                            number:'1.2-2'}} <i class="fa fa-long-arrow-right" aria-hidden="true"></i> {{rnr.newbook |
-                            number:'1.2-2'}}</span>
+                        <span *ngIf="uISERVICE.profit != 0">
+                            <span class="profitloss" [ngClass]="{'negative':rnr.Book<0}">{{rnr.Book |
+                                number:'1.2-2'}}
+                            </span>
+                            <span [ngClass]="{'negative':rnr.newbook<0}" class="profitloss"> <i
+                                    class="fa fa-long-arrow-right" aria-hidden="true"></i></span>
+                            <span class="profitloss" [ngClass]="{'negative':rnr.newbook<0}"> {{rnr.newbook |
+                                number:'1.2-2'}}</span>
+                        </span>
                     </span>
                 </div>
                 <div class="bl_boxMain">
