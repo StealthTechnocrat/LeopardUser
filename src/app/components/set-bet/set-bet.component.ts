@@ -393,25 +393,28 @@ export class SetBetComponent implements OnInit {
     this.calculateBook();
   }
 
+
   updateRunnerData(runners, apiRunners, sportsId) {
 
     runners.forEach((element, index) => {
+
       if (sportsId == 4) {
-        const runner = apiRunners[index];//apiRunners.find(x => x.SelectionId == element.RunnerId.toString());
+        //debugger;
+        const runner = apiRunners.find(x => x.RunnerName == element.RunnerName);
         element.runners.availableToBack[0].price = runner.BackPrice1;
-        element.runners.availableToBack[0].size = runner.BackSize1;
+        element.runners.availableToBack[0].size = runner.BackPrice2;
         element.runners.availableToBack[1].price = runner.BackPrice3;
-        element.runners.availableToBack[1].size = runner.BackSize3;
-        element.runners.availableToBack[2].price = runner.BackPrice2;
-        element.runners.availableToBack[2].size = runner.BackSize2;
+        element.runners.availableToBack[1].size = runner.BackSize1;
+        element.runners.availableToBack[2].price = runner.BackSize2;
+        element.runners.availableToBack[2].size = runner.BackSize3;
         element.runners.availableToLay[0].price = runner.LayPrice1;
-        element.runners.availableToLay[0].size = runner.LaySize1;
+        element.runners.availableToLay[0].size = runner.LayPrice2;
         element.runners.availableToLay[1].price = runner.LayPrice3;
-        element.runners.availableToLay[1].size = runner.LaySize3;
-        element.runners.availableToLay[2].price = runner.LayPrice2;
-        element.runners.availableToLay[2].size = runner.LaySize2;
+        element.runners.availableToLay[1].size = runner.LaySize1;
+        element.runners.availableToLay[2].price = runner.LaySize2;
+        element.runners.availableToLay[2].size = runner.LaySize3;
       } else {
-        const runner = apiRunners[index];//apiRunners.find(x => x.selectionId == element.RunnerId);
+        const runner = apiRunners.find(x => x.selectionId == element.RunnerId);
         element.runners.availableToBack[0].price = runner.availableToBack[0].price;
         element.runners.availableToBack[0].size = runner.availableToBack[0].size;
         element.runners.availableToBack[1].price = runner.availableToBack[1].price;
@@ -428,7 +431,6 @@ export class SetBetComponent implements OnInit {
 
     });
   }
-
 
 
   reIntBookOrignal() {
