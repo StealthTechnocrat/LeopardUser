@@ -72,7 +72,7 @@ export class BetSlipComponent implements OnInit {
         debugger
         this.uISERVICE.profit = this.uISERVICE.mrktName=="BookMaker"?this.uISERVICE.stake * (this.uISERVICE.odds/100):this.uISERVICE.stake * (this.uISERVICE.odds - 1);
         this.uISERVICE.exposure = this.uISERVICE.stake;
-        if(this.uISERVICE.sportsId == 4){
+        if(this.uISERVICE.sportsId){
           if(this.uISERVICE.mrktName == "Match Odds"){
             this.uISERVICE.BackBook = this.uISERVICE.profit;
             this.uISERVICE.LayBook = this.uISERVICE.exposure;

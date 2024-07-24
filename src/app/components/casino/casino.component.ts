@@ -28,7 +28,7 @@ export class CasinoComponent implements OnInit {
   ngOnInit(): void {
     if (Cookie.check("usersCookies")) {
       this.uISERVICE.sideBar = true;
-
+debugger
       this.route.paramMap.subscribe((params) => {
         this.categoryId = params.get("categoryId");
         this.categoryName = params.get("name");

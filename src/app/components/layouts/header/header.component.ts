@@ -64,7 +64,7 @@ export class HeaderComponent implements OnInit {
       this.uISERVICE.Bets = JSON.parse(localStorage.getItem('Bets'));
 
       this.GetDetail();
-      //this.myFunction();
+      this.myFunction();
 
     } else {
       this.uISERVICE.Header = false;

@@ -69,7 +69,7 @@ export class AccountService {
     GetCasinoGames(game_provider_id: string): Promise<any> {
       return this.baseHttpService
         .Get(
-          this.GetCasinoGamesUrl + "?game_provider_id=" + game_provider_id + "&domain=" + location.origin
+          this.GetCasinoGamesUrl + "?game_provider_id=" + game_provider_id + "&domain=" + "https://leopardexch247.com"
         )
         .then(function (response) {
           return response.json();
@@ -85,14 +85,14 @@ export class AccountService {
 
   GetCasinoProvider(game_category_id: any): Promise<any> {
     return this.baseHttpService
-      .Get(this.getProvidersByCategoryIdUrl + "?game_category_id=" + game_category_id + "&domain=" + location.origin)
+      .Get(this.getProvidersByCategoryIdUrl + "?game_category_id=" + game_category_id + "&domain=" + "https://leopardexch247.com")
       .then(function (response) {
         return response.json();
       });
   }
     GetCasinoCategory(): Promise<any> {
       return this.baseHttpService
-        .Get(this.GetCasinoCategoryUrl + "?domain=" + location.origin)
+        .Get(this.GetCasinoCategoryUrl + "?domain=" + "https://leopardexch247.com")
         .then(function (response) {
           return response.json();
         });
@@ -101,7 +101,7 @@ export class AccountService {
 
   GetPopularGames(providers: any): Promise<any> {
     return this.baseHttpService
-      .Get(this.GetPopularGamesUrl + "?providers=" + providers + "&domain=" + location.origin)
+      .Get(this.GetPopularGamesUrl + "?providers=" + providers + "&domain=" + "https://leopardexch247.com")
       .then(function (response) {
         return response.json();
       });

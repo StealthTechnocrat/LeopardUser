@@ -345,13 +345,13 @@ export class SetBetComponent implements OnInit {
               this.apiData = data;
 
               if (this.apiData.market != null && this.apiData.market?.length > 0) {
-                this.sesnObj = this.apiData.session.filter(x => !x.RunnerName.includes(".3") && !x.RunnerName.includes("30s") && !x.RunnerName.includes("bhav") &&
-                  !x.RunnerName.endsWith("2") && !x.RunnerName.endsWith("3") && !x.RunnerName.includes("50 Plus"));
+                this.sesnObj = this.apiData.session.filter(x => !x.RunnerName.includes(".3") && !x.RunnerName.includes("30s") && !x.RunnerName.includes("bhav") 
+                   && !x.RunnerName.endsWith("3") && !x.RunnerName.includes("50 Plus"));
                 this.sesnObj.sort((a, b) => a.RunnerName.localeCompare(b.RunnerName));
                 this.updateRunnerData(this.matchData.runners, this.apiData.market[0].events, this.sportsId);
               } if (this.apiData.session != null && this.apiData.session?.length > 0) {
-                this.sesnObj = this.apiData.session.filter(x => !x.RunnerName.includes(".3") && !x.RunnerName.includes("30s") && !x.RunnerName.includes("bhav") &&
-                  !x.RunnerName.endsWith("2") && !x.RunnerName.endsWith("3") && !x.RunnerName.includes("50 Plus"));
+                this.sesnObj = this.apiData.session.filter(x => !x.RunnerName.includes(".3") && !x.RunnerName.includes("30s") && !x.RunnerName.includes("bhav") 
+                   && !x.RunnerName.endsWith("3") && !x.RunnerName.includes("50 Plus"));
                 this.sesnObj.sort((a, b) => a.RunnerName.localeCompare(b.RunnerName));
               }
             });
